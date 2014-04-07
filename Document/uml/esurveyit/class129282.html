@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class template</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class template</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_129282"></a>
+<p>Declaration :</p><ul>
+<li>Php : class template </li></ul><p>Artifact : <a href="index.html#ref8_129666"><b>template.class</b></a></p>
+<div class="sub">
+<a name="ref1_134146"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - db_connect : </li><li>Php : private $db_connect</li></ul><a name="ref1_134274"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - db : </li><li>Php : private $db</li></ul><a name="ref1_134402"></a>
+<table><tr><td><div class="element">Attribute <b>layout</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - layout :  =  'layout.tpl.html'</li><li>Php : private $layout</li></ul><a name="ref1_134530"></a>
+<table><tr><td><div class="element">Attribute <b>headerArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - headerArray : </li><li>Php : private $headerArray</li></ul><a name="ref1_134658"></a>
+<table><tr><td><div class="element">Attribute <b>filterArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - filterArray : </li><li>Php : private $filterArray</li></ul><a name="ref1_134786"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - template : </li><li>Php : private $template</li></ul><a name="ref1_134914"></a>
+<table><tr><td><div class="element">Attribute <b>scriptHead</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - scriptHead :  =  array()</li><li>Php : private $scriptHead</li></ul><a name="ref2_137858"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Constructor for template class <br /><br />This method will take string to define a main layout for the site, if nothing given the it will look for a <br />file called layout.tpl.html, If the param is 'blank' it will return no layout <br /><br />template file must have the template param {*CONTENT*} in then as a location for assigned var to go<br /><br />example:<br />$template = new template() // will use layout.tpl.html for layout<br />$template = new template('indexfile.php')  // will use indexfile.php for layout<br />$template = new template('blank')  // will use no layout and just output the assigns<br /> <br />@param String $layout A name of a html in in the /temple dir to use for main layout or Blamk for no layout<br /><br /></p><p>Declaration :</p><ul><li>Uml : + __construct(inout layout : String = NULL) : </li><li>Php : public function __construct($layout = NULL) </li></ul><a name="ref2_137986"></a>
+<table><tr><td><div class="element">Operation <b>__destruct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __destruct() : </li><li>Php : public function __destruct() </li></ul><a name="ref2_138114"></a>
+<table><tr><td><div class="element">Operation <b>scriptHeading</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + scriptHeading(inout script : ) : </li><li>Php : public function scriptHeading($script) </li></ul><a name="ref2_138242"></a>
+<table><tr><td><div class="element">Operation <b>page</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + page(inout field : ) : </li><li>Php : public function page($field) </li></ul><a name="ref2_138370"></a>
+<table><tr><td><div class="element">Operation <b>insert</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + insert(inout template : ) : </li><li>Php : public function insert($template) </li></ul><a name="ref2_138498"></a>
+<table><tr><td><div class="element">Operation <b>content</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + content(inout field : ) : </li><li>Php : public function content($field) </li></ul><a name="ref2_138626"></a>
+<table><tr><td><div class="element">Operation <b>assign</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + assign(inout field : , inout value : , inout tpl :  = NULL ) : </li><li>Php : public function assign($field, $value, &amp; $tpl = NULL ) </li></ul><a name="ref2_138754"></a>
+<table><tr><td><div class="element">Operation <b>fetch</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + fetch(inout tpl :  = NULL) : </li><li>Php : public function fetch(&amp; $tpl = NULL) </li></ul><a name="ref2_138882"></a>
+<table><tr><td><div class="element">Operation <b>display</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + display() : </li><li>Php : public function display() </li></ul><a name="ref2_139010"></a>
+<table><tr><td><div class="element">Operation <b>formatBoolean</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + formatBoolean(inout value : ) : </li><li>Php : public function formatBoolean($value) </li></ul><a name="ref2_139138"></a>
+<table><tr><td><div class="element">Operation <b>formatValue</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + formatValue(inout value : , inout msg : ) : </li><li>Php : public function formatValue($value, $msg) </li></ul><a name="ref2_139266"></a>
+<table><tr><td><div class="element">Operation <b>getListTable</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + getListTable(inout table : , inout value : , inout idField : , inout valueField : , inout selectBox :  = NULL, inout WHERE :  = NULL) : </li><li>Php : public function getListTable($table, $value, $idField, $valueField, $selectBox = NULL, $WHERE = NULL) </li></ul><a name="ref2_139394"></a>
+<table><tr><td><div class="element">Operation <b>input</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + input(inout type : , inout name : , inout value :  = NULL) : </li><li>Php : public function input($type, $name, $value = NULL) </li></ul><a name="ref2_139522"></a>
+<table><tr><td><div class="element">Operation <b>strip_tags</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - strip_tags(inout string : ) : </li><li>Php : private function strip_tags($string) </li></ul><a name="ref2_139650"></a>
+<table><tr><td><div class="element">Operation <b>externalLink</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + externalLink(inout link : ) : </li><li>Php : public function externalLink($link) </li></ul></div>
+<p>All public operations : <a href="class129282.html#ref2_137858"><b>__construct</b></a> , <a href="class129282.html#ref2_137986"><b>__destruct</b></a> , <a href="class129282.html#ref2_138626"><b>assign</b></a> , <a href="class129282.html#ref2_138498"><b>content</b></a> , <a href="class129282.html#ref2_138882"><b>display</b></a> , <a href="class129282.html#ref2_139650"><b>externalLink</b></a> , <a href="class129282.html#ref2_138754"><b>fetch</b></a> , <a href="class129282.html#ref2_139010"><b>formatBoolean</b></a> , <a href="class129282.html#ref2_139138"><b>formatValue</b></a> , <a href="class129282.html#ref2_139266"><b>getListTable</b></a> , <a href="class129282.html#ref2_139394"><b>input</b></a> , <a href="class129282.html#ref2_138370"><b>insert</b></a> , <a href="class129282.html#ref2_138242"><b>page</b></a> , <a href="class129282.html#ref2_138114"><b>scriptHeading</b></a> </p>
+</body>
+</html>

@@ -1,0 +1,191 @@
+class question
+!!!128386.php!!!	saveSingle(inout sid : , inout qid : , inout val : )
+
+		try{
+				$this->db_connect->beginTransaction();
+				
+				$sql = "INSERT INTO question ( question_id, question_label, question_type, question_options) VALUES ( ".$qid.", '".$val->title."','".$val->type."' ,'".serialize($val->options)."')
+							ON DUPLICATE KEY UPDATE question_label='".$val->title."', question_type='".$val->type."', question_options='".addslashes(serialize($val->options))."';"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				$sql = "INSERT INTO survey_question ( survey_id, question_id) VALUES ( ".$sid.", ".$qid.")
+							ON DUPLICATE KEY UPDATE sort='1';\n<br />"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				$this->db_connect->commit();
+			}
+
+			catch (CustomException $e) {
+				$e->queryError($sql);
+				$this->db_connect->rollBack();
+				return false;
+			}
+			
+			return true;
+!!!128514.php!!!	saveMulti(inout sid : , inout qid : , inout val : )
+
+		try{
+				$this->db_connect->beginTransaction();
+				
+				$sql = "INSERT INTO question ( question_id, question_label, question_type, question_options) VALUES ( ".$qid.", '".$val->title."','".$val->type."' ,'".serialize($val->options)."')
+							ON DUPLICATE KEY UPDATE question_label='".$val->title."', question_type='".$val->type."', question_options='".addslashes(serialize($val->options))."';"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				$sql = "INSERT INTO survey_question ( survey_id, question_id) VALUES ( ".$sid.", ".$qid.")
+							ON DUPLICATE KEY UPDATE sort='1';\n<br />"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				foreach($val->rows AS $rowkey=>$row){
+					$sql2 = "INSERT INTO question_multi (question_id, question_row, row_label) VALUES (".$qid.",".$rowkey.",'".$row."')
+					ON DUPLICATE KEY UPDATE row_label = '".$row."'";
+					try{
+						$pid = $this->db->insert($sql2); 
+					}catch(CustomException $e){
+						throw new CustomException($e->queryError($sql2));
+					}
+				}
+				
+				//$sql = $sql.implode(',', $sqlArray);
+
+				$this->db_connect->commit();
+			}
+
+			catch (CustomException $e) {
+				$e->queryError($sql);
+				$this->db_connect->rollBack();
+				return false;
+			}
+			
+			return true;
+!!!128642.php!!!	saveArray(inout sid : , inout qid : , inout val : )
+
+		try{
+				$this->db_connect->beginTransaction();
+				
+				$sql = "INSERT INTO question ( question_id, question_label, question_type, question_options) VALUES ( ".$qid.", '".$val->title."','".$val->type."' ,'".serialize($val->options)."')
+							ON DUPLICATE KEY UPDATE question_label='".$val->title."', question_type='".$val->type."', question_options='".addslashes(serialize($val->options))."';\n<br />"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				$sql = "INSERT INTO survey_question ( survey_id, question_id) VALUES ( ".$sid.", ".$qid.")
+							ON DUPLICATE KEY UPDATE sort='1';\n<br />"; 
+				
+				try{
+					$pid = $this->db->insert($sql); 
+				}catch(CustomException $e){
+					throw new CustomException($e->queryError($sql));
+				}
+				
+				//$sql = "INSERT INTO question_array (question_id, question_row, row_label, question_column, column_label) VALUES";
+				
+				foreach($val->rows AS $rowkey=>$row){
+					foreach($val->columns AS $colkey=>$column){
+						$sql2 = "INSERT INTO question_array (question_id, question_row, row_label, question_column, column_label) VALUES (".$qid.",".$rowkey.",'".$row."',".$colkey.",'".$column."')
+						ON DUPLICATE KEY UPDATE row_label='".$row."', column_label='".$column."'\n";
+						try{
+							$pid = $this->db->insert($sql2); 
+						}catch(CustomException $e){
+							throw new CustomException($e->queryError($sql2));
+						}
+					}
+				}
+				
+				//$sql = $sql.implode(',', $sqlArray);
+
+				$this->db_connect->commit();
+			}
+
+			catch (CustomException $e) {
+				$e->queryError($sql);
+				$this->db_connect->rollBack();
+				return false;
+			}
+			
+			return true;
+!!!128770.php!!!	getSingle(inout qid : )
+
+				
+			$sql = "SELECT * FROM question WHERE question_id = $qid;";
+
+			try{
+				$result = $this->db->select($sql); 
+			}catch(CustomException $e){
+				throw new CustomException($e->queryError($sql));
+			}
+			$result[0]['question_options'] = unserialize($result[0]['question_options']);
+			return $result[0];	
+!!!128898.php!!!	getMulti(inout qid : )
+
+				
+			$sql = "SELECT question.question_id, question_label, question_type, question_options, question_row, row_label 
+						FROM question 
+						LEFT JOIN question_multi ON question.question_id = question_multi.question_id  
+						WHERE question.question_id = $qid;";
+
+			try{
+				$result = $this->db->select($sql); 
+			}catch(CustomException $e){
+				throw new CustomException($e->queryError($sql));
+			}
+			
+			$count = 0;
+			foreach($result AS $value){
+				$ret['question_id'] = $value['question_id'];	
+				$ret['question_label'] = $value['question_label'];	
+				$ret['question_type'] = $value['question_type'];	
+				$ret['question_options'] = unserialize($value['question_options']);
+				$ret['row'][$count]['question_row'] = $value['question_row'];	
+				$ret['row'][$count]['row_label'] = $value['row_label'];	
+				$count++;	
+			}
+			
+			return $ret;	
+!!!129026.php!!!	getArray(inout qid : )
+
+				
+			$sql = "SELECT question.question_id, question_label, question_type, question_options, question_row, row_label, question_column, column_label 
+							FROM question 
+							LEFT JOIN question_array ON question.question_id = question_array.question_id  
+							WHERE question.question_id = $qid;";
+
+			try{
+				$result = $this->db->select($sql); 
+			}catch(CustomException $e){
+				throw new CustomException($e->queryError($sql));
+			}
+			
+			$count = 0;
+			foreach($result AS $value){
+				$ret['question_id'] = $value['question_id'];	
+				$ret['question_label'] = $value['question_label'];	
+				$ret['question_type'] = $value['question_type'];	
+				$ret['question_options'] = unserialize($value['question_options']);
+				$ret['row'][$value['question_row']]['row_label'] = $value['row_label'];	
+				$ret['column'][$value['question_column']]['row_label'] = $value['column_label'];	
+			}
+			
+			return $ret;	

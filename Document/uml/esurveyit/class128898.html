@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class form</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class form</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_128898"></a>
+<p>Form Class,<br />&lt;br /&gt;<br />This class is used to take a input String in a standardised format and convert to a Html Form &lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$formVars = "&lt;br /&gt;<br />Title*:1:select:Ms|Ms,Mrs|Mrs,Miss|Miss,Mr|Mr:::required:notype&lt;br /&gt;<br />Home Phone:5:editor::400|400:::optional:notype&lt;br /&gt;<br />First Name*:2:text::::required:notype&lt;br /&gt;<br />Last Name*:3:text::::required:notype&lt;br /&gt;<br />Work Phone:4:text::::optional:notype&lt;br /&gt;<br />Home Phone:5:text::::optional:notype&lt;br /&gt;<br />Mobile Phone*:6:text::::required:notype&lt;br /&gt;<br />Email*:7:text::::required:notype&lt;br /&gt;<br />Address:8:textarea::::optional:notype&lt;br /&gt;<br />Suburb:9:text::::optional:notype";&lt;br /&gt;<br />&lt;br /&gt;<br />&lt;br /&gt;<br />$form = new form($formVars);&lt;br /&gt;<br />$formVal = $form-&gt;formHeader('');&lt;br /&gt;<br />$formVal .= $form-&gt;draw();&lt;br /&gt;<br />$formVal .= $form-&gt;freeFormSubmit();&lt;br /&gt;<br />$formVal .= $form-&gt;formFooter();&lt;br /&gt;<br />&lt;br /&gt;<br />echo $formVal&lt;br /&gt;<br /><br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br />@subpackage Base<br /><br /><br />This class is used to take a input String in a standardised format and convert to a Html Form<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class form extends <a href="class129026.html#refclass129026"><b>table</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_129282"><b>form.class</b></a></p>
+<div class="sub">
+<a name="ref1_130050"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database object<br />@var Object <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ db : Object</li><li>Php :  var $db</li></ul><a name="ref1_130178"></a>
+<table><tr><td><div class="element">Attribute <b>form</b></div></td></tr></table>
+<p>Holds string value for form builder<br />@var String  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ form : String = ""</li><li>Php :  var $form</li></ul><a name="ref1_130306"></a>
+<table><tr><td><div class="element">Attribute <b>enctype</b></div></td></tr></table>
+<p>Form enctype type<br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ enctype : String</li><li>Php :  var $enctype</li></ul><a name="ref1_130434"></a>
+<table><tr><td><div class="element">Attribute <b>formScript</b></div></td></tr></table>
+<p>Java scripts reloaded to this class <br />@var String  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formScript : String</li><li>Php :  var $formScript</li></ul><a name="ref1_130562"></a>
+<table><tr><td><div class="element">Attribute <b>fck_width</b></div></td></tr></table>
+<p>Width size of fck editor<br />@var Integer<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_width : Integer =  300</li><li>Php :  var $fck_width</li></ul><a name="ref1_130690"></a>
+<table><tr><td><div class="element">Attribute <b>fck_height</b></div></td></tr></table>
+<p>Height size of fck editor<br />@var Integer<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_height : Integer =  500</li><li>Php :  var $fck_height</li></ul><a name="ref1_130818"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefresh</b></div></td></tr></table>
+<p>var $template;<br /><br />JavaScript handle onChange for Form input types command<br /><br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefresh : String</li><li>Php :  var $autoRefresh</li></ul><a name="ref1_130946"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefreshcheckboxs</b></div></td></tr></table>
+<p>JavaScript handle onClick for Form input types command<br />use this for check boxes and radio<br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefreshcheckboxs : String</li><li>Php :  var $autoRefreshcheckboxs</li></ul><a name="ref1_131074"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefreshInputEnter</b></div></td></tr></table>
+<p>JavaScript handle onkeyup for Form input types command<br />user this to to action on an text input with an enter button<br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefreshInputEnter : String</li><li>Php :  var $autoRefreshInputEnter</li></ul><a name="ref1_131202"></a>
+<table><tr><td><div class="element">Attribute <b>fck_configUrl</b></div></td></tr></table>
+<p>Url Tor find fck config file <br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_configUrl : String</li><li>Php :  var $fck_configUrl</li></ul><a name="ref2_132226"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Consrtructor <br /><br />@param String $form input values for form information <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ __construct(inout form : String = NULL) : void</li><li>Php :  function __construct($form = NULL) </li></ul><a name="ref2_132354"></a>
+<table><tr><td><div class="element">Operation <b>form</b></div></td></tr></table><p>Consrtructor php4 <br /><br />@param String $form input values for form information <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ form(inout form : String) : void</li><li>Php :  function form($form) </li></ul><a name="ref2_132482"></a>
+<table><tr><td><div class="element">Operation <b>formScript</b></div></td></tr></table><p>Set onSubmit Form scripts<br /><br />@todo should be removed for JQuery ready({}) <br />@param String $script Javascript command or function<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formScript(inout script : String) : void</li><li>Php :  function formScript($script) </li></ul><a name="ref2_132610"></a>
+<table><tr><td><div class="element">Operation <b>freeFormSubmit</b></div></td></tr></table><p>Standards Submit Button <br />@param String $value Button lable/Name<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ freeFormSubmit(inout value : String = 'Submit') : void</li><li>Php :  function freeFormSubmit($value = 'Submit') </li></ul><a name="ref2_132738"></a>
+<table><tr><td><div class="element">Operation <b>formHeader</b></div></td></tr></table><p>Setup the form tag ready for the inputs <br />   <br />@param String $action Form action parameter <br />@param String $method Form Method parameter <br />@param String $formname Form Name and Id parameter <br />@return ${type} <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formHeader(inout action : String, inout method : String = NULL, inout formname : String = NULL) : string</li><li>Php :  function formHeader($action, $method = NULL, $formname = NULL) </li></ul><a name="ref2_132866"></a>
+<table><tr><td><div class="element">Operation <b>formFooter</b></div></td></tr></table><p>Setup closing form tag<br />  <br />@return ${type} <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formFooter() : String</li><li>Php :  function formFooter() </li></ul><a name="ref2_132994"></a>
+<table><tr><td><div class="element">Operation <b>draw</b></div></td></tr></table><p>Will Generated the required input fields from the $this-&gt;form information<br />information can be broken up using the string '-------'<br /><br />@param Integer $column Define which column shold be returned<br />@return ${type} Html version on the generated input fields<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ draw(inout column : Integer = NULL) : String</li><li>Php :  function draw($column = NULL) </li></ul><a name="ref2_133122"></a>
+<table><tr><td><div class="element">Operation <b>edit</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ edit(inout input : , inout type :  = NULL) : </li><li>Php :  function edit($input, $type = NULL) </li></ul><a name="ref2_133250"></a>
+<table><tr><td><div class="element">Operation <b>SetFckConfigUrl</b></div></td></tr></table><p>Set a alternate FCK config file path<br /><br />@param String $url Url to new config file<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ SetFckConfigUrl(inout url : String) : void</li><li>Php :  function SetFckConfigUrl($url) </li></ul><a name="ref2_133378"></a>
+<table><tr><td><div class="element">Operation <b>inputfield</b></div></td></tr></table><p>Takes in a standard single row from $this-&gt;form information and <br />generated and html form input string <br /> <br />@param String $input string eg. State:10:select:ACT|ACT,NSW|NSW,VIC|VIC,QLD|QLD,SA|SA,NT|NT,WA|WA,TAS|TAS:::optional:notype<br />@return ${type} form input <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ inputfield(inout input : String) : Html</li><li>Php :  function inputfield($input) </li></ul><a name="ref2_133506"></a>
+<table><tr><td><div class="element">Operation <b>setAutoRefresh</b></div></td></tr></table><p>Set the AutoRefresh function command <br /><br />@todo should be removed for JQuery ready({}) <br />@param String $command Javascript code or function <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setAutoRefresh(inout command : String) : void</li><li>Php :  function setAutoRefresh($command) </li></ul><a name="ref2_133634"></a>
+<table><tr><td><div class="element">Operation <b>unsetAutoRefresh</b></div></td></tr></table><p>Remove the AutoRefresh function command  <br /><br />@todo should be removed for JQuery ready({}) <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ unsetAutoRefresh() : void</li><li>Php :  function unsetAutoRefresh() </li></ul></div>
+<p>All public operations : <a href="class129026.html#ref2_137730"><b>buildWhereArrayFromRequest</b></a> , <a href="class129026.html#ref2_137218"><b>genterateDisplayTable</b></a> , <a href="class129026.html#ref2_135682"><b>removeColumn</b></a> , <a href="class129026.html#ref2_136706"><b>setBasePage</b></a> , <a href="class129026.html#ref2_135938"><b>setColumnsClass</b></a> , <a href="class129026.html#ref2_135810"><b>setColumnsWidth</b></a> , <a href="class129026.html#ref2_135554"><b>setFilter</b></a> , <a href="class129026.html#ref2_135426"><b>setFooter</b></a> , <a href="class129026.html#ref2_135170"><b>setHeader</b></a> , <a href="class129026.html#ref2_136066"><b>setIdentifier</b></a> , <a href="class129026.html#ref2_136450"><b>setIdentifierPage</b></a> , <a href="class129026.html#ref2_136194"><b>setLinkAction</b></a> , <a href="class129026.html#ref2_136322"><b>setLinkField</b></a> , <a href="class129026.html#ref2_136834"><b>setPrimaryId</b></a> , <a href="class129026.html#ref2_137090"><b>setRowClassFieldName</b></a> , <a href="class129026.html#ref2_136962"><b>setRowClassName</b></a> , <a href="class129026.html#ref2_135298"><b>setRowsOnly</b></a> , <a href="class129026.html#ref2_136578"><b>setTableName</b></a> </p>
+</body>
+</html>

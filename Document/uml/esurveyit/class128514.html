@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class email</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class email</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_128514"></a>
+<p>This class is used create and send email&lt;br /&gt;<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class email </li></ul><p>Artifact : <a href="index.html#ref8_129026"><b>email.class</b></a></p>
+<div class="sub">
+<a name="ref1_129410"></a>
+<table><tr><td><div class="element">Attribute <b>crlf</b></div></td></tr></table>
+<p>Carrage return<br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ crlf : String =  "\n"</li><li>Php :  var $crlf</li></ul><a name="ref1_129538"></a>
+<table><tr><td><div class="element">Attribute <b>mime</b></div></td></tr></table>
+<p>Set Mime Type<br />@var unknown_type<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ mime : unknown_type</li><li>Php :  var $mime</li></ul><a name="ref1_129666"></a>
+<table><tr><td><div class="element">Attribute <b>mail</b></div></td></tr></table>
+<p>Mail Object<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ mail : Object</li><li>Php :  var $mail</li></ul><a name="ref1_129794"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Template Object<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ template : Object</li><li>Php :  var $template</li></ul><a name="ref1_129922"></a>
+<table><tr><td><div class="element">Attribute <b>header</b></div></td></tr></table>
+<p>Mail Header information <br />@var Araay<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ header : Araay</li><li>Php :  var $header</li></ul><a name="ref2_130306"></a>
+<table><tr><td><div class="element">Operation <b>_construct</b></div></td></tr></table><p>Constructor for Email php5 <br /><br />@param unknown_type $type<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ _construct() : </li><li>Php :  function _construct() </li></ul><a name="ref2_130434"></a>
+<table><tr><td><div class="element">Operation <b>email</b></div></td></tr></table><p>Constructor for Email php4 <br /><br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ email() : </li><li>Php :  function email() </li></ul><a name="ref2_130562"></a>
+<table><tr><td><div class="element">Operation <b>append_html</b></div></td></tr></table><p>converts the HTML version of the email to be sent to be appended to the email <br /><br />@param String $html<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_html(inout html : String) : </li><li>Php :  function append_html($html) </li></ul><a name="ref2_130690"></a>
+<table><tr><td><div class="element">Operation <b>append_text</b></div></td></tr></table><p>converts the TEXT version of the email to be sent to be appended to the email <br /><br />@param String $text<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_text(inout text : String) : </li><li>Php :  function append_text($text) </li></ul><a name="ref2_130818"></a>
+<table><tr><td><div class="element">Operation <b>append_file</b></div></td></tr></table><p>converts the TEXT version of the email to be sent to be appended to the email <br /><br />@param String $file file path to the, or file content<br />@param String $type Mime type of the thaile attached <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_file(inout file : String, inout type : String) : </li><li>Php :  function append_file($file, $type) </li></ul><a name="ref2_130946"></a>
+<table><tr><td><div class="element">Operation <b>setHTMLtemplate</b></div></td></tr></table><p>Create a HTML email using the base template class <br /><br />@param String $template path to template<br />@param String $content array of assigned varable converstion <br />@see template::assignArray<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setHTMLtemplate(inout template : String, inout content : String) : </li><li>Php :  function setHTMLtemplate($template, $content) </li></ul><a name="ref2_131074"></a>
+<table><tr><td><div class="element">Operation <b>setTXTtemplate</b></div></td></tr></table><p>Will create and output from Form Class standardised format String  <br />To create a TEXT email in a reable format<br /><br />@todo confirm this is correct <br />@param String $table Form Class standardised format String<br />@param String $content Content <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setTXTtemplate(inout table : String, inout content : String) : </li><li>Php :  function setTXTtemplate($table, $content) </li></ul><a name="ref2_131202"></a>
+<table><tr><td><div class="element">Operation <b>sender</b></div></td></tr></table><p>Set the Sender info for header<br /><br />@param String $from email of the sender <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ sender(inout from : String) : </li><li>Php :  function sender($from) </li></ul><a name="ref2_131330"></a>
+<table><tr><td><div class="element">Operation <b>subject</b></div></td></tr></table><p>Set the Subject line fo the email <br />@param String $subject<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ subject(inout subject : String) : </li><li>Php :  function subject($subject) </li></ul><a name="ref2_131458"></a>
+<table><tr><td><div class="element">Operation <b>setHeader</b></div></td></tr></table><p>Set all other Header information as required <br /><br />@param Array $header header param to header value<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setHeader(inout header : Array) : </li><li>Php :  function setHeader($header) </li></ul><a name="ref2_131586"></a>
+<table><tr><td><div class="element">Operation <b>recordEmail</b></div></td></tr></table><p>Record email into the database <br /><br />@param String $table table to store the email  <br />@param String $content content of the email <br />@param String $form_name identifer of record, Default URI sent from  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ recordEmail(inout table : String, inout content : String, inout form_name : String = NULL ) : </li><li>Php :  function recordEmail($table, $content, $form_name = NULL ) </li></ul><a name="ref2_131714"></a>
+<table><tr><td><div class="element">Operation <b>send</b></div></td></tr></table><p>compile and Send email  <br /> <br />@param String $to Email address to send too;<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ send(inout to : String) : </li><li>Php :  function send($to) </li></ul></div>
+</body>
+</html>

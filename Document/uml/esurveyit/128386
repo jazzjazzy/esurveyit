@@ -1,0 +1,3217 @@
+format 76
+"base" // esurveyit::classes::base
+  revision 1
+  modified_by 2 "jason.SILVERBERG"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  deploymentview 128386 "base"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 128898 "database.class"
+      stereotype "source"
+      php_src "<?php
+/**
+ * Database Class, 
+ * <br />
+ * This class is Database abstraction layer<br /> 
+ * 
+ * Example:<br />
+ * <br />
+ * define('DB_USER','root');<br />
+ * define('DB_PASS','password');<br />
+ * define('DB_HOST','localhost');<br />
+ * define('DB_DBASE','test_db');<br />
+ * define('DB_TYPE','mysql');<br />
+ * <br />
+ * try{$db = new db();}<br />
+ * catch(CustomException e){ echo $e->logError(); }<br />
+ * <br />
+ * try{$result = $db->select('select * from test_table');}<br />
+ * catch(CustomException e){echo $e->queryError();}<br />
+ * <br />
+ * foreach($result AS $row){<br />
+ * 		echo 'col1 ='.$row['col1'];<br />
+ * 		echo 'col2 ='.$row['col2'];<br />
+ *		echo 'col3 ='.$row['col3'];<br />
+ * }<br />
+ * <br />
+ * 
+ * @author Jason Stewart <jason@lexxcom.com.au>
+ * @version 1.0
+ * @package PeopleScope
+ * @subpackage Base
+ */
+/*
+if (isset($_SESSION['dbaccess']['server_host'])) {
+	$DB_HOST = $_SESSION['dbaccess']['server_host'];
+}else{
+	$DB_HOST = DB_HOST;
+}
+
+if (isset($_SESSION['dbaccess']['server_database'])) {
+	$DB_DBASE = $_SESSION['dbaccess']['server_database'];
+}else{
+	$DB_DBASE = DB_DBASE;
+}
+
+if (isset($_SESSION['dbaccess']['server_type'])) {
+	$DB_TYPE = strtolower($_SESSION['dbaccess']['server_type']);
+}else{
+	$DB_TYPE = DB_TYPE;
+}
+
+if (isset($_SESSION['dbaccess']['server_port'])) {
+	$DB_TYPE = $_SESSION['dbaccess']['server_port'];
+}else{
+	$DB_PORT = DB_PORT;
+}
+*/
+/**
+ * required general tool 
+ */
+require_once 'tools.function.php';
+/**
+ * required error handler 
+ */
+require_once 'errorhandler.class.php';
+${definition}
+
+ 
+
+?>"
+      associated_classes
+	class_ref 128386 // db
+      end
+    end
+
+    artifact 129026 "email.class"
+      stereotype "source"
+      php_src "<?php
+/**
+ * Email Class,
+ * <br />
+ * This class is used create and send email, can also record emails in a db, and can use the template class to format Html <br />
+ * 
+ * 
+ * @author Jason Stewart <jason@lexxcom.com.au>
+ * @version 1.0
+ * @package PeopleScope
+ * @subpackage Base
+ */
+
+/**
+ * Pear Mail class 
+ */
+require_once ('Mail.php');
+/**
+ * Pear Mime class 
+ */
+require_once ('Mail/mime.php');
+${definition}
+
+
+?>"
+      associated_classes
+	class_ref 128514 // email
+      end
+    end
+
+    artifact 129154 "errorhandler.class"
+      stereotype "source"
+      php_src "<?php
+${definition}
+
+
+
+set_error_handler(\"exception_error_handler\");
+function exception_error_handler($errno, $errstr, $errfile, $errline ) {
+	throw new CustomException($errstr, 0, $errno, $errfile, $errline);
+}
+
+set_error_handler(\"myErrorHandler\", E_ALL);
+
+function exception_handler($exception) {
+	echo \"Uncaught exception: \" , $exception->getMessage(), \"\\n\";
+}
+
+set_exception_handler('exception_handler');
+
+function myErrorHandler($errno, $errstr, $errfile, $errline)
+{
+	if (!(error_reporting() & $errno)) {
+		// This error code is not included in error_reporting
+		return;
+	}
+	
+	switch ($errno) {
+		case E_ERROR:
+		case E_CORE_ERROR:
+		case E_USER_ERROR: 
+			$str = \"<div style=\\\"border: green 1px solid; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color:#000; padding:10px; background-color: #8AE234; width:100%; border:solid 3px red\\\"><h4>PHP ERROR:: Error Information[\".$errno.\"]</h4>\".
+			\"<div> Message :: <strong>\".$errstr.\"</strong></div><br />
+			<div>File :: \".$errfile.\"</div>
+			<div>Line :: \".$errline.\"</div></pre>
+			</div>\";
+			if(DEBUG){
+				$trace = \"<pre>\".print_r(debug_backtrace(),1).\"</pre>\";
+				$str .= \"<div style=\\\"font-family: Arial, Helvetica, sans-serif; font-size: 8px; padding:10px; background-color: #3399ff; width:100%; border:solid 1px #000\\\"><h4>Error Back Trace</h4><pre>\".
+						htmlentities (print_r($trace,1),  ENT_COMPAT) .
+						\"</pre></div>\"; 
+			}
+			return ($str);
+			break;
+		case E_WARNING:
+		case E_CORE_WARNING:
+		case E_USER_WARNING:
+			$str = \"<div style=\\\"border: green 3px solid; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color:#000; padding:10px; background-color: #8AE234; width:100%; border:solid 3px green\\\"><h4>PHP WARNING:: Error Information[\".$errno.\"]</h4>\".
+			\"<div> Message :: <strong>\".$errstr.\"</strong></div><br />
+			<div>File :: \".$errfile.\"</div>
+			<div>Line :: \".$errline.\"</div></pre>
+			</div>\";
+			if(DEBUG){
+				$trace = \"<pre>\".print_r(debug_backtrace(),1).\"</pre>\";
+				$str .= \"<div style=\\\"font-family: Arial, Helvetica, sans-serif; font-size: 8px; padding:10px; background-color: #3399ff; width:100%; border:solid 1px #000\\\"><h4>Error Back Trace</h4><pre>\".
+						htmlentities (print_r($trace,1),  ENT_COMPAT) .
+						\"</pre></div>\"; 
+			}
+			break;
+		case E_NOTICE:
+		case E_CORE_NOTICE:
+		case E_USER_NOTICE:
+			$str = \"<div style=\\\"border: green 1px solid; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color:#000; padding:10px; background-color: #8AE234; width:100%; border:solid 3px green\\\"><h4>PHP NOTICE:: Error Information[\".$errno.\"]</h4>\".
+			\"<div> Message :: <strong>\".$errstr.\"</strong></div><br />
+			<div>File :: \".$errfile.\"</div>
+			<div>Line :: \".$errline.\"</div></pre>
+			</div>\";
+			if(DEBUG){
+				$trace = \"<pre>\".print_r(debug_backtrace(),1).\"</pre>\";
+				$str .= \"<div style=\\\"font-family: Arial, Helvetica, sans-serif; font-size: 8px; padding:10px; background-color: #3399ff; width:100%; border:solid 1px #000\\\"><h4>Error Back Trace</h4><pre>\".
+						htmlentities (print_r($trace,1),  ENT_COMPAT) .
+						\"</pre></div>\"; 
+			}
+			break;
+
+		default:
+			$str = \"<div style=\\\"border: green 1px solid; font-family: Arial, Helvetica, sans-serif; font-size: 15px; color:#000; padding:10px; background-color: #8AE234; width:100%; border:solid 3px green\\\"><h4>PHP OTHER:: Error Information[\".$errno.\"]</h4>\".
+			\"<div> Message :: <strong>\".$errstr.\"</strong></div><br />
+			<div>File :: \".$errfile.\"</div>
+			<div>Line :: \".$errline.\"</div></pre>
+			</div>\";
+			if(DEBUG){
+				$trace = \"<pre>\".print_r(debug_backtrace(),1).\"</pre>\";
+				$str .= \"<div style=\\\"font-family: Arial, Helvetica, sans-serif; font-size: 8px; padding:10px; background-color: #3399ff; width:100%; border:solid 1px #000\\\"><h4>Error Back Trace</h4><pre>\".
+						htmlentities (print_r($trace,1),  ENT_COMPAT) .
+						\"</pre></div>\"; 
+			}
+			break;
+	}
+	echo $str;
+	/* Don't execute PHP internal error handler */
+	return true;
+}
+
+
+
+"
+      associated_classes
+	class_ref 128642 // CustomException
+      end
+    end
+
+    artifact 129282 "form.class"
+      stereotype "source"
+      php_src "<?php
+${definition}
+
+
+?>
+"
+      associated_classes
+	class_ref 128898 // form
+      end
+    end
+
+    artifact 129410 "rain.tpl.class"
+      stereotype "source"
+      php_src "<?php
+
+/**
+ *  RainTPL easy template engine load HTML template.
+ * 
+ *  @version 2.5.1
+ *  @author Federico Ulfo <rainelemental@gmail.com> | www.federicoulfo.it
+ *  @copyright RainTPL is under GNU/LGPL 3 License
+ *  @link http://www.raintpl.com
+ *  @package RainFramework
+ */
+
+
+
+
+/**
+ * Check template.
+ * true: checks template update time, if changed it compile them
+ * false: loads the compiled template. Set false if server doesn't have write permission for cache_directory.
+ * 
+ */
+define( \"RAINTPL_CHECK_TEMPLATE_UPDATE\", true );
+
+
+
+
+/**
+ * Default cache expiration time (in seconds)
+ * 
+ */
+define( \"RAINTPL_CACHE_EXPIRE_TIME\", 3600 );
+
+
+
+
+/**
+ * Default template extension (default html)
+ * 
+ */
+define( \"TPL_EXT\", \"html\" );
+
+${definition}
+
+
+
+
+
+
+?>"
+      associated_classes
+	class_ref 129154 // RainTPL
+      end
+    end
+
+    artifact 129538 "table.class"
+      stereotype "source"
+      php_src "<?php
+${definition}
+
+"
+      associated_classes
+	class_ref 129026 // table
+      end
+    end
+
+    artifact 129666 "template.class"
+      stereotype "source"
+      php_src "<?php
+${definition}
+
+"
+      associated_classes
+	class_ref 129282 // template
+      end
+    end
+
+    artifact 129794 "template.old.class"
+      stereotype "source"
+      php_src "<?php
+/**
+ * Template Class, 
+ * <br />
+ * This class is used to take a input to generate templates<br /> 
+ * 
+ * Example:<br />
+ * <br />
+ * $template = new template('template/index.html');<br />
+ * <br />
+ * $template->assign('var1', 'Employment list');<br />
+ * $template->assignArray(array{'var2'=>'John', 'var3'=>'mary', 'var4'=>'<strong>frank</strong>'});<br />
+ * <br />
+ * $ArrayVars[0]['name'] = 'john';<br />
+ * $ArrayVars[0]['age'] = '14';<br />
+ * $ArrayVars[1]['name'] = 'mary';<br />
+ * $ArrayVars[1]['age'] = '42';<br />
+ * $ArrayVars[2]['name'] = 'frank';<br />
+ * $ArrayVars[2]['age'] = '98';<br />
+ * <br />
+ * $template->assignRepeat('agelist', $ArrayVars);<br />
+ * $template->replace('../', '../../');<br />
+ * <br />
+ * $template->display();<br />
+ * <br />
+ *  
+ * @author Jason Stewart <jason@lexxcom.com.au>
+ * @version 1.0
+ * @package PeopleScope
+ */
+
+/**
+ * required error handler 
+ */
+require_once 'errorhandler.class.php';"
+      associated_classes
+      end
+    end
+
+    artifact 129922 "tools.function"
+      stereotype "source"
+      php_src "<?php
+/**
+ * Tools Function, 
+ * <br />
+ * At set of general tool to help with development<br /> 
+ * 
+ *  
+ * @author Jason Stewart <jason@lexxcom.com.au>
+ * @version 1.0
+ * @package PeopleScope
+ * @subpackage Base
+ */
+
+
+/**
+ * Global style for error messages 
+ * @global string $GLOBALS['style'] 
+ */
+$GLOBALS['style'] = \"style=\\\"font-family: Arial, Helvetica, sans-serif; font-size: 11px; padding:10px; background-color: #ffcccc; width:100%; border:solid 1px #000; color:#000 \\\"\";
+/**
+ * Global trace debugging
+ * @global string $GLOBALS['trace'] 
+ */
+$GLOBALS['trace']=array();
+
+/**
+ * A debuging tool 
+ * 
+ * This will produce a error message to the screen displaying the value enter
+ * it will take in vars | arrays | object 
+ * it will show the page | Line | function that the echo accured 
+ * and can be turned off thought the constant TURN_ON_PP
+ * 
+ * @param Mixed $var Value that will be echoed out  
+ * @param bool $tracer true display to screen, false store in global $trace 
+ * return void
+ */
+Function pp($var, $tracer=false){
+	if (TURN_ON_PP){
+		global $style;
+		$info = debug_backtrace();
+		$line =  trim(str_replace($_SERVER['DOCUMENT_ROOT'], '', $info[0]['file'])).\" -- Line : \".$info[0]['line'].\" -- Function : \".@$info[1]['function'];
+
+		if(is_array($var) || is_object($var)){
+			$responce = \"<div $style><h2>Notification message</h2><h3>\".$line.\"</h3>\\n<pre>\".html_entity_decode( print_r($var,true)).\"</pre></div>\";
+		}else{
+			$responce = \"<div $style><h2>Notification message</h2><h3>\".$line.\"</h3>\\n<pre>$var</pre></div>\";
+		}
+
+		if($tracer){
+			global $trace;
+			$trace[] = $responce;
+		}else{
+			echo $responce;
+		}
+	}
+}
+
+Function firepp($var){
+	if (TURN_ON_PP){
+		require_once('FirePHPCore/FirePHP.class.php');
+		
+		ob_start();
+		$firephp = FirePHP::getInstance(true);
+		$firephp->log($var, 'FirePHP LOG');
+		
+	}
+}
+
+Function pf($rettype=false){
+	if (TURN_ON_PP){
+		global $style;
+		$html=\"<div $style><h2>Function Stack </h2>\";
+		$pfArray = array();
+		$info = array_reverse(debug_backtrace());
+		foreach($info AS $key=>$value){
+			$file = pathinfo(@$info[$key]['file']);
+			
+			if(count($value['args']) > 0) {
+				$args = @implode(\", \",$value['args']);
+			}else {
+				$args = ' ';
+			};
+			
+			$html .= $value['function'].' ( line:'.$value['line'].') - params('.$args.')<br />
+						<blockquote style=\"MARGIN:0px 0px 10px 20px\">'.str_replace('/home/workspace/people_scope' , '', $file['dirname']).\"/\".$file['basename'].'</blockquote>';
+		}
+		if($rettype){
+			return $html.'</div>';
+		}else{
+			echo $html.'</div>';
+		}
+	}
+}
+
+
+/**
+ * Debuging tool that that will store the outcomes into a $GLOBAL['trace'] var
+ * 
+ * @global Array $GLOBAL['trace']
+ * @see showTrace for output
+ * @param Mixed $var Value that will be echoed out
+ * @param Bool $newline If type strip tags from string
+ */
+
+function trace($var, $newline=true) {
+	global $trace,  $style;
+	$info = debug_backtrace();
+	if (!$newline && is_string($var)) $var = trim(strip_tags($var));
+	$line =  trim(str_replace($_SERVER['DOCUMENT_ROOT'], '', $info[0]['file'])).\" -- Line : \".$info[0]['line'].\" -- Function : \".@$info[1]['function'];
+	$responce = \"<span>\".$line.\"\\n<pre>\".print_r($var,true).\"</pre></span>\";
+	$trace[] = $responce;
+
+}
+
+/**
+ * Output $GLOBAL['trace'] Trace
+ * 
+ * @global Array $trace
+ * return Void
+ */
+function showTrace() {
+	global $trace;
+	echo \"<pre>\".print_r($trace,1).\"</pre>\";
+}
+
+/**
+ * Will return a html form with all the results of the $GLOBAL vars 
+ * $_POST, $_GET, $_COOKIE, $_SESSION, $trace
+ * @return String html vars
+ */
+function showVars(){
+	if(!DEBUG){
+		return;
+	}
+	$ret = '<style type=\"text/css\">
+		.debug h4 {	margin-top: 0;
+					margin-bottom:0;
+		}
+		.debug h4:before {content: \"+: \";}
+		.debug {float:none;
+				font-size: 0.8em;
+				background:#fff;
+				color: #999999;
+				height: 1.2em;
+				width: 1em;
+				border: 1px solid #999999;
+				overflow: hidden;
+				position:absolute;
+				top:0px;
+				left:0px;
+		}
+		.debug:hover {	height: auto;
+						width: auto;
+						overflow: auto;
+						width:100%;}
+		</style>';
+	global $trace;
+	$ret .=  '<div class=\"debug\">';
+	$ret .= formatArray($_POST,'_POST');
+	$ret .= formatArray($_GET,'_GET');
+	$ret .= formatArray($_COOKIE,'_COOKIE');
+	$ret .= formatArray(@$_SESSION,'_SESSION');
+	$ret .= formatArray($trace,'TRACE');
+	$ret .= '</div>';
+
+	return $ret;
+}
+
+/**
+ * Will input an associate array and output in a readable format 
+ * @param Array $array Array to read 
+ * @param String $name name you want to give the array 
+ */
+function formatArray($array, $name){
+
+	$line='';
+
+	$line .= \"<h4>\".$name.\"</h4><blockquote><br/>\";
+	if (isset($array)){
+		foreach($array AS $key=>$value){
+			if(is_array($value)){
+				$line .= \"['\".$key.\"']=&nbsp;&nbsp;&nbsp;<pre>\". print_r($value,1).\"</pre><br />\";
+			}else{
+				$line .= \"['\".$key.\"']=&nbsp;&nbsp;&nbsp;\". $value.\"<br />\";
+			}
+		}
+	}
+	$line .= \"</blockquote>\";
+	return $line;
+}
+
+
+/**
+ * Will take in a String and a start and end delimiter and will return the content between the delimiter
+ * 
+ * @param String $string String to parse 
+ * @param String $beg_tag start delimiter 
+ * @param String $close_tag end delimiter 
+ * @param Bool $remove_tag true return content without delimiter
+ * @return Array all content found between delimiters
+ */
+function parseArray($string, $beg_tag, $close_tag, $remove_tag=true){
+	$on = preg_match_all(\"($beg_tag(.*)$close_tag)siU\", $string, $matching_data);
+	
+	if($remove_tag){
+		return $matching_data[1][0];
+	}
+
+    return $matching_data[0][0];
+}
+
+/**
+ * Will take in a list of accociated array names and remove 
+ * from that array via referance 
+ * 
+ * @param String $elements Comma seperated list of names 
+ * @param Array $array The array to remove them from via referance 
+ */
+function stripElements($elements, &$array){
+	$elementsArray = explode(',', $elements);
+	
+	foreach($elementsArray AS $value){
+		unset($array[$value]);
+	}
+}
+/**
+ * This will take in a name for the field types and a date that you wish and format 
+ * an option list for select boxes, and return them in an associated array for year, month and day
+ * 
+ * @param String $name Name used for selection box 
+ * @param String $date Date That should be selected
+ * @param Integer $yearRange How many years should be displayed
+ * @param Integer $startyear What year should the list start at
+ * 
+ * @return an Array of day,month,Year holding the required option list for select box 
+ */
+function createDateField($date, $yearRange = 10, $startyear = NULL){
+
+	if (!isset($startyear)){
+		$startyear = date('Y');
+	}
+
+	//lets do some cleaning up on the date format to make it easy to work with.
+	$date = trim($date);
+	$date = str_replace(array('\\\\','/'), '-', $date);
+	$date = str_replace(' ', '', $date);
+
+	list($day, $month, $year) = explode('-', $date);
+
+	$months = array(\"\",\"January\", \"February\", \"March\", \"April\", \"May\", \"June\", \"July\", \"August\", \"September\", \"October\", \"November\", \"December\");
+
+	for($i = 1; $i < count($months) ; $i++){
+		$selectmonth = ($i == $month)? ' selected=\"selected\"' : '';
+		@$dateRet['month'] .= \"<option value=\\\"$i\\\"$selectmonth>\".$months[$i].\"</option>\\n\";
+	}
+
+	for($j = 1; $j < 31 ; $j++){
+		$selectday = ($j == $day)? ' selected=\"selected\"' : '';
+		@$dateRet['day'] .= \"<option value=\\\"$j\\\"$selectday>$j</option>\\n\";
+	}
+
+	for($k = $startyear; $k < ($startyear+$yearRange) ; $k++){
+		$selectyear = ($k == $year)? ' selected=\"selected\"' : '';
+		@$dateRet['year'] .= \"<option value=\\\"$k\\\"$selectyear>$k</option>\\n\";
+	}
+
+	return $dateRet;
+}
+
+/**
+ * Will take a Au date from jQuery Datepicker and convert to a database date format
+ * 
+ * @link http://docs.jquery.com/UI/Datepicker
+ * @link http://docs.jquery.com/UI/Datepicker/formatDate
+ * @param String $date database date format
+ */
+function formatDateUI($date){
+	if(empty($date)) return false;
+	list($day, $month, $year) = explode('/', $date);
+	$year = (strlen($year) == 2)?'20'.$year: $year;
+	return $year.'-'.$month.'-'.$day.' 00:00:00' ;
+
+}
+
+/**
+ * This will take in an Array or if no array give will default to the $_REQUEST
+ * global looking for accociated name type and remove the elements and replace the with a $name field with a value of the compiled date,
+ * if none found then will put in todays date 
+ * accociated name types :<br />
+ * $name.'__day'<br />
+ * $name.'__month'<br />
+ * $name.'__year'<br />
+ * <br />
+ * $name = $name.'__year-'$name.'__month-'$name.'__day 00::00::00' <br />
+ * <br />
+ * @param String $name the name ofthe fields we are looking for
+ * @param Array &$listArray alternate array to look at, $_REQUEST by default
+ * @return String database date format
+ */
+function formatDateResponce($name, &$listArray=NULL){
+	if (!$listArray){
+		$listArray = $_REQUEST;
+	}
+
+	if(isset($listArray[$name.'__day'])){
+		$nameDay = $listArray[$name.'__day'];
+		unset($listArray[$name.'__day']);
+	}else{
+		$nameDay = date('j');
+	}
+
+	if(isset($listArray[$name.'__month'])){
+		$nameMonth = $listArray[$name.'__month'];
+		unset($listArray[$name.'__month']);
+	}else{
+		$nameMonth = date('n');
+	}
+
+	if(isset($listArray[$name.'__year'])){
+		$nameYear = $listArray[$name.'__year'];
+		unset($listArray[$name.'__year']);
+	}else{
+		$nameYear = date('Y');
+	}
+
+	$listArray[$name] = ($nameYear.'-'.$nameMonth.'-'.$nameDay.' 00:00:00' );
+
+	return $listArray[$name];
+}
+
+/**
+ * Will convert the output from a Jquery UI date field format 
+ * format must be in Au date format
+ * @link http://docs.jquery.com/UI/Datepicker
+ * @link http://docs.jquery.com/UI/Datepicker/formatDate
+ * 
+ * @todo remember how this works :S
+ * @param String $start start date
+ * @param String $end end date
+ * @param Array &$ARRAY returns by referance
+ */
+function convertUIdate($start, $end, &$ARRAY){
+	$startdate = (empty($start))? '' : $ARRAY[$start];
+	$enddate = (empty($end))? '' : $ARRAY[$end];
+	
+	if(empty($startdate) && empty($enddate)){
+		return;
+	}
+	
+	if(!empty($startdate)){
+		list($sd,$sm,$sy) = explode('/', $startdate);
+		$stimestamp = mktime(0,0,0,$sm,$sd,$sy);
+		if(empty($enddate)){
+			$ARRAY[$start] = date('Y-m-d 00:00:00', $stimestamp);
+			return;
+		}
+	}
+	
+	if(!empty($enddate)){
+		list($ed,$em,$ey) = explode('/', $enddate);
+		$etimestamp = mktime(0,0,0,$em,$ed,$ey);
+		if(empty($startdate)){
+			$ARRAY[$end] = date('Y-m-d 00:00:00', $etimestamp);
+			return;
+		}
+	}
+	
+	if ($stimestamp < $etimestamp){
+		$ARRAY[$start] = date('Y-m-d 00:00:00', $stimestamp);
+		$ARRAY[$end] = date('Y-m-d 00:00:00', $etimestamp);
+	}else{
+		$ARRAY[$end] = date('Y-m-d 00:00:00', $stimestamp);
+		$ARRAY[$start] = date('Y-m-d 00:00:00', $etimestamp);
+	}
+
+}
+
+/**
+ * converts a database date value and conversts to Au date format
+ * 2001-04-02 = 02/04/2001
+ * @param String $dbdate database date format yyyy-mm-dd
+ * @return String Date dd/mm/yyyy
+ */
+function databaseToUI($dbdate){
+	
+	list($dbdate) = explode(' ' , $dbdate);
+	
+	list($year, $month, $day) = explode('-' , $dbdate);
+	
+	return  $day .\"/\".$month.\"/\".$year; 
+}
+
+/**
+ * return file extention based on Mime type for common doc types
+ * doc, docx, pdf
+ *  
+ * @param String $type Mime type
+ * @return String Document extention
+ */
+function fileExt($type){
+	$ext = false;
+	switch($type){
+		case 'application/msword' : $ext = 'doc'; break;
+		case 'application/pdf' : $ext = 'pdf'; break;
+		case 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' : $ext = 'docx'; break;
+	}
+	return $ext;
+}
+/**
+ * Will take in a percent amount and return values in mins 
+ * eg. 50% = 30mins
+ * @param Integer $percent
+ * @return Integer Minutes
+ */
+function convertDecimalToMinutes($percent){
+	list($hours, $minutes)= explode('.', number_format($percent,2));
+	$minutes = ceil(($minutes*60)/100);
+	$in_minutes=($hours*60)+$minutes;	
+	return $in_minutes;
+}
+
+/**
+ * Will take in a amount in minutes and return the value in the amount of hours : minute
+ * 
+ *  124 minutes = 2:04
+ *  
+ * @param Integer $Minutes
+ * @return String hh:mm
+ */
+function convertMinutes2Hours($Minutes)
+{
+	if ($Minutes < 0)
+	{
+		$Min = Abs($Minutes);
+	}
+	else
+	{
+		$Min = $Minutes;
+	}
+	$iHours = Floor($Min / 60);
+	$Minutes = ($Min - ($iHours * 60)) / 100;
+	$tHours = $iHours + $Minutes;
+	if ($Minutes < 0)
+	{
+		$tHours = $tHours * (-1);
+	}
+	$aHours = explode(\".\", $tHours);
+	$iHours = $aHours[0];
+	if (empty($aHours[1]))
+	{
+		$aHours[1] = \"00\";
+	}
+	$Minutes = $aHours[1];
+	if (strlen($Minutes) < 2)
+	{
+		$Minutes = $Minutes .\"0\";
+	}
+	$tHours = $iHours .\":\". $Minutes;
+	return $tHours;
+}
+
+function Box($content, $header, $discription){
+	$html ='<div  class=\"tab\">
+			<div id=\"tab-header\">
+				<h1>'.$header.'</h1>
+			</div>
+			<div id=\"tab-text\">
+				'.$discription.'
+			</div>
+			<div id=\"tab-body\">
+				'.$content.'<br class=\"clear\">
+			</div>
+			<div id=\"tab-foot\"></div>
+		</div>';
+	return $html;
+	
+}
+
+function Box2($content){
+	
+$html ='<div class=\"roundedcornr_box_734246\">
+		   <div class=\"roundedcornr_top_734246\"><div></div></div>
+		      <div class=\"roundedcornr_content_734246\">
+		         <p>'.$content.'</p>
+		      </div>
+		   <div class=\"roundedcornr_bottom_734246\"><div></div></div>
+		</div>';
+return $html;
+}
+
+function warning($content){
+	$html ='<div class=\"warning\"><img src=\"images/warning.png\" />
+			'.$content.'
+		</div>';
+	return $html;
+	
+}
+
+function is_assoc($array)
+{
+    if ( is_array($array) && ! empty($array) )
+    {
+        for ( $iterator = count($array) - 1; $iterator; $iterator-- )
+        {
+            if ( ! array_key_exists($iterator, $array) ) { return true; }
+        }
+        return ! array_key_exists(0, $array);
+    }
+    return false;
+}
+
+function createLink($page, $action, $id = NULL){
+	if(!WEBLINK){
+		$id=(!empty($id))? \"/\".$id : '';
+		$link = SITE_ROOT.$page.\"/\".$action.$id;
+	}else{
+		$id=(!empty($id))? \"&id=\".$id : '';
+		$link = SITE_ROOT.$page.\".php?action=\".$action.$id;	
+	}
+	return $link;
+}
+
+function rgbTohex($rgbString){	
+	
+	if(substr($rgbString,0,4) == \"rgba\"){ 
+		$pattern = '/^rgba\\((\\d+),\\s*(\\d+),\\s*(\\d+)\\,\\s*(\\d+)\\)$/';
+		preg_match($pattern, $rgbString, $matches, PREG_OFFSET_CAPTURE);
+		//unset($matches[0]);
+		//unset($matches[4]);
+	}else{
+		$pattern = '/^rgb\\((\\d+),\\s*(\\d+),\\s*(\\d+)\\)$/';
+		preg_match($pattern, $rgbString, $matches, PREG_OFFSET_CAPTURE);
+		//unset($matches[0]);
+	}
+	
+	$r = $matches[1][0];
+	$g = $matches[2][0];
+	$b = $matches[3][0];
+	
+    if (is_array($r) && sizeof($r) == 3)
+        list($r, $g, $b) = $r;
+
+    $r = intval($r); $g = intval($g);
+    $b = intval($b);
+
+    $r = dechex($r<0?0:($r>255?255:$r));
+    $g = dechex($g<0?0:($g>255?255:$g));
+    $b = dechex($b<0?0:($b>255?255:$b));
+
+    $color = (strlen($r) < 2?'0':'').$r;
+    $color .= (strlen($g) < 2?'0':'').$g;
+    $color .= (strlen($b) < 2?'0':'').$b;
+   
+    return '#'.$color;
+}
+?>"
+      associated_classes
+      end
+    end
+  end
+
+  classview 128258 "base"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 128386 "db"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+This class is Database abstraction layer
+
+@package PeopleScope
+@subpackage Base
+"
+      attribute 129026 "dsn"
+	package explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 129154 "dbh"
+	package explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 129282 "lastQuery"
+	package explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 129282 "__construct"
+	package explicit_return_type "Void"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+constructor to initiate database conection 
+
+@return ${type}
+"
+      end
+
+      operation 129410 "getDNSString"
+	public explicit_return_type "String"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+returns current DSN string used to connect ot the server 
+
+@return ${type}
+"
+      end
+
+      operation 129538 "select"
+	public explicit_return_type "Array"
+	nparams 1
+	  param inout name "sql" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will instigate a SELECT query and return and an array of responses 
+
+@param ${t0} ${p0} select sql string to be executed 
+@return ${type}
+"
+      end
+
+      operation 129666 "insert"
+	public explicit_return_type "Array"
+	nparams 2
+	  param inout name "sql" explicit_type "String"
+	  param inout name "exec" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will instigate a INSERT query and return the inserts autocomplete Id;
+
+@param ${t0} ${p0}
+@return ${type}
+"
+      end
+
+      operation 129794 "delete"
+	public explicit_return_type "Array"
+	nparams 1
+	  param inout name "sql" explicit_type "string"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will instigate a DELETE query and return true if no problems;
+
+@param ${t0} ${p0}
+@return ${type}
+"
+      end
+
+      operation 129922 "update"
+	public explicit_return_type "array"
+	nparams 2
+	  param inout name "sql" explicit_type "string"
+	  param inout name "exec" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will instigate a UPDATE query and return true if no problems;
+
+@param ${t0} ${p0}
+@return ${type}
+"
+      end
+
+      operation 130050 "query"
+	public explicit_return_type "array"
+	nparams 2
+	  param inout name "sql" explicit_type "string"
+	  param inout name "exec" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will instegate a query and return a recordset;
+
+@param ${t0} ${p0}
+@return ${type}
+"
+      end
+
+      operation 130178 "prepareToQuery"
+	public explicit_return_type "string"
+	nparams 2
+	  param inout name "query" explicit_type "string"
+	  param inout name "params" explicit_type "array"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Merge query template with array 
+
+Query template and array set merger function 
+Will taken in the Query string template and the array of query elements
+and combine the to show the fully converted string used in the prepare 
+Note: only use as example for debugging purposes
+ 
+@param ${t0} ${p0} Query template  
+@param ${t1} ${p1} Array of inputs 
+@return ${type}
+"
+      end
+    end
+
+    class 128514 "email"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+This class is used create and send email<br />
+
+@package PeopleScope
+@subpackage Base
+"
+      attribute 129410 "crlf"
+	package explicit_type "String"
+	init_value " \"\\n\""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Carrage return
+@var ${type} 
+"
+      end
+
+      attribute 129538 "mime"
+	package explicit_type "unknown_type"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Set Mime Type
+@var ${type}
+"
+      end
+
+      attribute 129666 "mail"
+	package explicit_type "Object"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Mail Object
+@var ${type}
+"
+      end
+
+      attribute 129794 "template"
+	package explicit_type "Object"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Template Object
+@var ${type}
+"
+      end
+
+      attribute 129922 "header"
+	package explicit_type "Araay"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Mail Header information 
+@var ${type}
+"
+      end
+
+      operation 130306 "_construct"
+	package explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Constructor for Email php5 
+
+@param unknown_type $type
+"
+      end
+
+      operation 130434 "email"
+	package explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Constructor for Email php4 
+
+"
+      end
+
+      operation 130562 "append_html"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "html" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+converts the HTML version of the email to be sent to be appended to the email 
+
+@param ${t0} ${p0}
+"
+      end
+
+      operation 130690 "append_text"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "text" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+converts the TEXT version of the email to be sent to be appended to the email 
+
+@param ${t0} ${p0}
+"
+      end
+
+      operation 130818 "append_file"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "file" explicit_type "String"
+	  param inout name "type" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+converts the TEXT version of the email to be sent to be appended to the email 
+
+@param ${t0} ${p0} file path to the, or file content
+@param ${t1} ${p1} Mime type of the thaile attached 
+"
+      end
+
+      operation 130946 "setHTMLtemplate"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "template" explicit_type "String"
+	  param inout name "content" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Create a HTML email using the base template class 
+
+@param ${t0} ${p0} path to template
+@param ${t1} ${p1} array of assigned varable converstion 
+@see template::assignArray
+"
+      end
+
+      operation 131074 "setTXTtemplate"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "table" explicit_type "String"
+	  param inout name "content" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will create and output from Form Class standardised format String  
+To create a TEXT email in a reable format
+
+@todo confirm this is correct 
+@param ${t0} ${p0} Form Class standardised format String
+@param ${t1} ${p1} Content 
+"
+      end
+
+      operation 131202 "sender"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "from" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set the Sender info for header
+
+@param ${t0} ${p0} email of the sender 
+"
+      end
+
+      operation 131330 "subject"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "subject" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set the Subject line fo the email 
+@param ${t0} ${p0}
+"
+      end
+
+      operation 131458 "setHeader"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "header" explicit_type "Array"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set all other Header information as required 
+
+@param ${t0} ${p0} header param to header value
+"
+      end
+
+      operation 131586 "recordEmail"
+	package explicit_return_type ""
+	nparams 3
+	  param inout name "table" explicit_type "String"
+	  param inout name "content" explicit_type "String"
+	  param inout name "form_name" explicit_type "String"
+	    defaultvalue "NULL "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Record email into the database 
+
+@param ${t0} ${p0} table to store the email  
+@param ${t1} ${p1} content of the email 
+@param ${t2} ${p2} identifer of record, Default URI sent from  
+"
+      end
+
+      operation 131714 "send"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "to" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+compile and Send email  
+ 
+@param ${t0} ${p0} Email address to send too;
+"
+      end
+    end
+
+    class 128642 "CustomException"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+CustomException Class,
+<br />
+Generates a custom exception<br />
+
+Example:<br />
+<br />
+throw an exception <br />
+<br />
+if(empty($value)){<br />
+		throw new CustomException('value can not be empty');<br />
+}<br />
+
+try/catch<br />
+<br />
+try{<br />
+		$db->query('SELECT * FROM notable ');<br />
+}catch(CustomException $e){<br />
+		echo $e->logError();<br />
+}<br />
+
+@author Jason Stewart <jason@lexxcom.com.au>
+@version 1.0
+@package PeopleScope
+
+
+Generates a custom exception
+
+@package PeopleScope
+@subpackage Base
+"
+      classrelation 128130 // <generalisation>
+	relation 128130 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 128130 // <generalisation>
+	  b parent class_ref 128770 // Exception
+      end
+
+      operation 131842 "messageError"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 131970 "logError"
+	public explicit_return_type "string"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Generate a formated excption error
+
+@return ${type} Html Format
+"
+      end
+
+      operation 132098 "queryError"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "query" explicit_type "$query"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will append the query being used to the begining of a logError output
+
+This is used to create an exception error for query execution, to produce
+error that also have the query displayed with in the error output
+
+@param ${t0} Sql query that was being used at the time of execution
+"
+      end
+    end
+
+    class 128898 "form"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+Form Class,
+<br />
+This class is used to take a input String in a standardised format and convert to a Html Form <br />
+
+Example:<br />
+<br />
+$formVars = \"<br />
+Title*:1:select:Ms|Ms,Mrs|Mrs,Miss|Miss,Mr|Mr:::required:notype<br />
+Home Phone:5:editor::400|400:::optional:notype<br />
+First Name*:2:text::::required:notype<br />
+Last Name*:3:text::::required:notype<br />
+Work Phone:4:text::::optional:notype<br />
+Home Phone:5:text::::optional:notype<br />
+Mobile Phone*:6:text::::required:notype<br />
+Email*:7:text::::required:notype<br />
+Address:8:textarea::::optional:notype<br />
+Suburb:9:text::::optional:notype\";<br />
+<br />
+<br />
+$form = new form($formVars);<br />
+$formVal = $form->formHeader('');<br />
+$formVal .= $form->draw();<br />
+$formVal .= $form->freeFormSubmit();<br />
+$formVal .= $form->formFooter();<br />
+<br />
+echo $formVal<br />
+
+@author Jason Stewart <jason@lexxcom.com.au>
+@version 1.0
+@package PeopleScope
+@subpackage Base
+
+
+This class is used to take a input String in a standardised format and convert to a Html Form
+
+@package PeopleScope
+@subpackage Base
+"
+      classrelation 128258 // <generalisation>
+	relation 128258 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 128258 // <generalisation>
+	  b parent class_ref 129026 // table
+      end
+
+      attribute 130050 "db"
+	package explicit_type "Object"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Database object
+@var ${type} 
+"
+      end
+
+      attribute 130178 "form"
+	package explicit_type "String"
+	init_value "\"\""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Holds string value for form builder
+@var ${type}  
+"
+      end
+
+      attribute 130306 "enctype"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Form enctype type
+@var ${type} 
+"
+      end
+
+      attribute 130434 "formScript"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Java scripts reloaded to this class 
+@var ${type}  
+"
+      end
+
+      attribute 130562 "fck_width"
+	package explicit_type "Integer"
+	init_value " 300"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Width size of fck editor
+@var ${type}
+"
+      end
+
+      attribute 130690 "fck_height"
+	package explicit_type "Integer"
+	init_value " 500"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Height size of fck editor
+@var ${type}
+"
+      end
+
+      attribute 130818 "autoRefresh"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "var $template;
+
+JavaScript handle onChange for Form input types command
+
+@todo should be removed for JQuery ready({}) 
+@var ${type}
+"
+      end
+
+      attribute 130946 "autoRefreshcheckboxs"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+JavaScript handle onClick for Form input types command
+use this for check boxes and radio
+@todo should be removed for JQuery ready({}) 
+@var ${type}
+"
+      end
+
+      attribute 131074 "autoRefreshInputEnter"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+JavaScript handle onkeyup for Form input types command
+user this to to action on an text input with an enter button
+@todo should be removed for JQuery ready({}) 
+@var ${type}
+"
+      end
+
+      attribute 131202 "fck_configUrl"
+	package explicit_type "String"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment "
+Url Tor find fck config file 
+@var ${type} 
+"
+      end
+
+      operation 132226 "__construct"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "form" explicit_type "String"
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Consrtructor 
+
+@param ${t0} ${p0} input values for form information 
+@return ${type}
+"
+      end
+
+      operation 132354 "form"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "form" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Consrtructor php4 
+
+@param ${t0} ${p0} input values for form information 
+@return ${type}
+"
+      end
+
+      operation 132482 "formScript"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "script" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set onSubmit Form scripts
+
+@todo should be removed for JQuery ready({}) 
+@param ${t0} ${p0} Javascript command or function
+@return ${type}
+"
+      end
+
+      operation 132610 "freeFormSubmit"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "value" explicit_type "String"
+	    defaultvalue "'Submit'"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Standards Submit Button 
+@param ${t0} ${p0} Button lable/Name
+@return ${type}
+"
+      end
+
+      operation 132738 "formHeader"
+	package explicit_return_type "string"
+	nparams 3
+	  param inout name "action" explicit_type "String"
+	  param inout name "method" explicit_type "String"
+	    defaultvalue "NULL"
+	  param inout name "formname" explicit_type "String"
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Setup the form tag ready for the inputs 
+   
+@param ${t0} ${p0} Form action parameter 
+@param ${t1} ${p1} Form Method parameter 
+@param ${t2} ${p2} Form Name and Id parameter 
+@return ${type} 
+"
+      end
+
+      operation 132866 "formFooter"
+	package explicit_return_type "String"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Setup closing form tag
+  
+@return ${type} 
+"
+      end
+
+      operation 132994 "draw"
+	package explicit_return_type "String"
+	nparams 1
+	  param inout name "column" explicit_type "Integer"
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Will Generated the required input fields from the $this->form information
+information can be broken up using the string '-------'
+
+@param ${t0} ${p0} Define which column shold be returned
+@return ${type} Html version on the generated input fields
+"
+      end
+
+      operation 133122 "edit"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "input" explicit_type ""
+	  param inout name "type" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 133250 "SetFckConfigUrl"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "url" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set a alternate FCK config file path
+
+@param ${t0} ${p0} Url to new config file
+@return ${type}
+"
+      end
+
+      operation 133378 "inputfield"
+	package explicit_return_type "Html"
+	nparams 1
+	  param inout name "input" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Takes in a standard single row from $this->form information and 
+generated and html form input string 
+ 
+@param ${t0} ${p0} string eg. State:10:select:ACT|ACT,NSW|NSW,VIC|VIC,QLD|QLD,SA|SA,NT|NT,WA|WA,TAS|TAS:::optional:notype
+@return ${type} form input 
+"
+      end
+
+      operation 133506 "setAutoRefresh"
+	package explicit_return_type "void"
+	nparams 1
+	  param inout name "command" explicit_type "String"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set the AutoRefresh function command 
+
+@todo should be removed for JQuery ready({}) 
+@param ${t0} ${p0} Javascript code or function 
+@return ${type}
+"
+      end
+
+      operation 133634 "unsetAutoRefresh"
+	package explicit_return_type "void"
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Remove the AutoRefresh function command  
+
+@todo should be removed for JQuery ready({}) 
+@return ${type}
+"
+      end
+    end
+
+    class 129026 "table"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+Template Class, 
+<br />
+This class is used to take a input to generate templates<br /> 
+
+Example:<br />
+<br />
+$template = new template('template/index.html');<br />
+<br />
+$template->assign('var1', 'Employment list');<br />
+$template->assignArray(array{'var2'=>'John', 'var3'=>'mary', 'var4'=>'<strong>frank</strong>'});<br />
+<br />
+$ArrayVars[0]['name'] = 'john';<br />
+$ArrayVars[0]['age'] = '14';<br />
+$ArrayVars[1]['name'] = 'mary';<br />
+$ArrayVars[1]['age'] = '42';<br />
+$ArrayVars[2]['name'] = 'frank';<br />
+$ArrayVars[2]['age'] = '98';<br />
+<br />
+$template->assignRepeat('agelist', $ArrayVars);<br />
+$template->replace('../', '../../');<br />
+<br />
+$template->display();<br />
+<br />
+ 
+@author Jason Stewart <jason@lexxcom.com.au>
+@version 1.0
+@package PeopleScope
+@subpackage Base
+"
+      attribute 132098 "identifier"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132226 "headerArray"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132354 "filterArray"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132482 "removeColumnArray"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132610 "columnsWidth"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132738 "id"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132866 "name"
+	private explicit_type ""
+	init_value " 'list'"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 132994 "basePage"
+	private explicit_type ""
+	init_value " NULL"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133122 "row_class_name"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133250 "row_class_field_name"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133378 "link_action"
+	private explicit_type ""
+	init_value " 'show'"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133506 "link_field"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133634 "footer"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133762 "nolink"
+	private explicit_type ""
+	init_value " false"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 133890 "rowsOnly"
+	private explicit_type ""
+	init_value " false"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134018 "SEOurl"
+	private explicit_type ""
+	init_value "SEO_LINK"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 134914 "__construct"
+	package explicit_return_type ""
+	nparams 1
+	  param inout name "id" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135042 "__destruct"
+	package explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135170 "setHeader"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "headerArray" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135298 "setRowsOnly"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135426 "setFooter"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "field" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135554 "setFilter"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "filterArray" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135682 "removeColumn"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "columnArray" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135810 "setColumnsWidth"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "columnWidthArray" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 135938 "setColumnsClass"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "columnClassArray" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136066 "setIdentifier"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "field" explicit_type ""
+	  param inout name "no_link" explicit_type ""
+	    defaultvalue "false"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136194 "setLinkAction"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "action" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136322 "setLinkField"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "action" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136450 "setIdentifierPage"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "page" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136578 "setTableName"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "name" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136706 "setBasePage"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "basepage" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136834 "setPrimaryId"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "id" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 136962 "setRowClassName"
+	public explicit_return_type "void"
+	nparams 1
+	  param inout name "name" explicit_type "$name"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Set the Class name for a Row in the table
+@param ${t0}
+@return ${type}
+"
+      end
+
+      operation 137090 "setRowClassFieldName"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "name" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 137218 "genterateDisplayTable"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "content" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 137346 "getFilterType"
+	private explicit_return_type ""
+	nparams 3
+	  param inout name "type" explicit_type ""
+	  param inout name "key" explicit_type ""
+	  param inout name "content" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 137474 "getOrderType"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "type" explicit_type ""
+	  param inout name "key" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 137602 "buildTd"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "key" explicit_type ""
+	  param inout name "value" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 137730 "buildWhereArrayFromRequest"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "full_like" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 129154 "RainTPL"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "
+Load and draw templates
+
+"
+      attribute 131330 "tpl_dir"
+	class_attribute package explicit_type ""
+	init_value " \"tpl/\""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " CONFIGURATION //"
+      end
+
+      attribute 131458 "cache_dir"
+	class_attribute package explicit_type ""
+	init_value " \"tmp/\""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " CONFIGURATION //"
+      end
+
+      attribute 131586 "base_url"
+	class_attribute package explicit_type ""
+	init_value " null"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " CONFIGURATION //"
+      end
+
+      attribute 131714 "var"
+	public explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " template base url (useful for absolute path eg. http://www.raintpl.com )
+ CONFIGURATION //"
+      end
+
+      attribute 131842 "tpl"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " template var"
+      end
+
+      attribute 131970 "static_cache"
+	private explicit_type ""
+	init_value " false"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+	comment " template var"
+      end
+
+      operation 133762 "assign"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "variable" explicit_type ""
+	  param inout name "value" explicit_type "mixed"
+	    defaultvalue "null "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment " static cache enabled / disabled
+
+Assign variable
+eg. 	$t->assign('name','duck');
+
+@param ${t2} $variable_name Name of template variable or associative array name/value
+@param ${t1} ${p1} value assigned to this variable. Not set if variable_name is an associative array
+"
+      end
+
+      operation 133890 "draw"
+	package explicit_return_type "string"
+	nparams 2
+	  param inout name "tpl_name" explicit_type "string"
+	  param inout name "return_string" explicit_type "boolean"
+	    defaultvalue "false "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Draw the template
+eg. 	$html = $tpl->draw( 'demo', TRUE ); // return template in string
+or 	$tpl->draw( $tpl_name ); // echo the template
+
+@param ${t0} ${p0}  template to load
+@param ${t1} ${p1}  true=return a string, false=echo the template
+@return ${type}
+"
+      end
+
+      operation 134018 "cache"
+	package explicit_return_type ""
+	nparams 2
+	  param inout name "tpl_name" explicit_type ""
+	  param inout name "expire_time" explicit_type ""
+	    defaultvalue "RAINTPL_CACHE_EXPIRE_TIME "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment " by default the expire time is an hour"
+      end
+
+      operation 134146 "check_template"
+	private explicit_return_type ""
+	nparams 1
+	  param inout name "tpl_name" explicit_type ""
+	    defaultvalue "null "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment " check if has to compile the template"
+      end
+
+      operation 134274 "compileFile"
+	private explicit_return_type ""
+	nparams 4
+	  param inout name "tpl_basedir" explicit_type ""
+	  param inout name "tpl_filename" explicit_type ""
+	  param inout name "cache_dir" explicit_type ""
+	  param inout name "cache_filename" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}, ${p3}${v3}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Compile and write the compiled template file
+@access ${visibility}
+"
+      end
+
+      operation 134402 "compileTemplate"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "template_code" explicit_type ""
+	  param inout name "tpl_basedir" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Compile template
+@access ${visibility}
+"
+      end
+
+      operation 134530 "compileCode"
+	private explicit_return_type ""
+	nparams 2
+	  param inout name "parsed_code" explicit_type ""
+	  param inout name "tpl_basedir" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Compile the code
+@access ${visibility}
+"
+      end
+
+      operation 134658 "path_replace"
+	private explicit_return_type "string"
+	nparams 2
+	  param inout name "html" explicit_type "string"
+	  param inout name "tpl_basedir" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+replace the path of image src, link href
+url => template_dir/url
+url# => url
+http://url => http://url
+
+@param ${t0} ${p0} 
+@return ${type} html sostituito
+"
+      end
+
+      operation 134786 "var_replace"
+	package explicit_return_type "string"
+	nparams 7
+	  param inout name "html" explicit_type "string"
+	  param inout name "tag_left_delimiter" explicit_type "string"
+	  param inout name "tag_right_delimiter" explicit_type "string"
+	  param inout name "php_left_delimiter" explicit_type "string"
+	    defaultvalue "null"
+	  param inout name "php_right_delimiter" explicit_type "string"
+	    defaultvalue "null"
+	  param inout name "loop_name" explicit_type "string"
+	    defaultvalue "null"
+	  param inout name "echo" explicit_type "string"
+	    defaultvalue "null "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}, ${p3}${v3}, ${p4}${v4}, ${p5}${v5}, ${p6}${v6}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Variable substitution
+
+@param ${t0} ${p0} Html code
+@param ${t1} ${p1} default {
+@param ${t2} ${p2} default }
+@param ${t3} ${p3} default <?php=
+@param ${t4} ${p4}  default ;?>
+@param ${t5} ${p5} Loop name
+@param ${t6} ${p6} if is true make the variable echo
+@return ${type} Replaced code
+"
+      end
+    end
+
+    class 129282 "template"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      attribute 134146 "db_connect"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134274 "db"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134402 "layout"
+	private explicit_type ""
+	init_value " 'layout.tpl.html'"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134530 "headerArray"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134658 "filterArray"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134786 "template"
+	private explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 134914 "scriptHead"
+	private explicit_type ""
+	init_value " array()"
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 137858 "__construct"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "layout" explicit_type "String"
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${visibility}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+Constructor for template class 
+
+This method will take string to define a main layout for the site, if nothing given the it will look for a 
+file called layout.tpl.html, If the param is 'blank' it will return no layout 
+
+template file must have the template param {*CONTENT*} in then as a location for assigned var to go
+
+example:
+$template = new template() // will use layout.tpl.html for layout
+$template = new template('indexfile.php')  // will use indexfile.php for layout
+$template = new template('blank')  // will use no layout and just output the assigns
+ 
+@param ${t0} ${p0} A name of a html in in the /temple dir to use for main layout or Blamk for no layout
+"
+      end
+
+      operation 137986 "__destruct"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138114 "scriptHeading"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "script" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138242 "page"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "field" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138370 "insert"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "template" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138498 "content"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "field" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138626 "assign"
+	public explicit_return_type ""
+	nparams 3
+	  param inout name "field" explicit_type ""
+	  param inout name "value" explicit_type ""
+	  param inout name "tpl" explicit_type ""
+	    defaultvalue "NULL "
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, & ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138754 "fetch"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "tpl" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}& ${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 138882 "display"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139010 "formatBoolean"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "value" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139138 "formatValue"
+	public explicit_return_type ""
+	nparams 2
+	  param inout name "value" explicit_type ""
+	  param inout name "msg" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139266 "getListTable"
+	public explicit_return_type ""
+	nparams 6
+	  param inout name "table" explicit_type ""
+	  param inout name "value" explicit_type ""
+	  param inout name "idField" explicit_type ""
+	  param inout name "valueField" explicit_type ""
+	  param inout name "selectBox" explicit_type ""
+	    defaultvalue "NULL"
+	  param inout name "WHERE" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}, ${p3}${v3}, ${p4}${v4}, ${p5}${v5}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139394 "input"
+	public explicit_return_type ""
+	nparams 3
+	  param inout name "type" explicit_type ""
+	  param inout name "name" explicit_type ""
+	  param inout name "value" explicit_type ""
+	    defaultvalue "NULL"
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139522 "strip_tags"
+	private explicit_return_type ""
+	nparams 1
+	  param inout name "string" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 139650 "externalLink"
+	public explicit_return_type ""
+	nparams 1
+	  param inout name "link" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+  end
+end

@@ -1,0 +1,754 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:svg="http://www.w3.org/2000/svg">
+
+<head>
+<title>esurveyit
+Documentation</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">esurveyit<br />Documentation</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref22_129"></a>
+<p>Properties:</p><ul>
+<li>html dir:<br /><div class="sub">w:/esurveyit/Document/uml/New Folder 1/</div></li>
+</ul>
+<a name="ref22_128002"></a>
+<h1 class ="package">1 Package esurveyit</h1>
+<div class="sub">
+<a name="ref21_128002"></a>
+<h2 class ="view">1.1 Deployment View esurveyit</h2>
+<div class="sub">
+<a name="ref8_128002"></a>
+<table><tr><td><div class="element">Artifact <b>arraytable.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128002"><b>arrayTable</b></a></p>
+<a name="ref8_128130"></a>
+<table><tr><td><div class="element">Artifact <b>index</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_128258"></a>
+<table><tr><td><div class="element">Artifact <b>parse</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_128386"></a>
+<table><tr><td><div class="element">Artifact <b>survey</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128002"></a>
+<h2 class ="view">1.2 Class View esurveyit</h2>
+<div class="sub">
+<a name="ref4_128002"></a>
+<h3 class ="class">1.2.1 Class arrayTable</h3>
+<p>Declaration :</p><ul>
+<li>Php : class arrayTable </li></ul><p>Artifact : <a href="index.html#ref8_128002"><b>arraytable.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_128002"></a>
+<table><tr><td><div class="element">Operation <b>saveArray</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveArray(inout id : , inout val : ) : </li><li>Php : protected function saveArray($id, $val) </li></ul><a name="ref2_128130"></a>
+<table><tr><td><div class="element">Operation <b>saveSingle</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveSingle(inout id : , inout val : ) : </li><li>Php : protected function saveSingle($id, $val) </li></ul><a name="ref2_128258"></a>
+<table><tr><td><div class="element">Operation <b>saveMulti</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveMulti(inout id : , inout val : ) : </li><li>Php : protected function saveMulti($id, $val) </li></ul></div>
+</div>
+</div>
+<a name="ref22_128130"></a>
+<h2 class ="package">1.3 Package ajax</h2>
+<div class="sub">
+<a name="ref21_128130"></a>
+<h3 class ="view">1.3.1 Deployment View ajax</h3>
+<div class="sub">
+<a name="ref8_128514"></a>
+<table><tr><td><div class="element">Artifact <b>survey.ajax</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+</div>
+<a name="ref22_128258"></a>
+<h2 class ="package">1.4 Package classes</h2>
+<div class="sub">
+<a name="ref21_128258"></a>
+<h3 class ="view">1.4.1 Deployment View classes</h3>
+<div class="sub">
+<a name="ref8_128642"></a>
+<table><tr><td><div class="element">Artifact <b>question.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128130"><b>question</b></a></p>
+<a name="ref8_128770"></a>
+<table><tr><td><div class="element">Artifact <b>survey.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128130"></a>
+<h3 class ="view">1.4.2 Class View classes</h3>
+<div class="sub">
+<a name="ref4_128130"></a>
+<h4 class ="class">1.4.2.1 Class question</h4>
+<p>Declaration :</p><ul>
+<li>Php : class question </li></ul><p>Directly inherited by : <a href="index.html#refclass129410"><b>arrayClass</b></a> <a href="index.html#refclass129538"><b>checkboxClass</b></a> <a href="index.html#refclass129666"><b>radioClass</b></a> <a href="index.html#refclass129794"><b>selectClass</b></a> <a href="index.html#refclass128258"><b>survey</b></a> <a href="index.html#refclass130050"><b>textareaClass</b></a> <a href="index.html#refclass129922"><b>textClass</b></a> </p>
+<p>Artifact : <a href="index.html#ref8_128642"><b>question.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_128386"></a>
+<table><tr><td><div class="element">Operation <b>saveSingle</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveSingle(inout sid : , inout qid : , inout val : ) : </li><li>Php : protected function saveSingle($sid, $qid, $val) </li></ul><a name="ref2_128514"></a>
+<table><tr><td><div class="element">Operation <b>saveMulti</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveMulti(inout sid : , inout qid : , inout val : ) : </li><li>Php : protected function saveMulti($sid, $qid, $val) </li></ul><a name="ref2_128642"></a>
+<table><tr><td><div class="element">Operation <b>saveArray</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # saveArray(inout sid : , inout qid : , inout val : ) : </li><li>Php : protected function saveArray($sid, $qid, $val) </li></ul><a name="ref2_128770"></a>
+<table><tr><td><div class="element">Operation <b>getSingle</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # getSingle(inout qid : ) : </li><li>Php : protected function getSingle($qid) </li></ul><a name="ref2_128898"></a>
+<table><tr><td><div class="element">Operation <b>getMulti</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # getMulti(inout qid : ) : </li><li>Php : protected function getMulti($qid) </li></ul><a name="ref2_129026"></a>
+<table><tr><td><div class="element">Operation <b>getArray</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : # getArray(inout qid : ) : </li><li>Php : protected function getArray($qid) </li></ul></div>
+</div>
+<a name="ref4_128258"></a>
+<h4 class ="class">1.4.2.2 Class survey</h4>
+<p>Declaration :</p><ul>
+<li>Php : class survey extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_128002"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : - db_connect : Object</li><li>Php : private $db_connect</li></ul><a name="ref1_128130"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : - db : Object</li><li>Php : private $db</li></ul><a name="ref1_128258"></a>
+<table><tr><td><div class="element">Attribute <b>table</b></div></td></tr></table>
+<p>Table class object  <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : + table : Object</li><li>Php : public $table</li></ul><a name="ref1_128386"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Template class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : + template : Object</li><li>Php : public $template</li></ul><a name="ref1_128514"></a>
+<table><tr><td><div class="element">Attribute <b>fields</b></div></td></tr></table>
+<p>Array of field used in the database if not in this list is dropped from insert or update<br />@var Array<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields : Array = array('survey_id', 'account_id', 'survey_title', 'survey_description', 'survey_type', 'start_date', 'end_date', 'create_date', 'modify_date', 'delete_date')</li><li>Php : private $fields</li></ul><a name="ref1_128642"></a>
+<table><tr><td><div class="element">Attribute <b>fields_required</b></div></td></tr></table>
+<p>Array of feilds require information when validating <br />@var Array|null<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields_required : Array|null =  NULL</li><li>Php : private $fields_required</li></ul><a name="ref1_128770"></a>
+<table><tr><td><div class="element">Attribute <b>fields_validation_type</b></div></td></tr></table>
+<p>Array of feilds and there types that are check when validating <br />@var Array|null<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields_validation_type : Array|null =  array ('survey_id'=&gt;'INT', 'account_id'=&gt;'INT', 'survey_title'=&gt;'TEXT','survey_description'=&gt;'TEXTAREA', 'survey_type'=&gt;'TEXT', 'start_date'=&gt;'TEXT', 'end_date'=&gt;'TEXT', 'create_date'=&gt;'TEXT', 'modify_date'=&gt;'TEXT', 'delete_date'=&gt;'TEXT')</li><li>Php : private $fields_validation_type</li></ul><a name="ref1_128898"></a>
+<table><tr><td><div class="element">Attribute <b>validation_error</b></div></td></tr></table>
+<p>Array use to store any error found during Validation function <br />@see Validation()<br />@var Array<br /><br /></p><p>Declaration :</p><ul><li>Uml : - validation_error : Array =  array()</li><li>Php : private $validation_error</li></ul><a name="ref2_129154"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Contructor for this method <br /><br />&lt;pre&gt;<br />The constructor will setup the required object for this class <br />will initiate the database class, the table class and the template <br />for this class to use<br /><br /><br />&lt;div style="color:red"&gt;NOTE: This is generated information from the framework and will need to be corrected if there are any changes&lt;/div&gt;<br />&lt;/pre&gt;<br /><br />@see db::<br />@see table<br />@see template<br /><br /></p><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_129154"><b>__construct</b></a> </p>
+</div>
+<a name="ref22_128386"></a>
+<h3 class ="package">1.4.3 Package base</h3>
+<div class="sub">
+<a name="ref21_128386"></a>
+<h4 class ="view">1.4.3.1 Deployment View base</h4>
+<div class="sub">
+<a name="ref8_128898"></a>
+<table><tr><td><div class="element">Artifact <b>database.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128386"><b>db</b></a></p>
+<a name="ref8_129026"></a>
+<table><tr><td><div class="element">Artifact <b>email.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128514"><b>email</b></a></p>
+<a name="ref8_129154"></a>
+<table><tr><td><div class="element">Artifact <b>errorhandler.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128642"><b>CustomException</b></a></p>
+<a name="ref8_129282"></a>
+<table><tr><td><div class="element">Artifact <b>form.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass128898"><b>form</b></a></p>
+<a name="ref8_129410"></a>
+<table><tr><td><div class="element">Artifact <b>rain.tpl.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass129154"><b>RainTPL</b></a></p>
+<a name="ref8_129538"></a>
+<table><tr><td><div class="element">Artifact <b>table.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass129026"><b>table</b></a></p>
+<a name="ref8_129666"></a>
+<table><tr><td><div class="element">Artifact <b>template.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass129282"><b>template</b></a></p>
+<a name="ref8_129794"></a>
+<table><tr><td><div class="element">Artifact <b>template.old.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_129922"></a>
+<table><tr><td><div class="element">Artifact <b>tools.function</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128258"></a>
+<h4 class ="view">1.4.3.2 Class View base</h4>
+<div class="sub">
+<a name="ref4_128386"></a>
+<h4 class ="class">1.4.3.2.1 Class db</h4>
+<p>This class is Database abstraction layer<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class db </li></ul><p>Artifact : <a href="index.html#ref8_128898"><b>database.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_129026"></a>
+<table><tr><td><div class="element">Attribute <b>dsn</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ dsn : </li><li>Php :  var $dsn</li></ul><a name="ref1_129154"></a>
+<table><tr><td><div class="element">Attribute <b>dbh</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ dbh : </li><li>Php :  var $dbh</li></ul><a name="ref1_129282"></a>
+<table><tr><td><div class="element">Attribute <b>lastQuery</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ lastQuery : </li><li>Php :  var $lastQuery</li></ul><a name="ref2_129282"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>constructor to initiate database conection <br /><br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ __construct() : Void</li><li>Php :  function __construct() </li></ul><a name="ref2_129410"></a>
+<table><tr><td><div class="element">Operation <b>getDNSString</b></div></td></tr></table><p>returns current DSN string used to connect ot the server <br /><br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + getDNSString() : String</li><li>Php : public function getDNSString() </li></ul><a name="ref2_129538"></a>
+<table><tr><td><div class="element">Operation <b>select</b></div></td></tr></table><p>Will instigate a SELECT query and return and an array of responses <br /><br />@param String $sql select sql string to be executed <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + select(inout sql : String) : Array</li><li>Php : public function select($sql) </li></ul><a name="ref2_129666"></a>
+<table><tr><td><div class="element">Operation <b>insert</b></div></td></tr></table><p>Will instigate a INSERT query and return the inserts autocomplete Id;<br /><br />@param String $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + insert(inout sql : String, inout exec :  = NULL) : Array</li><li>Php : public function insert($sql, $exec = NULL) </li></ul><a name="ref2_129794"></a>
+<table><tr><td><div class="element">Operation <b>delete</b></div></td></tr></table><p>Will instigate a DELETE query and return true if no problems;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + delete(inout sql : string) : Array</li><li>Php : public function delete($sql) </li></ul><a name="ref2_129922"></a>
+<table><tr><td><div class="element">Operation <b>update</b></div></td></tr></table><p>Will instigate a UPDATE query and return true if no problems;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + update(inout sql : string, inout exec :  = NULL) : array</li><li>Php : public function update($sql, $exec = NULL) </li></ul><a name="ref2_130050"></a>
+<table><tr><td><div class="element">Operation <b>query</b></div></td></tr></table><p>Will instegate a query and return a recordset;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + query(inout sql : string, inout exec :  = NULL) : array</li><li>Php : public function query($sql, $exec = NULL) </li></ul><a name="ref2_130178"></a>
+<table><tr><td><div class="element">Operation <b>prepareToQuery</b></div></td></tr></table><p>Merge query template with array <br /><br />Query template and array set merger function <br />Will taken in the Query string template and the array of query elements<br />and combine the to show the fully converted string used in the prepare <br />Note: only use as example for debugging purposes<br /> <br />@param string $query Query template  <br />@param array $params Array of inputs <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + prepareToQuery(inout query : string, inout params : array) : string</li><li>Php : public function prepareToQuery($query, $params) </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_129794"><b>delete</b></a> , <a href="index.html#ref2_129410"><b>getDNSString</b></a> , <a href="index.html#ref2_129666"><b>insert</b></a> , <a href="index.html#ref2_130178"><b>prepareToQuery</b></a> , <a href="index.html#ref2_130050"><b>query</b></a> , <a href="index.html#ref2_129538"><b>select</b></a> , <a href="index.html#ref2_129922"><b>update</b></a> </p>
+<a name="ref4_128514"></a>
+<h4 class ="class">1.4.3.2.2 Class email</h4>
+<p>This class is used create and send email&lt;br /&gt;<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class email </li></ul><p>Artifact : <a href="index.html#ref8_129026"><b>email.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_129410"></a>
+<table><tr><td><div class="element">Attribute <b>crlf</b></div></td></tr></table>
+<p>Carrage return<br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ crlf : String =  "\n"</li><li>Php :  var $crlf</li></ul><a name="ref1_129538"></a>
+<table><tr><td><div class="element">Attribute <b>mime</b></div></td></tr></table>
+<p>Set Mime Type<br />@var unknown_type<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ mime : unknown_type</li><li>Php :  var $mime</li></ul><a name="ref1_129666"></a>
+<table><tr><td><div class="element">Attribute <b>mail</b></div></td></tr></table>
+<p>Mail Object<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ mail : Object</li><li>Php :  var $mail</li></ul><a name="ref1_129794"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Template Object<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ template : Object</li><li>Php :  var $template</li></ul><a name="ref1_129922"></a>
+<table><tr><td><div class="element">Attribute <b>header</b></div></td></tr></table>
+<p>Mail Header information <br />@var Araay<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ header : Araay</li><li>Php :  var $header</li></ul><a name="ref2_130306"></a>
+<table><tr><td><div class="element">Operation <b>_construct</b></div></td></tr></table><p>Constructor for Email php5 <br /><br />@param unknown_type $type<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ _construct() : </li><li>Php :  function _construct() </li></ul><a name="ref2_130434"></a>
+<table><tr><td><div class="element">Operation <b>email</b></div></td></tr></table><p>Constructor for Email php4 <br /><br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ email() : </li><li>Php :  function email() </li></ul><a name="ref2_130562"></a>
+<table><tr><td><div class="element">Operation <b>append_html</b></div></td></tr></table><p>converts the HTML version of the email to be sent to be appended to the email <br /><br />@param String $html<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_html(inout html : String) : </li><li>Php :  function append_html($html) </li></ul><a name="ref2_130690"></a>
+<table><tr><td><div class="element">Operation <b>append_text</b></div></td></tr></table><p>converts the TEXT version of the email to be sent to be appended to the email <br /><br />@param String $text<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_text(inout text : String) : </li><li>Php :  function append_text($text) </li></ul><a name="ref2_130818"></a>
+<table><tr><td><div class="element">Operation <b>append_file</b></div></td></tr></table><p>converts the TEXT version of the email to be sent to be appended to the email <br /><br />@param String $file file path to the, or file content<br />@param String $type Mime type of the thaile attached <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ append_file(inout file : String, inout type : String) : </li><li>Php :  function append_file($file, $type) </li></ul><a name="ref2_130946"></a>
+<table><tr><td><div class="element">Operation <b>setHTMLtemplate</b></div></td></tr></table><p>Create a HTML email using the base template class <br /><br />@param String $template path to template<br />@param String $content array of assigned varable converstion <br />@see template::assignArray<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setHTMLtemplate(inout template : String, inout content : String) : </li><li>Php :  function setHTMLtemplate($template, $content) </li></ul><a name="ref2_131074"></a>
+<table><tr><td><div class="element">Operation <b>setTXTtemplate</b></div></td></tr></table><p>Will create and output from Form Class standardised format String  <br />To create a TEXT email in a reable format<br /><br />@todo confirm this is correct <br />@param String $table Form Class standardised format String<br />@param String $content Content <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setTXTtemplate(inout table : String, inout content : String) : </li><li>Php :  function setTXTtemplate($table, $content) </li></ul><a name="ref2_131202"></a>
+<table><tr><td><div class="element">Operation <b>sender</b></div></td></tr></table><p>Set the Sender info for header<br /><br />@param String $from email of the sender <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ sender(inout from : String) : </li><li>Php :  function sender($from) </li></ul><a name="ref2_131330"></a>
+<table><tr><td><div class="element">Operation <b>subject</b></div></td></tr></table><p>Set the Subject line fo the email <br />@param String $subject<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ subject(inout subject : String) : </li><li>Php :  function subject($subject) </li></ul><a name="ref2_131458"></a>
+<table><tr><td><div class="element">Operation <b>setHeader</b></div></td></tr></table><p>Set all other Header information as required <br /><br />@param Array $header header param to header value<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setHeader(inout header : Array) : </li><li>Php :  function setHeader($header) </li></ul><a name="ref2_131586"></a>
+<table><tr><td><div class="element">Operation <b>recordEmail</b></div></td></tr></table><p>Record email into the database <br /><br />@param String $table table to store the email  <br />@param String $content content of the email <br />@param String $form_name identifer of record, Default URI sent from  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ recordEmail(inout table : String, inout content : String, inout form_name : String = NULL ) : </li><li>Php :  function recordEmail($table, $content, $form_name = NULL ) </li></ul><a name="ref2_131714"></a>
+<table><tr><td><div class="element">Operation <b>send</b></div></td></tr></table><p>compile and Send email  <br /> <br />@param String $to Email address to send too;<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ send(inout to : String) : </li><li>Php :  function send($to) </li></ul></div>
+</div>
+<a name="ref4_128642"></a>
+<h4 class ="class">1.4.3.2.3 Class CustomException</h4>
+<p>CustomException Class,<br />&lt;br /&gt;<br />Generates a custom exception&lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />throw an exception &lt;br /&gt;<br />&lt;br /&gt;<br />if(empty($value)){&lt;br /&gt;<br />		throw new CustomException('value can not be empty');&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />try/catch&lt;br /&gt;<br />&lt;br /&gt;<br />try{&lt;br /&gt;<br />		$db-&gt;query('SELECT * FROM notable ');&lt;br /&gt;<br />}catch(CustomException $e){&lt;br /&gt;<br />		echo $e-&gt;logError();&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br /><br /><br />Generates a custom exception<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class CustomException extends <a href="index.html#refclass128770"><b>Exception</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_129154"><b>errorhandler.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_131842"></a>
+<table><tr><td><div class="element">Operation <b>messageError</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + messageError() : </li><li>Php : public function messageError() </li></ul><a name="ref2_131970"></a>
+<table><tr><td><div class="element">Operation <b>logError</b></div></td></tr></table><p>Generate a formated excption error<br /><br />@return ${type} Html Format<br /><br /></p><p>Declaration :</p><ul><li>Uml : + logError() : string</li><li>Php : public function logError() </li></ul><a name="ref2_132098"></a>
+<table><tr><td><div class="element">Operation <b>queryError</b></div></td></tr></table><p>Will append the query being used to the begining of a logError output<br /><br />This is used to create an exception error for query execution, to produce<br />error that also have the query displayed with in the error output<br /><br />@param $query Sql query that was being used at the time of execution<br /><br /></p><p>Declaration :</p><ul><li>Uml : + queryError(inout query : $query) : </li><li>Php : public function queryError($query) </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_131970"><b>logError</b></a> , <a href="index.html#ref2_131842"><b>messageError</b></a> , <a href="index.html#ref2_132098"><b>queryError</b></a> </p>
+<a name="ref4_128898"></a>
+<h4 class ="class">1.4.3.2.4 Class form</h4>
+<p>Form Class,<br />&lt;br /&gt;<br />This class is used to take a input String in a standardised format and convert to a Html Form &lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$formVars = "&lt;br /&gt;<br />Title*:1:select:Ms|Ms,Mrs|Mrs,Miss|Miss,Mr|Mr:::required:notype&lt;br /&gt;<br />Home Phone:5:editor::400|400:::optional:notype&lt;br /&gt;<br />First Name*:2:text::::required:notype&lt;br /&gt;<br />Last Name*:3:text::::required:notype&lt;br /&gt;<br />Work Phone:4:text::::optional:notype&lt;br /&gt;<br />Home Phone:5:text::::optional:notype&lt;br /&gt;<br />Mobile Phone*:6:text::::required:notype&lt;br /&gt;<br />Email*:7:text::::required:notype&lt;br /&gt;<br />Address:8:textarea::::optional:notype&lt;br /&gt;<br />Suburb:9:text::::optional:notype";&lt;br /&gt;<br />&lt;br /&gt;<br />&lt;br /&gt;<br />$form = new form($formVars);&lt;br /&gt;<br />$formVal = $form-&gt;formHeader('');&lt;br /&gt;<br />$formVal .= $form-&gt;draw();&lt;br /&gt;<br />$formVal .= $form-&gt;freeFormSubmit();&lt;br /&gt;<br />$formVal .= $form-&gt;formFooter();&lt;br /&gt;<br />&lt;br /&gt;<br />echo $formVal&lt;br /&gt;<br /><br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br />@subpackage Base<br /><br /><br />This class is used to take a input String in a standardised format and convert to a Html Form<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class form extends <a href="index.html#refclass129026"><b>table</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_129282"><b>form.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_130050"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database object<br />@var Object <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ db : Object</li><li>Php :  var $db</li></ul><a name="ref1_130178"></a>
+<table><tr><td><div class="element">Attribute <b>form</b></div></td></tr></table>
+<p>Holds string value for form builder<br />@var String  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ form : String = ""</li><li>Php :  var $form</li></ul><a name="ref1_130306"></a>
+<table><tr><td><div class="element">Attribute <b>enctype</b></div></td></tr></table>
+<p>Form enctype type<br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ enctype : String</li><li>Php :  var $enctype</li></ul><a name="ref1_130434"></a>
+<table><tr><td><div class="element">Attribute <b>formScript</b></div></td></tr></table>
+<p>Java scripts reloaded to this class <br />@var String  <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formScript : String</li><li>Php :  var $formScript</li></ul><a name="ref1_130562"></a>
+<table><tr><td><div class="element">Attribute <b>fck_width</b></div></td></tr></table>
+<p>Width size of fck editor<br />@var Integer<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_width : Integer =  300</li><li>Php :  var $fck_width</li></ul><a name="ref1_130690"></a>
+<table><tr><td><div class="element">Attribute <b>fck_height</b></div></td></tr></table>
+<p>Height size of fck editor<br />@var Integer<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_height : Integer =  500</li><li>Php :  var $fck_height</li></ul><a name="ref1_130818"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefresh</b></div></td></tr></table>
+<p>var $template;<br /><br />JavaScript handle onChange for Form input types command<br /><br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefresh : String</li><li>Php :  var $autoRefresh</li></ul><a name="ref1_130946"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefreshcheckboxs</b></div></td></tr></table>
+<p>JavaScript handle onClick for Form input types command<br />use this for check boxes and radio<br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefreshcheckboxs : String</li><li>Php :  var $autoRefreshcheckboxs</li></ul><a name="ref1_131074"></a>
+<table><tr><td><div class="element">Attribute <b>autoRefreshInputEnter</b></div></td></tr></table>
+<p>JavaScript handle onkeyup for Form input types command<br />user this to to action on an text input with an enter button<br />@todo should be removed for JQuery ready({}) <br />@var String<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ autoRefreshInputEnter : String</li><li>Php :  var $autoRefreshInputEnter</li></ul><a name="ref1_131202"></a>
+<table><tr><td><div class="element">Attribute <b>fck_configUrl</b></div></td></tr></table>
+<p>Url Tor find fck config file <br />@var String <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ fck_configUrl : String</li><li>Php :  var $fck_configUrl</li></ul><a name="ref2_132226"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Consrtructor <br /><br />@param String $form input values for form information <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ __construct(inout form : String = NULL) : void</li><li>Php :  function __construct($form = NULL) </li></ul><a name="ref2_132354"></a>
+<table><tr><td><div class="element">Operation <b>form</b></div></td></tr></table><p>Consrtructor php4 <br /><br />@param String $form input values for form information <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ form(inout form : String) : void</li><li>Php :  function form($form) </li></ul><a name="ref2_132482"></a>
+<table><tr><td><div class="element">Operation <b>formScript</b></div></td></tr></table><p>Set onSubmit Form scripts<br /><br />@todo should be removed for JQuery ready({}) <br />@param String $script Javascript command or function<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formScript(inout script : String) : void</li><li>Php :  function formScript($script) </li></ul><a name="ref2_132610"></a>
+<table><tr><td><div class="element">Operation <b>freeFormSubmit</b></div></td></tr></table><p>Standards Submit Button <br />@param String $value Button lable/Name<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ freeFormSubmit(inout value : String = 'Submit') : void</li><li>Php :  function freeFormSubmit($value = 'Submit') </li></ul><a name="ref2_132738"></a>
+<table><tr><td><div class="element">Operation <b>formHeader</b></div></td></tr></table><p>Setup the form tag ready for the inputs <br />   <br />@param String $action Form action parameter <br />@param String $method Form Method parameter <br />@param String $formname Form Name and Id parameter <br />@return ${type} <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formHeader(inout action : String, inout method : String = NULL, inout formname : String = NULL) : string</li><li>Php :  function formHeader($action, $method = NULL, $formname = NULL) </li></ul><a name="ref2_132866"></a>
+<table><tr><td><div class="element">Operation <b>formFooter</b></div></td></tr></table><p>Setup closing form tag<br />  <br />@return ${type} <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ formFooter() : String</li><li>Php :  function formFooter() </li></ul><a name="ref2_132994"></a>
+<table><tr><td><div class="element">Operation <b>draw</b></div></td></tr></table><p>Will Generated the required input fields from the $this-&gt;form information<br />information can be broken up using the string '-------'<br /><br />@param Integer $column Define which column shold be returned<br />@return ${type} Html version on the generated input fields<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ draw(inout column : Integer = NULL) : String</li><li>Php :  function draw($column = NULL) </li></ul><a name="ref2_133122"></a>
+<table><tr><td><div class="element">Operation <b>edit</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ edit(inout input : , inout type :  = NULL) : </li><li>Php :  function edit($input, $type = NULL) </li></ul><a name="ref2_133250"></a>
+<table><tr><td><div class="element">Operation <b>SetFckConfigUrl</b></div></td></tr></table><p>Set a alternate FCK config file path<br /><br />@param String $url Url to new config file<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ SetFckConfigUrl(inout url : String) : void</li><li>Php :  function SetFckConfigUrl($url) </li></ul><a name="ref2_133378"></a>
+<table><tr><td><div class="element">Operation <b>inputfield</b></div></td></tr></table><p>Takes in a standard single row from $this-&gt;form information and <br />generated and html form input string <br /> <br />@param String $input string eg. State:10:select:ACT|ACT,NSW|NSW,VIC|VIC,QLD|QLD,SA|SA,NT|NT,WA|WA,TAS|TAS:::optional:notype<br />@return ${type} form input <br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ inputfield(inout input : String) : Html</li><li>Php :  function inputfield($input) </li></ul><a name="ref2_133506"></a>
+<table><tr><td><div class="element">Operation <b>setAutoRefresh</b></div></td></tr></table><p>Set the AutoRefresh function command <br /><br />@todo should be removed for JQuery ready({}) <br />@param String $command Javascript code or function <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ setAutoRefresh(inout command : String) : void</li><li>Php :  function setAutoRefresh($command) </li></ul><a name="ref2_133634"></a>
+<table><tr><td><div class="element">Operation <b>unsetAutoRefresh</b></div></td></tr></table><p>Remove the AutoRefresh function command  <br /><br />@todo should be removed for JQuery ready({}) <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ unsetAutoRefresh() : void</li><li>Php :  function unsetAutoRefresh() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_137730"><b>buildWhereArrayFromRequest</b></a> , <a href="index.html#ref2_137218"><b>genterateDisplayTable</b></a> , <a href="index.html#ref2_135682"><b>removeColumn</b></a> , <a href="index.html#ref2_136706"><b>setBasePage</b></a> , <a href="index.html#ref2_135938"><b>setColumnsClass</b></a> , <a href="index.html#ref2_135810"><b>setColumnsWidth</b></a> , <a href="index.html#ref2_135554"><b>setFilter</b></a> , <a href="index.html#ref2_135426"><b>setFooter</b></a> , <a href="index.html#ref2_135170"><b>setHeader</b></a> , <a href="index.html#ref2_136066"><b>setIdentifier</b></a> , <a href="index.html#ref2_136450"><b>setIdentifierPage</b></a> , <a href="index.html#ref2_136194"><b>setLinkAction</b></a> , <a href="index.html#ref2_136322"><b>setLinkField</b></a> , <a href="index.html#ref2_136834"><b>setPrimaryId</b></a> , <a href="index.html#ref2_137090"><b>setRowClassFieldName</b></a> , <a href="index.html#ref2_136962"><b>setRowClassName</b></a> , <a href="index.html#ref2_135298"><b>setRowsOnly</b></a> , <a href="index.html#ref2_136578"><b>setTableName</b></a> </p>
+<a name="ref4_129026"></a>
+<h4 class ="class">1.4.3.2.5 Class table</h4>
+<p>Template Class, <br />&lt;br /&gt;<br />This class is used to take a input to generate templates&lt;br /&gt; <br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$template = new template('template/index.html');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assign('var1', 'Employment list');&lt;br /&gt;<br />$template-&gt;assignArray(array{'var2'=&gt;'John', 'var3'=&gt;'mary', 'var4'=&gt;'&lt;strong&gt;frank&lt;/strong&gt;'});&lt;br /&gt;<br />&lt;br /&gt;<br />$ArrayVars[0]['name'] = 'john';&lt;br /&gt;<br />$ArrayVars[0]['age'] = '14';&lt;br /&gt;<br />$ArrayVars[1]['name'] = 'mary';&lt;br /&gt;<br />$ArrayVars[1]['age'] = '42';&lt;br /&gt;<br />$ArrayVars[2]['name'] = 'frank';&lt;br /&gt;<br />$ArrayVars[2]['age'] = '98';&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assignRepeat('agelist', $ArrayVars);&lt;br /&gt;<br />$template-&gt;replace('../', '../../');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;display();&lt;br /&gt;<br />&lt;br /&gt;<br /> <br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class table </li></ul><p>Directly inherited by : <a href="index.html#refclass128898"><b>form</b></a> </p>
+<p>Artifact : <a href="index.html#ref8_129538"><b>table.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_132098"></a>
+<table><tr><td><div class="element">Attribute <b>identifier</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - identifier : </li><li>Php : private $identifier</li></ul><a name="ref1_132226"></a>
+<table><tr><td><div class="element">Attribute <b>headerArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - headerArray :  =  array()</li><li>Php : private $headerArray</li></ul><a name="ref1_132354"></a>
+<table><tr><td><div class="element">Attribute <b>filterArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - filterArray :  =  array()</li><li>Php : private $filterArray</li></ul><a name="ref1_132482"></a>
+<table><tr><td><div class="element">Attribute <b>removeColumnArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - removeColumnArray :  =  array()</li><li>Php : private $removeColumnArray</li></ul><a name="ref1_132610"></a>
+<table><tr><td><div class="element">Attribute <b>columnsWidth</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - columnsWidth :  =  array()</li><li>Php : private $columnsWidth</li></ul><a name="ref1_132738"></a>
+<table><tr><td><div class="element">Attribute <b>id</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - id : </li><li>Php : private $id</li></ul><a name="ref1_132866"></a>
+<table><tr><td><div class="element">Attribute <b>name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - name :  =  'list'</li><li>Php : private $name</li></ul><a name="ref1_132994"></a>
+<table><tr><td><div class="element">Attribute <b>basePage</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - basePage :  =  NULL</li><li>Php : private $basePage</li></ul><a name="ref1_133122"></a>
+<table><tr><td><div class="element">Attribute <b>row_class_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - row_class_name : </li><li>Php : private $row_class_name</li></ul><a name="ref1_133250"></a>
+<table><tr><td><div class="element">Attribute <b>row_class_field_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - row_class_field_name : </li><li>Php : private $row_class_field_name</li></ul><a name="ref1_133378"></a>
+<table><tr><td><div class="element">Attribute <b>link_action</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - link_action :  =  'show'</li><li>Php : private $link_action</li></ul><a name="ref1_133506"></a>
+<table><tr><td><div class="element">Attribute <b>link_field</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - link_field : </li><li>Php : private $link_field</li></ul><a name="ref1_133634"></a>
+<table><tr><td><div class="element">Attribute <b>footer</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - footer : </li><li>Php : private $footer</li></ul><a name="ref1_133762"></a>
+<table><tr><td><div class="element">Attribute <b>nolink</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - nolink :  =  false</li><li>Php : private $nolink</li></ul><a name="ref1_133890"></a>
+<table><tr><td><div class="element">Attribute <b>rowsOnly</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - rowsOnly :  =  false</li><li>Php : private $rowsOnly</li></ul><a name="ref1_134018"></a>
+<table><tr><td><div class="element">Attribute <b>SEOurl</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - SEOurl :  = SEO_LINK</li><li>Php : private $SEOurl</li></ul><a name="ref2_134914"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ __construct(inout id :  = NULL) : </li><li>Php :  function __construct($id = NULL) </li></ul><a name="ref2_135042"></a>
+<table><tr><td><div class="element">Operation <b>__destruct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ __destruct() : </li><li>Php :  function __destruct() </li></ul><a name="ref2_135170"></a>
+<table><tr><td><div class="element">Operation <b>setHeader</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setHeader(inout headerArray : ) : </li><li>Php : public function setHeader($headerArray) </li></ul><a name="ref2_135298"></a>
+<table><tr><td><div class="element">Operation <b>setRowsOnly</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setRowsOnly() : </li><li>Php : public function setRowsOnly() </li></ul><a name="ref2_135426"></a>
+<table><tr><td><div class="element">Operation <b>setFooter</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setFooter(inout field : ) : </li><li>Php : public function setFooter($field) </li></ul><a name="ref2_135554"></a>
+<table><tr><td><div class="element">Operation <b>setFilter</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setFilter(inout filterArray : ) : </li><li>Php : public function setFilter($filterArray) </li></ul><a name="ref2_135682"></a>
+<table><tr><td><div class="element">Operation <b>removeColumn</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + removeColumn(inout columnArray : ) : </li><li>Php : public function removeColumn($columnArray) </li></ul><a name="ref2_135810"></a>
+<table><tr><td><div class="element">Operation <b>setColumnsWidth</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setColumnsWidth(inout columnWidthArray : ) : </li><li>Php : public function setColumnsWidth($columnWidthArray) </li></ul><a name="ref2_135938"></a>
+<table><tr><td><div class="element">Operation <b>setColumnsClass</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setColumnsClass(inout columnClassArray : ) : </li><li>Php : public function setColumnsClass($columnClassArray) </li></ul><a name="ref2_136066"></a>
+<table><tr><td><div class="element">Operation <b>setIdentifier</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setIdentifier(inout field : , inout no_link :  = false) : </li><li>Php : public function setIdentifier($field, $no_link = false) </li></ul><a name="ref2_136194"></a>
+<table><tr><td><div class="element">Operation <b>setLinkAction</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setLinkAction(inout action : ) : </li><li>Php : public function setLinkAction($action) </li></ul><a name="ref2_136322"></a>
+<table><tr><td><div class="element">Operation <b>setLinkField</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setLinkField(inout action : ) : </li><li>Php : public function setLinkField($action) </li></ul><a name="ref2_136450"></a>
+<table><tr><td><div class="element">Operation <b>setIdentifierPage</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setIdentifierPage(inout page : ) : </li><li>Php : public function setIdentifierPage($page) </li></ul><a name="ref2_136578"></a>
+<table><tr><td><div class="element">Operation <b>setTableName</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setTableName(inout name : ) : </li><li>Php : public function setTableName($name) </li></ul><a name="ref2_136706"></a>
+<table><tr><td><div class="element">Operation <b>setBasePage</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setBasePage(inout basepage : ) : </li><li>Php : public function setBasePage($basepage) </li></ul><a name="ref2_136834"></a>
+<table><tr><td><div class="element">Operation <b>setPrimaryId</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setPrimaryId(inout id : ) : </li><li>Php : public function setPrimaryId($id) </li></ul><a name="ref2_136962"></a>
+<table><tr><td><div class="element">Operation <b>setRowClassName</b></div></td></tr></table><p>Set the Class name for a Row in the table<br />@param $name<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + setRowClassName(inout name : $name) : void</li><li>Php : public function setRowClassName($name) </li></ul><a name="ref2_137090"></a>
+<table><tr><td><div class="element">Operation <b>setRowClassFieldName</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setRowClassFieldName(inout name : ) : </li><li>Php : public function setRowClassFieldName($name) </li></ul><a name="ref2_137218"></a>
+<table><tr><td><div class="element">Operation <b>genterateDisplayTable</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + genterateDisplayTable(inout content : ) : </li><li>Php : public function genterateDisplayTable($content) </li></ul><a name="ref2_137346"></a>
+<table><tr><td><div class="element">Operation <b>getFilterType</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - getFilterType(inout type : , inout key : , inout content :  = NULL) : </li><li>Php : private function getFilterType($type, $key, $content = NULL) </li></ul><a name="ref2_137474"></a>
+<table><tr><td><div class="element">Operation <b>getOrderType</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - getOrderType(inout type : , inout key : ) : </li><li>Php : private function getOrderType($type, $key) </li></ul><a name="ref2_137602"></a>
+<table><tr><td><div class="element">Operation <b>buildTd</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - buildTd(inout key : , inout value : ) : </li><li>Php : private function buildTd($key, $value) </li></ul><a name="ref2_137730"></a>
+<table><tr><td><div class="element">Operation <b>buildWhereArrayFromRequest</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + buildWhereArrayFromRequest(inout full_like :  = NULL) : </li><li>Php : public function buildWhereArrayFromRequest($full_like = NULL) </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_137730"><b>buildWhereArrayFromRequest</b></a> , <a href="index.html#ref2_137218"><b>genterateDisplayTable</b></a> , <a href="index.html#ref2_135682"><b>removeColumn</b></a> , <a href="index.html#ref2_136706"><b>setBasePage</b></a> , <a href="index.html#ref2_135938"><b>setColumnsClass</b></a> , <a href="index.html#ref2_135810"><b>setColumnsWidth</b></a> , <a href="index.html#ref2_135554"><b>setFilter</b></a> , <a href="index.html#ref2_135426"><b>setFooter</b></a> , <a href="index.html#ref2_135170"><b>setHeader</b></a> , <a href="index.html#ref2_136066"><b>setIdentifier</b></a> , <a href="index.html#ref2_136450"><b>setIdentifierPage</b></a> , <a href="index.html#ref2_136194"><b>setLinkAction</b></a> , <a href="index.html#ref2_136322"><b>setLinkField</b></a> , <a href="index.html#ref2_136834"><b>setPrimaryId</b></a> , <a href="index.html#ref2_137090"><b>setRowClassFieldName</b></a> , <a href="index.html#ref2_136962"><b>setRowClassName</b></a> , <a href="index.html#ref2_135298"><b>setRowsOnly</b></a> , <a href="index.html#ref2_136578"><b>setTableName</b></a> </p>
+<a name="ref4_129154"></a>
+<h4 class ="class">1.4.3.2.6 Class RainTPL</h4>
+<p>Load and draw templates<br /><br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class RainTPL </li></ul><p>Artifact : <a href="index.html#ref8_129410"><b>rain.tpl.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_131330"></a>
+<table><tr><td><div class="element">Attribute <b>tpl_dir</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ tpl_dir :  =  "tpl/"</li><li>Php :  static $tpl_dir</li></ul><a name="ref1_131458"></a>
+<table><tr><td><div class="element">Attribute <b>cache_dir</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ cache_dir :  =  "tmp/"</li><li>Php :  static $cache_dir</li></ul><a name="ref1_131586"></a>
+<table><tr><td><div class="element">Attribute <b>base_url</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ base_url :  =  null</li><li>Php :  static $base_url</li></ul><a name="ref1_131714"></a>
+<table><tr><td><div class="element">Attribute <b>var</b></div></td></tr></table>
+<p>template base url (useful for absolute path eg. http://www.raintpl.com )<br /> CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : + var :  =  array()</li><li>Php : public $var</li></ul><a name="ref1_131842"></a>
+<table><tr><td><div class="element">Attribute <b>tpl</b></div></td></tr></table>
+<p>template var<br /></p><p>Declaration :</p><ul><li>Uml : - tpl :  =  array()</li><li>Php : private $tpl</li></ul><a name="ref1_131970"></a>
+<table><tr><td><div class="element">Attribute <b>static_cache</b></div></td></tr></table>
+<p>template var<br /></p><p>Declaration :</p><ul><li>Uml : - static_cache :  =  false</li><li>Php : private $static_cache</li></ul><a name="ref2_133762"></a>
+<table><tr><td><div class="element">Operation <b>assign</b></div></td></tr></table><p>static cache enabled / disabled<br /><br />Assign variable<br />eg. 	$t-&gt;assign('name','duck');<br /><br />@param ??? $variable_name Name of template variable or associative array name/value<br />@param mixed $value value assigned to this variable. Not set if variable_name is an associative array<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ assign(inout variable : , inout value : mixed = null ) : </li><li>Php :  function assign($variable, $value = null ) </li></ul><a name="ref2_133890"></a>
+<table><tr><td><div class="element">Operation <b>draw</b></div></td></tr></table><p>Draw the template<br />eg. 	$html = $tpl-&gt;draw( 'demo', TRUE ); // return template in string<br />or 	$tpl-&gt;draw( $tpl_name ); // echo the template<br /><br />@param string $tpl_name  template to load<br />@param boolean $return_string  true=return a string, false=echo the template<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ draw(inout tpl_name : string, inout return_string : boolean = false ) : string</li><li>Php :  function draw($tpl_name, $return_string = false ) </li></ul><a name="ref2_134018"></a>
+<table><tr><td><div class="element">Operation <b>cache</b></div></td></tr></table><p>by default the expire time is an hour<br /></p><p>Declaration :</p><ul><li>Uml : ~ cache(inout tpl_name : , inout expire_time :  = RAINTPL_CACHE_EXPIRE_TIME ) : </li><li>Php :  function cache($tpl_name, $expire_time = RAINTPL_CACHE_EXPIRE_TIME ) </li></ul><a name="ref2_134146"></a>
+<table><tr><td><div class="element">Operation <b>check_template</b></div></td></tr></table><p>check if has to compile the template<br /></p><p>Declaration :</p><ul><li>Uml : - check_template(inout tpl_name :  = null ) : </li><li>Php : private function check_template($tpl_name = null ) </li></ul><a name="ref2_134274"></a>
+<table><tr><td><div class="element">Operation <b>compileFile</b></div></td></tr></table><p>Compile and write the compiled template file<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileFile(inout tpl_basedir : , inout tpl_filename : , inout cache_dir : , inout cache_filename : ) : </li><li>Php : private function compileFile($tpl_basedir, $tpl_filename, $cache_dir, $cache_filename) </li></ul><a name="ref2_134402"></a>
+<table><tr><td><div class="element">Operation <b>compileTemplate</b></div></td></tr></table><p>Compile template<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileTemplate(inout template_code : , inout tpl_basedir : ) : </li><li>Php : private function compileTemplate($template_code, $tpl_basedir) </li></ul><a name="ref2_134530"></a>
+<table><tr><td><div class="element">Operation <b>compileCode</b></div></td></tr></table><p>Compile the code<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileCode(inout parsed_code : , inout tpl_basedir : ) : </li><li>Php : private function compileCode($parsed_code, $tpl_basedir) </li></ul><a name="ref2_134658"></a>
+<table><tr><td><div class="element">Operation <b>path_replace</b></div></td></tr></table><p>replace the path of image src, link href<br />url =&gt; template_dir/url<br />url# =&gt; url<br />http://url =&gt; http://url<br /><br />@param string $html <br />@return ${type} html sostituito<br /><br /></p><p>Declaration :</p><ul><li>Uml : - path_replace(inout html : string, inout tpl_basedir : ) : string</li><li>Php : private function path_replace($html, $tpl_basedir) </li></ul><a name="ref2_134786"></a>
+<table><tr><td><div class="element">Operation <b>var_replace</b></div></td></tr></table><p>Variable substitution<br /><br />@param string $html Html code<br />@param string $tag_left_delimiter default {<br />@param string $tag_right_delimiter default }<br />@param string $php_left_delimiter default &lt;?php=<br />@param string $php_right_delimiter  default ;?&gt;<br />@param string $loop_name Loop name<br />@param string $echo if is true make the variable echo<br />@return ${type} Replaced code<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ var_replace(inout html : string, inout tag_left_delimiter : string, inout tag_right_delimiter : string, inout php_left_delimiter : string = null, inout php_right_delimiter : string = null, inout loop_name : string = null, inout echo : string = null ) : string</li><li>Php :  function var_replace($html, $tag_left_delimiter, $tag_right_delimiter, $php_left_delimiter = null, $php_right_delimiter = null, $loop_name = null, $echo = null ) </li></ul></div>
+</div>
+<a name="ref4_129282"></a>
+<h4 class ="class">1.4.3.2.7 Class template</h4>
+<p>Declaration :</p><ul>
+<li>Php : class template </li></ul><p>Artifact : <a href="index.html#ref8_129666"><b>template.class</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_134146"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - db_connect : </li><li>Php : private $db_connect</li></ul><a name="ref1_134274"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - db : </li><li>Php : private $db</li></ul><a name="ref1_134402"></a>
+<table><tr><td><div class="element">Attribute <b>layout</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - layout :  =  'layout.tpl.html'</li><li>Php : private $layout</li></ul><a name="ref1_134530"></a>
+<table><tr><td><div class="element">Attribute <b>headerArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - headerArray : </li><li>Php : private $headerArray</li></ul><a name="ref1_134658"></a>
+<table><tr><td><div class="element">Attribute <b>filterArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - filterArray : </li><li>Php : private $filterArray</li></ul><a name="ref1_134786"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - template : </li><li>Php : private $template</li></ul><a name="ref1_134914"></a>
+<table><tr><td><div class="element">Attribute <b>scriptHead</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - scriptHead :  =  array()</li><li>Php : private $scriptHead</li></ul><a name="ref2_137858"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Constructor for template class <br /><br />This method will take string to define a main layout for the site, if nothing given the it will look for a <br />file called layout.tpl.html, If the param is 'blank' it will return no layout <br /><br />template file must have the template param {*CONTENT*} in then as a location for assigned var to go<br /><br />example:<br />$template = new template() // will use layout.tpl.html for layout<br />$template = new template('indexfile.php')  // will use indexfile.php for layout<br />$template = new template('blank')  // will use no layout and just output the assigns<br /> <br />@param String $layout A name of a html in in the /temple dir to use for main layout or Blamk for no layout<br /><br /></p><p>Declaration :</p><ul><li>Uml : + __construct(inout layout : String = NULL) : </li><li>Php : public function __construct($layout = NULL) </li></ul><a name="ref2_137986"></a>
+<table><tr><td><div class="element">Operation <b>__destruct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __destruct() : </li><li>Php : public function __destruct() </li></ul><a name="ref2_138114"></a>
+<table><tr><td><div class="element">Operation <b>scriptHeading</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + scriptHeading(inout script : ) : </li><li>Php : public function scriptHeading($script) </li></ul><a name="ref2_138242"></a>
+<table><tr><td><div class="element">Operation <b>page</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + page(inout field : ) : </li><li>Php : public function page($field) </li></ul><a name="ref2_138370"></a>
+<table><tr><td><div class="element">Operation <b>insert</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + insert(inout template : ) : </li><li>Php : public function insert($template) </li></ul><a name="ref2_138498"></a>
+<table><tr><td><div class="element">Operation <b>content</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + content(inout field : ) : </li><li>Php : public function content($field) </li></ul><a name="ref2_138626"></a>
+<table><tr><td><div class="element">Operation <b>assign</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + assign(inout field : , inout value : , inout tpl :  = NULL ) : </li><li>Php : public function assign($field, $value, &amp; $tpl = NULL ) </li></ul><a name="ref2_138754"></a>
+<table><tr><td><div class="element">Operation <b>fetch</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + fetch(inout tpl :  = NULL) : </li><li>Php : public function fetch(&amp; $tpl = NULL) </li></ul><a name="ref2_138882"></a>
+<table><tr><td><div class="element">Operation <b>display</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + display() : </li><li>Php : public function display() </li></ul><a name="ref2_139010"></a>
+<table><tr><td><div class="element">Operation <b>formatBoolean</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + formatBoolean(inout value : ) : </li><li>Php : public function formatBoolean($value) </li></ul><a name="ref2_139138"></a>
+<table><tr><td><div class="element">Operation <b>formatValue</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + formatValue(inout value : , inout msg : ) : </li><li>Php : public function formatValue($value, $msg) </li></ul><a name="ref2_139266"></a>
+<table><tr><td><div class="element">Operation <b>getListTable</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + getListTable(inout table : , inout value : , inout idField : , inout valueField : , inout selectBox :  = NULL, inout WHERE :  = NULL) : </li><li>Php : public function getListTable($table, $value, $idField, $valueField, $selectBox = NULL, $WHERE = NULL) </li></ul><a name="ref2_139394"></a>
+<table><tr><td><div class="element">Operation <b>input</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + input(inout type : , inout name : , inout value :  = NULL) : </li><li>Php : public function input($type, $name, $value = NULL) </li></ul><a name="ref2_139522"></a>
+<table><tr><td><div class="element">Operation <b>strip_tags</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - strip_tags(inout string : ) : </li><li>Php : private function strip_tags($string) </li></ul><a name="ref2_139650"></a>
+<table><tr><td><div class="element">Operation <b>externalLink</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + externalLink(inout link : ) : </li><li>Php : public function externalLink($link) </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_137858"><b>__construct</b></a> , <a href="index.html#ref2_137986"><b>__destruct</b></a> , <a href="index.html#ref2_138626"><b>assign</b></a> , <a href="index.html#ref2_138498"><b>content</b></a> , <a href="index.html#ref2_138882"><b>display</b></a> , <a href="index.html#ref2_139650"><b>externalLink</b></a> , <a href="index.html#ref2_138754"><b>fetch</b></a> , <a href="index.html#ref2_139010"><b>formatBoolean</b></a> , <a href="index.html#ref2_139138"><b>formatValue</b></a> , <a href="index.html#ref2_139266"><b>getListTable</b></a> , <a href="index.html#ref2_139394"><b>input</b></a> , <a href="index.html#ref2_138370"><b>insert</b></a> , <a href="index.html#ref2_138242"><b>page</b></a> , <a href="index.html#ref2_138114"><b>scriptHeading</b></a> </p>
+</div>
+</div>
+</div>
+<a name="ref22_128642"></a>
+<h2 class ="package">1.5 Package config</h2>
+<div class="sub">
+<a name="ref21_128514"></a>
+<h3 class ="view">1.5.1 Deployment View config</h3>
+<div class="sub">
+<a name="ref8_130050"></a>
+<table><tr><td><div class="element">Artifact <b>config</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_130178"></a>
+<table><tr><td><div class="element">Artifact <b>constants</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_130306"></a>
+<table><tr><td><div class="element">Artifact <b>list.function</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_130434"></a>
+<table><tr><td><div class="element">Artifact <b>standard.inc</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+</div>
+<a name="ref22_128770"></a>
+<h2 class ="package">1.6 Package question-plugin</h2>
+<div class="sub">
+<a name="ref22_128898"></a>
+<h3 class ="package">1.6.1 Package array</h3>
+<div class="sub">
+<a name="ref21_128642"></a>
+<h4 class ="view">1.6.1.1 Deployment View array</h4>
+<div class="sub">
+<a name="ref8_130562"></a>
+<table><tr><td><div class="element">Artifact <b>array.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128514"></a>
+<h4 class ="view">1.6.1.2 Class View array</h4>
+<div class="sub">
+<a name="ref4_129410"></a>
+<h4 class ="class">1.6.1.2.1 Class arrayClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class arrayClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_135042"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_135170"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_139778"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_139778"><b>__construct</b></a> </p>
+</div>
+</div>
+<a name="ref22_129026"></a>
+<h3 class ="package">1.6.2 Package checkbox</h3>
+<div class="sub">
+<a name="ref21_128770"></a>
+<h4 class ="view">1.6.2.1 Deployment View checkbox</h4>
+<div class="sub">
+<a name="ref8_130690"></a>
+<table><tr><td><div class="element">Artifact <b>checkbox.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128642"></a>
+<h4 class ="view">1.6.2.2 Class View checkbox</h4>
+<div class="sub">
+<a name="ref4_129538"></a>
+<h4 class ="class">1.6.2.2.1 Class checkboxClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class checkboxClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_135298"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_135426"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_139906"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_139906"><b>__construct</b></a> </p>
+</div>
+</div>
+<a name="ref22_129154"></a>
+<h3 class ="package">1.6.3 Package radio</h3>
+<div class="sub">
+<a name="ref21_128898"></a>
+<h4 class ="view">1.6.3.1 Deployment View radio</h4>
+<div class="sub">
+<a name="ref8_130818"></a>
+<table><tr><td><div class="element">Artifact <b>radio.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128770"></a>
+<h4 class ="view">1.6.3.2 Class View radio</h4>
+<div class="sub">
+<a name="ref4_129666"></a>
+<h4 class ="class">1.6.3.2.1 Class radioClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class radioClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_135554"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_135682"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_140034"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140034"><b>__construct</b></a> </p>
+</div>
+</div>
+<a name="ref22_129282"></a>
+<h3 class ="package">1.6.4 Package select</h3>
+<div class="sub">
+<a name="ref21_129026"></a>
+<h4 class ="view">1.6.4.1 Deployment View select</h4>
+<div class="sub">
+<a name="ref8_130946"></a>
+<table><tr><td><div class="element">Artifact <b>select.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_128898"></a>
+<h4 class ="view">1.6.4.2 Class View select</h4>
+<div class="sub">
+<a name="ref4_129794"></a>
+<h4 class ="class">1.6.4.2.1 Class selectClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class selectClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_135810"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_135938"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_140162"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140162"><b>__construct</b></a> </p>
+</div>
+</div>
+<a name="ref22_129410"></a>
+<h3 class ="package">1.6.5 Package text</h3>
+<div class="sub">
+<a name="ref21_129154"></a>
+<h4 class ="view">1.6.5.1 Deployment View text</h4>
+<div class="sub">
+<a name="ref8_131074"></a>
+<table><tr><td><div class="element">Artifact <b>text.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_129026"></a>
+<h4 class ="view">1.6.5.2 Class View text</h4>
+<div class="sub">
+<a name="ref4_129922"></a>
+<h4 class ="class">1.6.5.2.1 Class textClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class textClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_136066"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_136194"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_140290"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140290"><b>__construct</b></a> </p>
+</div>
+</div>
+<a name="ref22_129538"></a>
+<h3 class ="package">1.6.6 Package textarea</h3>
+<div class="sub">
+<a name="ref21_129282"></a>
+<h4 class ="view">1.6.6.1 Deployment View textarea</h4>
+<div class="sub">
+<a name="ref8_131202"></a>
+<table><tr><td><div class="element">Artifact <b>textarea.class</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+</div>
+<a name="ref18_129154"></a>
+<h4 class ="view">1.6.6.2 Class View textarea</h4>
+<div class="sub">
+<a name="ref4_130050"></a>
+<h4 class ="class">1.6.6.2.1 Class textareaClass</h4>
+<p>Declaration :</p><ul>
+<li>Php : class textareaClass extends <a href="index.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<div class="sub">
+<a name="ref1_136322"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db_connect : Object</li><li>Php : protected $db_connect</li></ul><a name="ref1_136450"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : # db : Object</li><li>Php : protected $db</li></ul><a name="ref2_140418"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140418"><b>__construct</b></a> </p>
+</div>
+</div>
+</div>
+<a name="ref22_129666"></a>
+<h2 class ="package">1.7 Package test</h2>
+<div class="sub">
+<a name="ref21_129410"></a>
+<h3 class ="view">1.7.1 Deployment View test</h3>
+<div class="sub">
+<a name="ref8_131330"></a>
+<table><tr><td><div class="element">Artifact <b>AllTest</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass130178"><b>AllTests</b></a></p>
+</div>
+<a name="ref18_129282"></a>
+<h3 class ="view">1.7.2 Class View test</h3>
+<div class="sub">
+<a name="ref4_130178"></a>
+<h4 class ="class">1.7.2.1 Class AllTests</h4>
+<p>Declaration :</p><ul>
+<li>Php : class AllTests </li></ul><p>Artifact : <a href="index.html#ref8_131330"><b>AllTest</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_140546"></a>
+<table><tr><td><div class="element">Operation <b>suite</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : static, + suite() : </li><li>Php : public static function suite() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140546"><b>suite</b></a> </p>
+</div>
+<a name="ref22_129794"></a>
+<h3 class ="package">1.7.3 Package package</h3>
+<div class="sub">
+<a name="ref21_129538"></a>
+<h4 class ="view">1.7.3.1 Deployment View package</h4>
+<div class="sub">
+<a name="ref8_131458"></a>
+<table><tr><td><div class="element">Artifact <b>AllTests</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass130306"><b>Package_AllTests</b></a></p>
+<a name="ref8_131586"></a>
+<table><tr><td><div class="element">Artifact <b>build.test</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass130434"><b>clientDatabaseTest</b></a></p>
+<a name="ref8_131714"></a>
+<table><tr><td><div class="element">Artifact <b>config</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i></p>
+<a name="ref8_131842"></a>
+<table><tr><td><div class="element">Artifact <b>survey.test</b></div></td></tr></table>
+<p>Stereotype: source</p>
+<p>Artifact <i>source</i> associated with : <a href="index.html#refclass130690"><b>SurveyTest</b></a></p>
+</div>
+<a name="ref18_129410"></a>
+<h4 class ="view">1.7.3.2 Class View package</h4>
+<div class="sub">
+<a name="ref4_130306"></a>
+<h4 class ="class">1.7.3.2.1 Class Package_AllTests</h4>
+<p>require_once('package/advertisement.test.php');<br />require_once('package/category.test.php');<br />require_once('package/employmenttype.test.php');<br />require_once('package/advertTemplate.test.php');<br />require_once('package/questionCatagory.test.php');<br />require_once('package/question.test.php');<br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class Package_AllTests </li></ul><p>Artifact : <a href="index.html#ref8_131458"><b>AllTests</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_140674"></a>
+<table><tr><td><div class="element">Operation <b>suite</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : static, + suite() : </li><li>Php : public static function suite() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140674"><b>suite</b></a> </p>
+<a name="ref4_130434"></a>
+<h4 class ="class">1.7.3.2.2 Class clientDatabaseTest</h4>
+<p>require_once('database.class.php');<br />require_once('template.class.php');<br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class clientDatabaseTest extends <a href="index.html#refclass130562"><b>PHPUnit_Framework_TestCase</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_131586"><b>build.test</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref2_140802"></a>
+<table><tr><td><div class="element">Operation <b>testcreateClientDatabase</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + testcreateClientDatabase() : </li><li>Php : public function testcreateClientDatabase() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_140802"><b>testcreateClientDatabase</b></a> </p>
+<a name="ref4_130690"></a>
+<h4 class ="class">1.7.3.2.3 Class SurveyTest</h4>
+<p>Declaration :</p><ul>
+<li>Php : class SurveyTest extends <a href="index.html#refclass130818"><b>PHPUnit_Extensions_OutputTestCase</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_131842"><b>survey.test</b></a></p>
+<div class="sub">
+<div class="sub">
+<a name="ref1_136578"></a>
+<table><tr><td><div class="element">Attribute <b>survey</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # survey : </li><li>Php : protected static $survey</li></ul><a name="ref1_136706"></a>
+<table><tr><td><div class="element">Attribute <b>id</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # id : </li><li>Php : protected static $id</li></ul><a name="ref1_136834"></a>
+<table><tr><td><div class="element">Attribute <b>_REQUEST</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # _REQUEST : </li><li>Php : protected static $_REQUEST</li></ul><a name="ref1_136962"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # db : </li><li>Php : protected static $db</li></ul><a name="ref1_137090"></a>
+<table><tr><td><div class="element">Attribute <b>fieldtest</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # fieldtest : </li><li>Php : protected static $fieldtest</li></ul><a name="ref1_137218"></a>
+<table><tr><td><div class="element">Attribute <b>newfieldval</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : static, # newfieldval : </li><li>Php : protected static $newfieldval</li></ul><a name="ref2_140930"></a>
+<table><tr><td><div class="element">Operation <b>setUp</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : # setUp() : </li><li>Php : protected function setUp() </li></ul><a name="ref2_141058"></a>
+<table><tr><td><div class="element">Operation <b>testSaveSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testSaveSurveyDetails() : </li><li>Php : public function testSaveSurveyDetails() </li></ul><a name="ref2_141186"></a>
+<table><tr><td><div class="element">Operation <b>testShowSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testShowSurveyDetails() : </li><li>Php : public function testShowSurveyDetails() </li></ul><a name="ref2_141314"></a>
+<table><tr><td><div class="element">Operation <b>testGetSurveyList</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testGetSurveyList() : </li><li>Php : public function testGetSurveyList() </li></ul><a name="ref2_141442"></a>
+<table><tr><td><div class="element">Operation <b>testCreateSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testCreateSurveyDetails() : </li><li>Php : public function testCreateSurveyDetails() </li></ul><a name="ref2_141570"></a>
+<table><tr><td><div class="element">Operation <b>testEditSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testEditSurveyDetails() : </li><li>Php : public function testEditSurveyDetails() </li></ul><a name="ref2_141698"></a>
+<table><tr><td><div class="element">Operation <b>testUpdateSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testUpdateSurveyDetails() : </li><li>Php : public function testUpdateSurveyDetails() </li></ul><a name="ref2_141826"></a>
+<table><tr><td><div class="element">Operation <b>testDeleteSurveyDetails</b></div></td></tr></table><p>@group Survey<br /><br /></p><p>Declaration :</p><ul><li>Uml : + testDeleteSurveyDetails() : </li><li>Php : public function testDeleteSurveyDetails() </li></ul></div>
+</div>
+<p>All public operations : <a href="index.html#ref2_141442"><b>testCreateSurveyDetails</b></a> , <a href="index.html#ref2_141826"><b>testDeleteSurveyDetails</b></a> , <a href="index.html#ref2_141570"><b>testEditSurveyDetails</b></a> , <a href="index.html#ref2_141314"><b>testGetSurveyList</b></a> , <a href="index.html#ref2_141058"><b>testSaveSurveyDetails</b></a> , <a href="index.html#ref2_141186"><b>testShowSurveyDetails</b></a> , <a href="index.html#ref2_141698"><b>testUpdateSurveyDetails</b></a> </p>
+</div>
+</div>
+</div>
+</div>
+<a name="ref22_128514"></a>
+<h1 class ="package">2 Package unknown</h1>
+<div class="sub">
+<a name="ref18_128386"></a>
+<h2 class ="view">2.1 Class View unknown</h2>
+<div class="sub">
+<a name="ref4_128770"></a>
+<h3 class ="class">2.1.1 Class Exception</h3>
+<p>Declaration :</p><ul>
+<li>Php : class Exception </li></ul><p>Directly inherited by : <a href="index.html#refclass128642"><b>CustomException</b></a> </p>
+<a name="ref4_130562"></a>
+<h3 class ="class">2.1.2 Class PHPUnit_Framework_TestCase</h3>
+<p>Declaration :</p><ul>
+<li>Php : class PHPUnit_Framework_TestCase </li></ul><p>Directly inherited by : <a href="index.html#refclass130434"><b>clientDatabaseTest</b></a> </p>
+<a name="ref4_130818"></a>
+<h3 class ="class">2.1.3 Class PHPUnit_Extensions_OutputTestCase</h3>
+<p>Declaration :</p><ul>
+<li>Php : class PHPUnit_Extensions_OutputTestCase </li></ul><p>Directly inherited by : <a href="index.html#refclass130690"><b>SurveyTest</b></a> </p>
+</div>
+</div>
+</body>
+</html>

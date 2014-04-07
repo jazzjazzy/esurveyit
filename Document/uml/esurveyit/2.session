@@ -1,0 +1,12 @@
+window_sizes 1920 1018 443 1471 718 226
+windows_style
+show_stereotypes
+selected class_ref 128770 // Exception
+open
+  deploymentview_ref 128002 // esurveyit
+  class_ref 128002 // arrayTable
+  deploymentview_ref 128130 // ajax
+  deploymentview_ref 128258 // classes
+  classview_ref 128386 // unknown
+end
+end

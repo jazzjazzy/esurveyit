@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^/?([a-zA-Z_]+)/([a-zA-Z_]+)/([a-zA-Z_]+)$ esurveyit/$2.php?action=$3&id=$4 [L] 

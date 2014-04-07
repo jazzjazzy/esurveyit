@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Classes Index</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Classes Index</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<table>
+<tr bgcolor="#f0f0f0"><td><a href="class130178.html#refclass130178" target = "projectFrame"><b>AllTests</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129410.html#refclass129410" target = "projectFrame"><b>arrayClass</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128002.html#refclass128002" target = "projectFrame"><b>arrayTable</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129538.html#refclass129538" target = "projectFrame"><b>checkboxClass</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130434.html#refclass130434" target = "projectFrame"><b>clientDatabaseTest</b></a></td><td></td><td>require_once('database.class.php');<br />require_once('template.class.php');</td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128642.html#refclass128642" target = "projectFrame"><b>CustomException</b></a></td><td></td><td><br />CustomException Class,<br />&lt;br /&gt;<br />Generates a custom exception&lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />throw an exception &lt;br /&gt;<br />&lt;br /&gt;<br />if(empty($value)){&lt;br /&gt;<br />		throw new CustomException('value can not be empty');&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />try/catch&lt;br /&gt;<br />&lt;br /&gt;<br />try{&lt;br /&gt;<br />		$db-&gt;query('SELECT * FROM notable ');&lt;br /&gt;<br />}catch(CustomException $e){&lt;br /&gt;<br />		echo $e-&gt;logError();&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />&#64;author Jason Stewart &lt;jason&#64;lexxcom.com.au&gt;<br />&#64;version 1.0<br />&#64;package PeopleScope<br /><br /><br />Generates a custom exception<br /><br />&#64;package PeopleScope<br />&#64;subpackage Base<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#refclass128386" target = "projectFrame"><b>db</b></a></td><td></td><td><br />This class is Database abstraction layer<br /><br />&#64;package PeopleScope<br />&#64;subpackage Base<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128514.html#refclass128514" target = "projectFrame"><b>email</b></a></td><td></td><td><br />This class is used create and send email&lt;br /&gt;<br /><br />&#64;package PeopleScope<br />&#64;subpackage Base<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128770.html#refclass128770" target = "projectFrame"><b>Exception</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128898.html#refclass128898" target = "projectFrame"><b>form</b></a></td><td></td><td><br />Form Class,<br />&lt;br /&gt;<br />This class is used to take a input String in a standardised format and convert to a Html Form &lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$formVars = "&lt;br /&gt;<br />Title*:1:select:Ms|Ms,Mrs|Mrs,Miss|Miss,Mr|Mr:::required:notype&lt;br /&gt;<br />Home Phone:5:editor::400|400:::optional:notype&lt;br /&gt;<br />First Name*:2:text::::required:notype&lt;br /&gt;<br />Last Name*:3:text::::required:notype&lt;br /&gt;<br />Work Phone:4:text::::optional:notype&lt;br /&gt;<br />Home Phone:5:text::::optional:notype&lt;br /&gt;<br />Mobile Phone*:6:text::::required:notype&lt;br /&gt;<br />Email*:7:text::::required:notype&lt;br /&gt;<br />Address:8:textarea::::optional:notype&lt;br /&gt;<br />Suburb:9:text::::optional:notype";&lt;br /&gt;<br />&lt;br /&gt;<br />&lt;br /&gt;<br />$form = new form($formVars);&lt;br /&gt;<br />$formVal = $form-&gt;formHeader('');&lt;br /&gt;<br />$formVal .= $form-&gt;draw();&lt;br /&gt;<br />$formVal .= $form-&gt;freeFormSubmit();&lt;br /&gt;<br />$formVal .= $form-&gt;formFooter();&lt;br /&gt;<br />&lt;br /&gt;<br />echo $formVal&lt;br /&gt;<br /><br />&#64;author Jason Stewart &lt;jason&#64;lexxcom.com.au&gt;<br />&#64;version 1.0<br />&#64;package PeopleScope<br />&#64;subpackage Base<br /><br /><br />This class is used to take a input String in a standardised format and convert to a Html Form<br /><br />&#64;package PeopleScope<br />&#64;subpackage Base<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130306.html#refclass130306" target = "projectFrame"><b>Package_AllTests</b></a></td><td></td><td>require_once('package/advertisement.test.php');<br />require_once('package/category.test.php');<br />require_once('package/employmenttype.test.php');<br />require_once('package/advertTemplate.test.php');<br />require_once('package/questionCatagory.test.php');<br />require_once('package/question.test.php');</td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130818.html#refclass130818" target = "projectFrame"><b>PHPUnit_Extensions_OutputTestCase</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130562.html#refclass130562" target = "projectFrame"><b>PHPUnit_Framework_TestCase</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128130.html#refclass128130" target = "projectFrame"><b>question</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129666.html#refclass129666" target = "projectFrame"><b>radioClass</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129154.html#refclass129154" target = "projectFrame"><b>RainTPL</b></a></td><td></td><td><br />Load and draw templates<br /><br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129794.html#refclass129794" target = "projectFrame"><b>selectClass</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128258.html#refclass128258" target = "projectFrame"><b>survey</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#refclass130690" target = "projectFrame"><b>SurveyTest</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#refclass129026" target = "projectFrame"><b>table</b></a></td><td></td><td><br />Template Class, <br />&lt;br /&gt;<br />This class is used to take a input to generate templates&lt;br /&gt; <br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$template = new template('template/index.html');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assign('var1', 'Employment list');&lt;br /&gt;<br />$template-&gt;assignArray(array{'var2'=&gt;'John', 'var3'=&gt;'mary', 'var4'=&gt;'&lt;strong&gt;frank&lt;/strong&gt;'});&lt;br /&gt;<br />&lt;br /&gt;<br />$ArrayVars[0]['name'] = 'john';&lt;br /&gt;<br />$ArrayVars[0]['age'] = '14';&lt;br /&gt;<br />$ArrayVars[1]['name'] = 'mary';&lt;br /&gt;<br />$ArrayVars[1]['age'] = '42';&lt;br /&gt;<br />$ArrayVars[2]['name'] = 'frank';&lt;br /&gt;<br />$ArrayVars[2]['age'] = '98';&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assignRepeat('agelist', $ArrayVars);&lt;br /&gt;<br />$template-&gt;replace('../', '../../');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;display();&lt;br /&gt;<br />&lt;br /&gt;<br /> <br />&#64;author Jason Stewart &lt;jason&#64;lexxcom.com.au&gt;<br />&#64;version 1.0<br />&#64;package PeopleScope<br />&#64;subpackage Base<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#refclass129282" target = "projectFrame"><b>template</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130050.html#refclass130050" target = "projectFrame"><b>textareaClass</b></a></td><td></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129922.html#refclass129922" target = "projectFrame"><b>textClass</b></a></td><td></td><td></td></tr>
+</table>
+</body>
+</html>

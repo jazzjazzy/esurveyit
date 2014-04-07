@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Public Operations Index</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Public Operations Index</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<table>
+<tr bgcolor="#f0f0f0"><td align="center"><b>Operation</b></td><td align="center"><b>Class</b></td><td align="center"><b>Description</b></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129410.html#ref2_139778"><b>__construct</b></a></td><td><a href="class129410.html#refclass129410"><b>arrayClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129538.html#ref2_139906"><b>__construct</b></a></td><td><a href="class129538.html#refclass129538"><b>checkboxClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129666.html#ref2_140034"><b>__construct</b></a></td><td><a href="class129666.html#refclass129666"><b>radioClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129794.html#ref2_140162"><b>__construct</b></a></td><td><a href="class129794.html#refclass129794"><b>selectClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128258.html#ref2_129154"><b>__construct</b></a></td><td><a href="class128258.html#refclass128258"><b>survey</b></a></td><td><br />Contructor for this method <br /><br />&lt;pre&gt;<br />The constructor will setup the required object for this class <br />will initiate the database class, the table class and the template <br />for this class to use<br /><br /><br />&lt;div style="color:red"&gt;NOTE: This is generated information from the framework and will need to be corrected if there are any changes&lt;/div&gt;<br />&lt;/pre&gt;<br /><br />&#64;see db::<br />&#64;see table<br />&#64;see template<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_137858"><b>__construct</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td><br />Constructor for template class <br /><br />This method will take string to define a main layout for the site, if nothing given the it will look for a <br />file called layout.tpl.html, If the param is 'blank' it will return no layout <br /><br />template file must have the template param {*CONTENT*} in then as a location for assigned var to go<br /><br />example:<br />$template = new template() // will use layout.tpl.html for layout<br />$template = new template('indexfile.php')  // will use indexfile.php for layout<br />$template = new template('blank')  // will use no layout and just output the assigns<br /> <br />&#64;param ${t0} ${p0} A name of a html in in the /temple dir to use for main layout or Blamk for no layout<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130050.html#ref2_140418"><b>__construct</b></a></td><td><a href="class130050.html#refclass130050"><b>textareaClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129922.html#ref2_140290"><b>__construct</b></a></td><td><a href="class129922.html#refclass129922"><b>textClass</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_137986"><b>__destruct</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138626"><b>assign</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_137730"><b>buildWhereArrayFromRequest</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138498"><b>content</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_129794"><b>delete</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Will instigate a DELETE query and return true if no problems;<br /><br />&#64;param ${t0} ${p0}<br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138882"><b>display</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_139650"><b>externalLink</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138754"><b>fetch</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_139010"><b>formatBoolean</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_139138"><b>formatValue</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_137218"><b>genterateDisplayTable</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_129410"><b>getDNSString</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />returns current DSN string used to connect ot the server <br /><br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_139266"><b>getListTable</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_139394"><b>input</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_129666"><b>insert</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Will instigate a INSERT query and return the inserts autocomplete Id;<br /><br />&#64;param ${t0} ${p0}<br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138370"><b>insert</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128642.html#ref2_131970"><b>logError</b></a></td><td><a href="class128642.html#refclass128642"><b>CustomException</b></a></td><td><br />Generate a formated excption error<br /><br />&#64;return ${type} Html Format<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128642.html#ref2_131842"><b>messageError</b></a></td><td><a href="class128642.html#refclass128642"><b>CustomException</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138242"><b>page</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_130178"><b>prepareToQuery</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Merge query template with array <br /><br />Query template and array set merger function <br />Will taken in the Query string template and the array of query elements<br />and combine the to show the fully converted string used in the prepare <br />Note: only use as example for debugging purposes<br /> <br />&#64;param ${t0} ${p0} Query template  <br />&#64;param ${t1} ${p1} Array of inputs <br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_130050"><b>query</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Will instegate a query and return a recordset;<br /><br />&#64;param ${t0} ${p0}<br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128642.html#ref2_132098"><b>queryError</b></a></td><td><a href="class128642.html#refclass128642"><b>CustomException</b></a></td><td><br />Will append the query being used to the begining of a logError output<br /><br />This is used to create an exception error for query execution, to produce<br />error that also have the query displayed with in the error output<br /><br />&#64;param ${t0} Sql query that was being used at the time of execution<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135682"><b>removeColumn</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129282.html#ref2_138114"><b>scriptHeading</b></a></td><td><a href="class129282.html#refclass129282"><b>template</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_129538"><b>select</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Will instigate a SELECT query and return and an array of responses <br /><br />&#64;param ${t0} ${p0} select sql string to be executed <br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136706"><b>setBasePage</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135938"><b>setColumnsClass</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135810"><b>setColumnsWidth</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135554"><b>setFilter</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135426"><b>setFooter</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135170"><b>setHeader</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136066"><b>setIdentifier</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136450"><b>setIdentifierPage</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136194"><b>setLinkAction</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136322"><b>setLinkField</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136834"><b>setPrimaryId</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_137090"><b>setRowClassFieldName</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136962"><b>setRowClassName</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td><br />Set the Class name for a Row in the table<br />&#64;param ${t0}<br />&#64;return ${type}<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_135298"><b>setRowsOnly</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class129026.html#ref2_136578"><b>setTableName</b></a></td><td><a href="class129026.html#refclass129026"><b>table</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130178.html#ref2_140546"><b>suite</b></a></td><td><a href="class130178.html#refclass130178"><b>AllTests</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130306.html#ref2_140674"><b>suite</b></a></td><td><a href="class130306.html#refclass130306"><b>Package_AllTests</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130434.html#ref2_140802"><b>testcreateClientDatabase</b></a></td><td><a href="class130434.html#refclass130434"><b>clientDatabaseTest</b></a></td><td></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141442"><b>testCreateSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141826"><b>testDeleteSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141570"><b>testEditSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141314"><b>testGetSurveyList</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141058"><b>testSaveSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141186"><b>testShowSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class130690.html#ref2_141698"><b>testUpdateSurveyDetails</b></a></td><td><a href="class130690.html#refclass130690"><b>SurveyTest</b></a></td><td><br />&#64;group Survey<br /></td></tr>
+<tr bgcolor="#f0f0f0"><td><a href="class128386.html#ref2_129922"><b>update</b></a></td><td><a href="class128386.html#refclass128386"><b>db</b></a></td><td><br />Will instigate a UPDATE query and return true if no problems;<br /><br />&#64;param ${t0} ${p0}<br />&#64;return ${type}<br /></td></tr>
+</table>
+</body>
+</html>

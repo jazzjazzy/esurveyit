@@ -1,0 +1,202 @@
+class form
+!!!132226.php!!!	__construct(inout form : String = NULL) : void
+
+		$this->form($form);
+!!!132354.php!!!	form(inout form : String) : void
+
+		global $global_db;
+		$this->db = $global_db;
+		$this->form = trim($form);
+		//$this->template= new template();
+		$this->fck_configUrl = SITE_ROOT."config/fckconfig.js";
+!!!132482.php!!!	formScript(inout script : String) : void
+
+		$this->formScript = $script;
+!!!132610.php!!!	freeFormSubmit(inout value : String = 'Submit') : void
+
+		return '<input type="submit" value="'.$value.'" />';
+!!!132738.php!!!	formHeader(inout action : String, inout method : String = NULL, inout formname : String = NULL) : string
+
+		//find any referance uploading file and set form accordingly
+		$columnBreakDown = explode("\n", $this->form);
+
+		foreach ($columnBreakDown AS $value){
+			$row = explode(":", $value);
+			if ('upload' == trim(strtolower($row[2]))){
+				$this->enctype="multipart/form-data";
+				$method = "POST";
+			}
+		}
+
+		//check if method is either GET or POST if not then set POST as default
+		$method = trim(strtoupper($method));
+		if($method != "POST" && $method != "GET" ){
+			$method = "POST";
+		}
+
+		//remove any spaces from $formname as can not be used with spaces
+		$formname = str_replace(" ", '', $formname);
+
+		$ret = '<form method="'.$method.'" action="'.$action.'"';
+		$ret .=(!empty($formname))? ' name="'.$formname.'" id="'.$formname.'"' : '';
+		$ret .=($this->enctype)? ' enctype="'.$this->enctype.'"' : '';
+		$ret .=($this->formScript)? ' onSubmit="'.$this->formScript.'"' : '';
+		$ret .= '>';
+
+		return $ret;
+!!!132866.php!!!	formFooter() : String
+
+
+		$ret = '</form>';
+
+		return $ret;
+!!!132994.php!!!	draw(inout column : Integer = NULL) : String
+
+
+		if($column){
+			$this->form = str_replace("------\r\n", "------", $this->form);
+			$this->form = str_replace("------\r", "------", $this->form);
+			$this->form = str_replace("------\r", "------", $this->form);
+			$columnList = explode("------", $this->form);
+			$column -= 1;
+		}else{
+			$columnList[0] = str_replace("------\r\n", '', $this->form);
+			$column = 0;
+		}
+
+		$count=0;
+		//Null Error
+		$columnBreakDown = @explode("\n", $columnList[$column]);
+
+		foreach($columnBreakDown AS $value){
+			if (!empty($value)){
+				$inputfield[] = $this->inputfield($value);
+			}
+		}
+		return @implode("\n", $inputfield);
+!!!133122.php!!!	edit(inout input : , inout type :  = NULL)
+
+		$fieldData = explode(":::", $input);
+		//setting vars
+		$file ='';
+		$funcVars = '';
+		$func_div = false;
+		$isdiv = false;
+		$nolable = false;
+		$valid_str = '';
+		$func_script = '';
+		$func_class = '';
+		$func_id = '';
+
+		if(preg_match( "/^:/",@$fieldData[1])){
+			$fieldData[1] = substr($fieldData[1], 1);
+		}
+		$field = explode(':', trim($fieldData[0]));
+		
+		
+		$type =strtolower(@$field[2]);
+		if(file_exists(DIR_ROOT.'/question/'.$type.'.q.php')){
+			include_once DIR_ROOT.'/question/'.$type.'.q.php';
+		}
+		
+		$questionType = new $type();
+		
+		switch(trim(strtoupper($type))){
+			case "DISPLAY": $edit = $questionType->edit($field, $funcVars, $valid_str.$this->autoRefresh); break;
+			case "SETTING": $edit = $questionType->setting($field); break; 
+			default : $edit = $questionType->edit($field, $funcVars, $valid_str.$this->autoRefresh); break;
+		}
+		
+		//$edit = edit($field, $funcVars, $valid_str.$this->autoRefresh);
+		
+		return $edit;
+!!!133250.php!!!	SetFckConfigUrl(inout url : String) : void
+
+		$this->fck_configUrl = $url;
+!!!133378.php!!!	inputfield(inout input : String) : Html
+
+		$fieldData = explode(":::", $input);
+		//setting vars
+		$file ='';
+		$funcVars = '';
+		$func_div = false;
+		$isdiv = false;
+		$nolable = false;
+		$valid_str = '';
+		$func_script = '';
+		$func_class = '';
+		$func_id = '';
+
+		if(preg_match( "/^:/",@$fieldData[1])){
+			$fieldData[1] = substr($fieldData[1], 1);
+		}
+		$field = explode(':', trim($fieldData[0]));
+		
+		$valid_str ='';
+		if(!empty($fieldData[1])){
+			$valid = explode(':', trim($fieldData[1]));
+			$valid_str = "validitycheck=\"$field[1];$field[0];$valid[0];$valid[1];0;-1\"";
+		}else{
+			@$valid_str = "validitycheck=\"$field[1];$field[0];optional;notype;0;-1\"";
+		}
+		if (!isset($field[3])){
+			$field[3]=''; // if value not set then create and set to blank
+		}
+		//nulled Error as value can be blank in this case
+		if (@isset($field[4])){
+
+			$func = explode(',', trim($field[4]));
+
+			foreach($func AS $value){
+				if(preg_match( "/^J\|/", $value)){
+					$value=str_replace("J|",'',$value);
+					$func_script = trim($value)." ";
+				}
+				if(preg_match( "/^C\|/", $value)){
+					$value=str_replace("C|",'',$value);
+					$func_class = "class=".trim($value)." ";
+				}
+				if(preg_match( "/^I\|/", $value)){
+					$value=str_replace("I|",'',$value);
+					$func_id = "id=".trim($value)." ";
+				}
+				if(preg_match( "/^D\|/", $value)){
+					$value=str_replace("D|",'',$value);
+					$func_div = "<div id=".trim($value).">";
+				}
+				if(preg_match( "/^L\|/", $value)){
+						$value=str_replace("L|",'',$value);
+						if ($value == "NO_LABLE") $nolable = true;
+				}
+			}
+
+			$funcVars = $func_script.$func_class.$func_id;
+
+		}
+		
+		$type =strtolower(@$field[2]);
+		if(file_exists(DIR_ROOT.'/question/'.$type.'.q.php')){
+			include_once DIR_ROOT.'/question/'.$type.'.q.php';
+		}
+		
+		$questionType = new $type();
+		
+		$file = $questionType->display($field, $funcVars, $valid_str.$this->autoRefresh);
+		
+		if ($nolable){
+			$isdiv = (@$func_div)?"</div>":"";
+			return $file;
+		}else{
+			$isdiv = (@$func_div)?"</div>":"";
+			return "<div><div class=\"lable\">$field[0]</div> <div class=\"field\">".@$func_div.$file.$isdiv."</div></div><div style=\"clear:both\"></div>\n";
+		}
+!!!133506.php!!!	setAutoRefresh(inout command : String) : void
+
+		$this->autoRefresh = " onChange=\"".trim($command)."\"";
+		$this->autoRefreshcheckboxs = " onClick=\"".trim($command)."\"";
+		$this->autoRefreshInputEnter = " onkeyup=\"entercontents('".trim($command)."', event);\"";
+!!!133634.php!!!	unsetAutoRefresh() : void
+
+		$this->autoRefresh = NULL;
+		$this->autoRefreshcheckboxs = NULL;
+		$this->autoRefreshInputEnter = NULL;

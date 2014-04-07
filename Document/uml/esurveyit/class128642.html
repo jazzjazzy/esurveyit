@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class CustomException</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class CustomException</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_128642"></a>
+<p>CustomException Class,<br />&lt;br /&gt;<br />Generates a custom exception&lt;br /&gt;<br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />throw an exception &lt;br /&gt;<br />&lt;br /&gt;<br />if(empty($value)){&lt;br /&gt;<br />		throw new CustomException('value can not be empty');&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />try/catch&lt;br /&gt;<br />&lt;br /&gt;<br />try{&lt;br /&gt;<br />		$db-&gt;query('SELECT * FROM notable ');&lt;br /&gt;<br />}catch(CustomException $e){&lt;br /&gt;<br />		echo $e-&gt;logError();&lt;br /&gt;<br />}&lt;br /&gt;<br /><br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br /><br /><br />Generates a custom exception<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class CustomException extends <a href="class128770.html#refclass128770"><b>Exception</b></a> </li></ul><p>Artifact : <a href="index.html#ref8_129154"><b>errorhandler.class</b></a></p>
+<div class="sub">
+<a name="ref2_131842"></a>
+<table><tr><td><div class="element">Operation <b>messageError</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + messageError() : </li><li>Php : public function messageError() </li></ul><a name="ref2_131970"></a>
+<table><tr><td><div class="element">Operation <b>logError</b></div></td></tr></table><p>Generate a formated excption error<br /><br />@return ${type} Html Format<br /><br /></p><p>Declaration :</p><ul><li>Uml : + logError() : string</li><li>Php : public function logError() </li></ul><a name="ref2_132098"></a>
+<table><tr><td><div class="element">Operation <b>queryError</b></div></td></tr></table><p>Will append the query being used to the begining of a logError output<br /><br />This is used to create an exception error for query execution, to produce<br />error that also have the query displayed with in the error output<br /><br />@param $query Sql query that was being used at the time of execution<br /><br /></p><p>Declaration :</p><ul><li>Uml : + queryError(inout query : $query) : </li><li>Php : public function queryError($query) </li></ul></div>
+<p>All public operations : <a href="class128642.html#ref2_131970"><b>logError</b></a> , <a href="class128642.html#ref2_131842"><b>messageError</b></a> , <a href="class128642.html#ref2_132098"><b>queryError</b></a> </p>
+</body>
+</html>

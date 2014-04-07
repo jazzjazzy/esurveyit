@@ -1,0 +1,261 @@
+format 76
+"esurveyit" // esurveyit
+  revision 2
+  modified_by 2 "jason.SILVERBERG"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  deploymentview 128002 "esurveyit"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 128002 "arraytable.class"
+      stereotype "source"
+      php_src "<?php
+${comment}
+${namespace}
+${require_once}
+${definition}
+?>
+"
+      associated_classes
+	class_ref 128002 // arrayTable
+      end
+    end
+
+    artifact 128130 "index"
+      stereotype "source"
+      php_src "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
+<html xmlns=\"http://www.w3.org/1999/xhtml\">
+<head>
+<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<?php echo \"<pre>\".print_r($_REQUEST,1).\"</pre>\" ?>
+</body>
+</html>"
+      associated_classes
+      end
+    end
+
+    artifact 128258 "parse"
+      stereotype "source"
+      php_src "<?php
+
+require_once('config/config.php');
+require_once('classes/survey.class.php');
+
+$survey = new survey();
+
+$val = array();
+
+$val = json_decode($_REQUEST['val']);
+
+$page = $val->survey->page;
+unset($val->survey->page);
+
+if($page->survey_id >= 1){
+	$survey->updateSurveyDetails($page->survey_id, $page);
+}else{
+	$page->survey_id = $survey->saveSurveyDetails('1', $page);
+}
+
+
+foreach($val->survey AS $key=>$val ){
+	
+	$type = $val->type;
+	
+	require_once 'question-plugin/'.$type.'/'.$type.'.class.php';
+	
+	//Function Name to get class for a type 
+	$class = $type.'Class';
+	$obj = new $class();
+	
+	try {
+		$obj->save($page->survey_id, $key, $val);
+	}
+	catch(CustomException $e){
+		echo $e->queryError($sql);
+	}
+}
+
+?>"
+      associated_classes
+      end
+    end
+
+    artifact 128386 "survey"
+      stereotype "source"
+      php_src "<?php
+require_once 'config/config.php';
+require_once DIR_ROOT.'/classes/survey.class.php';
+
+/*$admin->isLoggedIn();*/
+
+$action = (!isset($_REQUEST['action']))? '' : $_REQUEST['action'];
+$year = ((!isset($_REQUEST['year']))? DEFAULT_YEAR : $_REQUEST['year']);
+
+$survey = new survey($year);
+
+switch($action){
+	case 'edit' : 
+			$id = (!isset($_REQUEST['id']))? NULL : $_REQUEST['id'];
+			$survey->editSurveyDetails($id);
+	break;
+	
+	case 'create' : 
+			getSubMenu('create');
+			$survey->createSurveyDetails();
+	break;
+
+	case 'show' :
+			$id = (!isset($_REQUEST['id']))? NULL : $_REQUEST['id'];
+			$survey->showSurveyDetails($id);
+	break;
+	case 'show-print' :
+			$id = (!isset($_REQUEST['id']))? NULL : $_REQUEST['id'];
+			$survey->showSurveyPrintDetails($id);
+	break;
+	
+	case 'update' : 
+			$id = (!isset($_REQUEST['id']))? NULL : $_REQUEST['id'];
+			$survey->updateSurveyDetails($id);
+	break;
+	
+	case 'save' : 
+			getSubMenu('create');
+			$survey->saveSurveyDetails();
+	break;
+
+	default :
+			getSubMenu('list');
+			echo $survey->getSurveyList();
+	break;
+}
+
+
+function getSubMenu($action){
+	global $survey;
+	/*if($survey->admin->checkAdminLevel(1)){
+				$create_css = ($action == 'create')? 'tab-button-select' : 'tab-button'; 
+				$staff->template->assign('Menu', '<!--<a href=\"staff.php?action=show-print\" class=\"tab-button\">print Bulk Profile</a>
+							<a href=\"staff.php?action=show-print&id=1\" class=\"tab-button\">Fin Bulk Profile</a> 
+							<a href=\"staff.php?action=show-print&id=2\" class=\"tab-button\">FAA Bulk Profile</a>
+							<a href=\"staff.php?action=show-print&id=3\" class=\"tab-button\">MAAIS Bulk Profile</a>-->
+							<a href=\"staff.php?action=create\" class=\"'.$create_css.'\">Add Staff</a>
+							<a href=\"external.php\" class=\"tab-button\">List Externals</a>
+							<br class=\"clear\"/><div id=\"tab-button-divider\">');
+	}*/
+}"
+      associated_classes
+      end
+    end
+  end
+
+  classview 128002 "esurveyit"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 128002 "arrayTable"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 128002 "saveArray"
+	protected explicit_return_type "void"
+	nparams 2
+	  param inout name "id" explicit_type ""
+	  param inout name "val" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 128130 "saveSingle"
+	protected explicit_return_type "void"
+	nparams 2
+	  param inout name "id" explicit_type ""
+	  param inout name "val" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+
+      operation 128258 "saveMulti"
+	protected explicit_return_type "void"
+	nparams 2
+	  param inout name "id" explicit_type ""
+	  param inout name "val" explicit_type ""
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${p0}${v0}, ${p1}${v1}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+  end
+
+  package_ref 128130 // ajax
+
+  package_ref 128258 // classes
+
+  package_ref 128642 // config
+
+  package_ref 128770 // question-plugin
+
+  package_ref 129666 // test
+end

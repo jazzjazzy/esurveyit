@@ -1,0 +1,153 @@
+class template
+!!!137858.php!!!	__construct(inout layout : String = NULL)
+
+	
+		$this->db = new db();
+		//pp($this->db);
+		//$this->db_connect = $this->db->db;
+
+		//if ($this->db->lastError){
+		 //	$this->lastError = $this->db->lastError;
+		//	return false;
+		//}
+		
+		
+		$this->template = new stdClass(); 
+		
+		if(strtolower($layout)=='blank'){
+			$this->template->layout = "{*CONTENT*}";
+		}elseif($layout){
+			$this->template->layout = fread(fopen( DIR_ROOT."/templates/".$layout, 'r'), filesize(DIR_ROOT."/templates/".$layout));
+		}else{
+			$this->template->layout = fread(fopen( DIR_ROOT."/templates/layout.tpl.html", 'r'), filesize(DIR_ROOT."/templates/layout.tpl.html"));
+		}
+		
+		if(DEBUG){
+			$this->template->layout = str_replace("{*showVars*}",  showVars(), $this->template->layout );
+		}
+!!!137986.php!!!	__destruct()
+
+
+!!!138114.php!!!	scriptHeading(inout script : )
+
+		$this->scriptHead[] = '<script type="text/javascript" src="js/'.$script.'"></script>';
+!!!138242.php!!!	page(inout field : )
+
+		$val = fread(fopen( DIR_ROOT."/templates/".$field, 'r'), filesize(DIR_ROOT."/templates/".$field));
+		
+		$this->template->layout = str_replace("{*CONTENT*}", $val, $this->template->layout );
+!!!138370.php!!!	insert(inout template : )
+
+		$this->chunk = fread(fopen( DIR_ROOT."/templates/".$template, 'r'), filesize(DIR_ROOT."/templates/".$template));
+		return $this->chunk; 
+!!!138498.php!!!	content(inout field : )
+
+		
+		$this->template->layout = str_replace("{*CONTENT*}", $field, $this->template->layout );
+!!!138626.php!!!	assign(inout field : , inout value : , inout tpl :  = NULL)
+
+		
+		if($tpl){
+			$tpl = str_replace('{*'.$field.'*}', $value, $tpl );
+		}else{
+			$this->template->layout = str_replace('{*'.$field.'*}', $value, $this->template->layout );
+		}
+!!!138754.php!!!	fetch(inout tpl :  = NULL)
+
+		if(!$tpl){
+			$tpl = $this->template->layout;
+		}
+		
+		//need to add the scipts before output if scripts is available 
+		if(count($this->scriptHead) > 0){
+			$scripts ='';
+			foreach($this->scriptHead AS $value){
+				$scripts .= $value."\n";
+			}
+			$tpl = str_replace("{*SCRIPT*}",  $scripts, $tpl );
+		}
+		
+		//strip out any remaining tags not used
+		$striped_layout = $this->strip_tags($tpl);
+
+		return $striped_layout;
+!!!138882.php!!!	display()
+
+		echo $this->fetch();
+!!!139010.php!!!	formatBoolean(inout value : )
+
+			if ($value){
+				return 'Yes';
+			}else{
+				return 'No';
+			}
+			
+			return "<div class=\"error\">error??</div>";
+!!!139138.php!!!	formatValue(inout value : , inout msg : )
+
+			if (!empty($value)){
+				return $value;
+			}else{
+				return $msg;
+			}
+			
+			return "<div class=\"error\">error??</div>";
+!!!139266.php!!!	getListTable(inout table : , inout value : , inout idField : , inout valueField : , inout selectBox :  = NULL, inout WHERE :  = NULL)
+
+
+			//set vars 
+			$retValue = '';
+			$selected = '';
+			$other = '';
+
+			$sql = "SELECT * FROM $table "; 
+
+			if(!empty($selectBox)){
+				$sql .= $WHERE; 
+				$sql .= " ORDER BY $valueField";
+				foreach ($this->db->select($sql) as $key=>$row){
+
+					$selected = ($row[$idField] == $value)? 'SELECTED' : '';
+					if (trim(strtoupper($row[$valueField])) === "OTHER"){
+						$other = "\t<option value='".$row[$idField]."' ".$selected." style=\"background-color:#efefef\">".$row[$valueField]."</option>\n";
+					}else{
+						$retValue .= "\t<option value='".$row[$idField]."' ".$selected.">".$row[$valueField]."</option>\n";
+					}
+				}
+				$retValue .= $other;
+			}else{
+				if (empty($value)){
+					return ;
+				}
+				$sql .= " WHERE ".$idField." = ". $value.";";
+
+				$a = $this->db->select($sql);
+				//$a = $stmt->fetch();
+				$retValue = $a[0][$valueField];
+			}
+
+			return $retValue;
+!!!139394.php!!!	input(inout type : , inout name : , inout value :  = NULL)
+
+		
+		switch(strtoupper($type)){
+				CASE 'TEXT' 	: 	$retValue = "<input type='text' name='".$name."' id='".$name."' value=\"".$value."\">"; BREAK;
+				CASE 'PASSWORD' :	$retValue = "<input type='password' name='".$name."'  id='".$name."' value=\"".$value."\">"; BREAK;
+				CASE 'HIDDEN' 	: 	$retValue = "<input type='hidden' name='".$name."' id='".$name."' value=\"".$value."\">"; BREAK;
+				CASE 'TEXTAREA' : 	$retValue = "<textarea name='".$name."' id='".$name."'>".$value."</textarea>"; BREAK;
+				CASE 'CHECKBOX' : 	$checked = (strtoupper($value) == 'YES')? "checked ='checked'" : '';
+									$retValue = "<input type='checkbox' name='".$name."' id='".$name."' value='1' ".$checked." />"; BREAK;
+				CASE 'RADIO' : 		$retValue = "<input type='radio' name='".$name."' id='".$name."' value='".$value."' />"; BREAK;
+			}
+			return $retValue;
+!!!139522.php!!!	strip_tags(inout string : )
+
+		preg_match_all("({\*(.*)\*})siU", $string, $matching_data);
+		return $string = str_replace($matching_data[0], "", $string);
+
+!!!139650.php!!!	externalLink(inout link : )
+
+		if(!empty($link)){
+			return "<a href=\"".$link."\" target=\"_blank\">".$link."</a>";
+		}
+		return;

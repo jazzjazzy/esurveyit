@@ -1,0 +1,105 @@
+class email
+!!!130306.php!!!	_construct()
+
+			$this->email();
+!!!130434.php!!!	email()
+
+			$this->mime = new Mail_mime($this->crlf);
+			if (PEAR::isError($this->mime)) { pp($this->mime->getMessage(),1);}
+
+!!!130562.php!!!	append_html(inout html : String)
+
+		$this->mime->setHTMLBody($html);
+!!!130690.php!!!	append_text(inout text : String)
+
+		$this->mime->setTXTBody($text);
+!!!130818.php!!!	append_file(inout file : String, inout type : String)
+
+		$this->mime->addAttachment($file, $type);
+!!!130946.php!!!	setHTMLtemplate(inout template : String, inout content : String)
+
+		$this->template = new template;
+		$this->template->set($template);
+		$this->template->assignArray($content);
+		$this->mime->setHTMLBody($this->template->fetch());
+!!!131074.php!!!	setTXTtemplate(inout table : String, inout content : String)
+
+		$table = trim($table);
+		$rows = explode("\n", $table);
+
+		$str = '';
+		foreach ($rows AS $value){
+			if ($value == "------" OR $value == "\n"){
+				next();
+			}
+			//Nulled Error as as some feilds may not need validating
+			@list($info,$validation) = explode(':::', $value);
+			list($lable,$field) = explode(':', $info);
+
+			$str .= $lable. "= ";
+			if (isset($content[$field])){
+				if (is_array($content[$field])){
+					$str .=  implode("," , $content[$field]) ."\n";
+				}else{
+					$str .=  $content[$field] ."\n";
+				}
+			}
+		}
+
+		$this->mime->setTXTBody($str);
+!!!131202.php!!!	sender(inout from : String)
+
+			$this->header['From'] = $from;
+!!!131330.php!!!	subject(inout subject : String)
+
+			//$this->header['Subject'] = $subject;
+			$this->mime->setSubject($subject);
+!!!131458.php!!!	setHeader(inout header : Array)
+
+		if (!empty($header)){
+			if (is_array($header)){
+				$this->header = $header;
+				return true;
+			}
+		}
+
+		return false;
+!!!131586.php!!!	recordEmail(inout table : String, inout content : String, inout form_name : String = NULL)
+
+
+		$this->dbase = global_db();
+
+		if(empty($form_name)){
+			$form_name = $_SERVER["REQUEST_URI"];
+		}
+
+		$create_date = dbase_date_format();
+
+		//$set_fields = "sent_to, subject_line, form_name, creat_date";
+		$set_values = array("sent_to"=>$this->lastsent , "subject_line"=>$this->header['Subject'], "form_name"=>$form_name, "create_date"=>$create_date);
+
+		$contentValueArray = array_merge($content, $set_values);
+		$fieldcount = count($contentValueArray);
+		$columnsArray = array_keys($contentValueArray);
+		$columnStr = implode(',', $columnsArray);
+
+		$sql = "INSERT INTO ". $table ." (".$columnStr.") values (".str_repeat  ( "?, " , $fieldcount-1 )."?);";
+
+		$recordinsert = $this->dbase->Prepare($sql);
+		$ok = $this->dbase->Execute($recordinsert, $contentValueArray);
+
+		if (!$ok) {
+			pp($this->dbase->ErrorMsg(),1);
+			return false;
+		}
+
+		return true;
+!!!131714.php!!!	send(inout to : String)
+
+
+			$this->lastsent = $to;
+			$body = $this->mime->get();
+			$hdrs = $this->mime->headers($this->header);
+			$mail = Mail::factory(MAILTYPE,array('debug' => true));
+			if (PEAR::isError($this->mail)) { return pp("Error:".$this->mail->getMessage());}
+			return $mail->send($this->lastsent, $hdrs, $body);

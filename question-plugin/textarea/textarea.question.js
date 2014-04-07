@@ -1,0 +1,78 @@
+
+$(document).ready(function(){
+
+});
+
+var question_id;
+
+function textareaSetProp(id){
+	
+	question_id = "#q"+id;
+	
+	$("#question-field").val($("#qid_"+id+" div.question-label").text());
+	
+	$('#question-field').live('keyup', function(e){
+		$("#qid_"+id+" div.question-label").html($(this).val());
+	})
+	
+	$('#text-caption').val($("#qid_"+id+" div.caption").text());
+	
+	var inputfont = $(question_id).css("width").replace('%', '');
+	$("#text-width-val").html(inputfont+'%');
+	$("#text-width").slider({value:inputfont,
+						min: 10,
+						max: 100,
+						step: 1,
+						slide: function( event, ui ) {
+							$(question_id).css({"width":ui.value+'%', 'line-height': '105%'});
+							$("#text-width-val").html(ui.value+'%');
+						}
+	});
+	
+	var inputfont = $(question_id).css("font-size").replace('px', '');
+	$("#text-height-val").html(inputfont+'px');
+	$("#text-height").slider({value:inputfont,
+						min: 10,
+						max: 100,
+						step: 1,
+						slide: function( event, ui ) {
+							$(question_id).css({"font-size":ui.value+'px', "height":ui.value+'px'});
+							$("#text-height-val").html(ui.value+'px');
+						}
+	});
+	
+	$('#text-center').live('click', function(){
+		$(question_id).parent('div').css({'text-align':'center'});
+	})
+	
+	$('#text-left').live('click', function(){
+		$(question_id).parent('div').css({'text-align':'left'});
+	})
+	
+	$('#text-right').live('click', function(){
+		$(question_id).parent('div').css({'text-align':'right'});
+	})
+	
+	$('#text-caption').live('keyup', function(e){
+		$(question_id+'_caption').html($(this).val());
+	})
+	
+};
+
+function textareaGather(id) {
+	
+	var a = id.split('_');
+	var qid = "q"+a[1];
+	
+	var type = '"type":"'+$("#"+id).attr('class')+'"';
+	var title = '"title":"'+$.trim(($("#"+id+' div.question-label').text()))+'"';
+	var width = '"width":"'+$("#"+qid).css("width")+'"';
+	var height = '"height":"'+$("#"+qid).css("font-size")+'"';
+	var text = '"text":"'+$("#"+qid).css("text-align")+'"';
+	var caption = '"caption":"'+$.trim(($("#"+qid+'_caption').text()))+'"';
+	var options = '"options":{'+width+', '+height+', '+text+', '+caption+'}';
+	
+	//create array to assign to json 
+	return '"'+id+'":{'+title+', '+type+', '+options+'}';
+	
+};

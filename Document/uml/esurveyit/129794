@@ -1,0 +1,448 @@
+format 76
+"package" // esurveyit::test::package
+  revision 1
+  modified_by 2 "jason.SILVERBERG"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  deploymentview 129538 "package"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 131458 "AllTests"
+      stereotype "source"
+      php_src "<?php
+
+require_once('package/build.test.php'); 
+
+${definition}
+
+
+?>
+"
+      associated_classes
+	class_ref 130306 // Package_AllTests
+      end
+    end
+
+    artifact 131586 "build.test"
+      stereotype "source"
+      php_src "<?php
+$_SERVER['HTTP_HOST'] = \"DEV\";
+$_SERVER['DOCUMENT_ROOT'] = \"/home/workspace\";
+
+require_once('package/config.php');
+
+require_once 'PHPUnit/Framework.php';
+${definition}
+
+"
+      associated_classes
+	class_ref 130434 // clientDatabaseTest
+      end
+    end
+
+    artifact 131714 "config"
+      stereotype "source"
+      php_src "<?php
+session_start();
+
+	ini_set('error_reporting', E_ALL);
+	ini_set('display_errors', 'On');
+	ini_set('display_startup_errors', 'On');
+
+$pathSet = ':';
+if(strstr(@$_SERVER[SERVER_SIGNATURE], \"Win32\") !== FALSE){
+	$pathSet = ';';
+}
+
+
+	define('SITE_ROOT','http://'.$_SERVER['HTTP_HOST'].'/esurveyit/');
+	define('DIR_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/');
+	define('TEMPLATE_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/Templates/');
+	define('DB_USER','root');
+	define('DB_PASS','password');
+	define('DB_HOST','localhost');
+	define('DB_DBASE','client_10000000');
+	define('DB_TYPE','mysql');
+	define('DB_PORT','3306');
+	define('DEBUG', false);
+	
+
+
+
+define('CLASS_ROOT', DIR_ROOT.'class/base');
+define('ASSETS_ROOT', DIR_ROOT.'assets');
+define('CONFIG_ROOT', DIR_ROOT.'config');
+
+set_include_path(get_include_path().PATH_SEPARATOR. DIR_ROOT.'assets/PEAR/');
+set_include_path(get_include_path().PATH_SEPARATOR.$_SERVER['DOCUMENT_ROOT'].'/esurveyit/classes/base/');
+
+require_once(CONFIG_ROOT.'/standard.inc.php');
+require_once(CONFIG_ROOT.'/constants.php');
+
+if(isset($_REQUEST['js'])){
+	echo \"const SITE_ROOT = '\".SITE_ROOT.\"';\";
+	echo \"const DIR_ROOT = '\".DIR_ROOT.\"';\";
+	echo \"const TEMPLATE_ROOT = '\".TEMPLATE_ROOT.\"';\";
+	echo \"const DEBUG = '\".DEBUG.\"';\";
+}
+
+?>"
+      associated_classes
+      end
+    end
+
+    artifact 131842 "survey.test"
+      stereotype "source"
+      php_src "<?php
+$_SERVER['HTTP_HOST'] = \"DEV\";
+$_SERVER['DOCUMENT_ROOT'] = \"/home/workspace\";
+
+
+require_once 'PHPUnit/Extensions/OutputTestCase.php';
+
+require_once('../classes/survey.class.php');
+require_once('database.class.php');
+require_once('template.class.php');
+${definition}
+
+  
+ 
+ 
+require_once 'PHPUnit/Extensions/SeleniumTestCase.php';
+
+class SeleniumSurveyTest extends PHPUnit_Extensions_SeleniumTestCase
+{
+  protected function setUp()
+  {
+	    $this->setBrowser(\"*firefox\");
+	    $this->setBrowserUrl(\"http://dev/\");
+  }
+	/**
+	 * @group Survey
+	 */
+  public function testWebSurveyDetails()
+  {
+  
+  }
+}
+ "
+      associated_classes
+	class_ref 130690 // SurveyTest
+      end
+    end
+  end
+
+  classview 129410 "package"
+    //class diagram settings
+    draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+    //collaboration diagram settings
+    show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+    //object diagram settings
+     write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+    //sequence diagram settings
+    show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+    //state diagram settings
+    package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+    show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+    //class settings
+    //activity diagram settings
+    package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+    show_infonote default drawing_language default show_stereotype_properties default
+    class 130306 "Package_AllTests"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "require_once('package/advertisement.test.php');
+require_once('package/category.test.php');
+require_once('package/employmenttype.test.php');
+require_once('package/advertTemplate.test.php');
+require_once('package/questionCatagory.test.php');
+require_once('package/question.test.php');"
+      operation 140674 "suite"
+	class_operation public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 130434 "clientDatabaseTest"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      comment "require_once('database.class.php');
+require_once('template.class.php');"
+      classrelation 129154 // <generalisation>
+	relation 129154 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 129154 // <generalisation>
+	  b parent class_ref 130562 // PHPUnit_Framework_TestCase
+      end
+
+      operation 140802 "testcreateClientDatabase"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+      end
+    end
+
+    class 130690 "SurveyTest"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl "${comment}${final}${abstract}class ${name}${extends}${implements} {
+${members}}
+"
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 129282 // <generalisation>
+	relation 129282 ---|>
+	  a public
+	    php "${type}"
+	    classrelation_ref 129282 // <generalisation>
+	  b parent class_ref 130818 // PHPUnit_Extensions_OutputTestCase
+      end
+
+      attribute 136578 "survey"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136706 "id"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136834 "_REQUEST"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 136962 "db"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137090 "fieldtest"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 137218 "newfieldval"
+	class_attribute protected explicit_type ""
+	cpp_decl ""
+	java_decl ""
+	php_decl "  ${comment}${visibility}${const}${static}${var}${name}${value};
+"
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 140930 "setUp"
+	protected explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141058 "testSaveSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141186 "testShowSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141314 "testGetSurveyList"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141442 "testCreateSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141570 "testEditSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141698 "testUpdateSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+
+      operation 141826 "testDeleteSurveyDetails"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	preserve_php_body_indent php_def "  ${comment}${final}${visibility}${abstract}${static}function ${name}${(}${)}
+{
+  ${body}}
+"
+	
+	
+	comment "
+@group Survey
+"
+      end
+    end
+  end
+end

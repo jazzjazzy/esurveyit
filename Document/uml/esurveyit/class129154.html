@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class RainTPL</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class RainTPL</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_129154"></a>
+<p>Load and draw templates<br /><br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class RainTPL </li></ul><p>Artifact : <a href="index.html#ref8_129410"><b>rain.tpl.class</b></a></p>
+<div class="sub">
+<a name="ref1_131330"></a>
+<table><tr><td><div class="element">Attribute <b>tpl_dir</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ tpl_dir :  =  "tpl/"</li><li>Php :  static $tpl_dir</li></ul><a name="ref1_131458"></a>
+<table><tr><td><div class="element">Attribute <b>cache_dir</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ cache_dir :  =  "tmp/"</li><li>Php :  static $cache_dir</li></ul><a name="ref1_131586"></a>
+<table><tr><td><div class="element">Attribute <b>base_url</b></div></td></tr></table>
+<p>CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : static, ~ base_url :  =  null</li><li>Php :  static $base_url</li></ul><a name="ref1_131714"></a>
+<table><tr><td><div class="element">Attribute <b>var</b></div></td></tr></table>
+<p>template base url (useful for absolute path eg. http://www.raintpl.com )<br /> CONFIGURATION //<br /></p><p>Declaration :</p><ul><li>Uml : + var :  =  array()</li><li>Php : public $var</li></ul><a name="ref1_131842"></a>
+<table><tr><td><div class="element">Attribute <b>tpl</b></div></td></tr></table>
+<p>template var<br /></p><p>Declaration :</p><ul><li>Uml : - tpl :  =  array()</li><li>Php : private $tpl</li></ul><a name="ref1_131970"></a>
+<table><tr><td><div class="element">Attribute <b>static_cache</b></div></td></tr></table>
+<p>template var<br /></p><p>Declaration :</p><ul><li>Uml : - static_cache :  =  false</li><li>Php : private $static_cache</li></ul><a name="ref2_133762"></a>
+<table><tr><td><div class="element">Operation <b>assign</b></div></td></tr></table><p>static cache enabled / disabled<br /><br />Assign variable<br />eg. 	$t-&gt;assign('name','duck');<br /><br />@param ??? $variable_name Name of template variable or associative array name/value<br />@param mixed $value value assigned to this variable. Not set if variable_name is an associative array<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ assign(inout variable : , inout value : mixed = null ) : </li><li>Php :  function assign($variable, $value = null ) </li></ul><a name="ref2_133890"></a>
+<table><tr><td><div class="element">Operation <b>draw</b></div></td></tr></table><p>Draw the template<br />eg. 	$html = $tpl-&gt;draw( 'demo', TRUE ); // return template in string<br />or 	$tpl-&gt;draw( $tpl_name ); // echo the template<br /><br />@param string $tpl_name  template to load<br />@param boolean $return_string  true=return a string, false=echo the template<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ draw(inout tpl_name : string, inout return_string : boolean = false ) : string</li><li>Php :  function draw($tpl_name, $return_string = false ) </li></ul><a name="ref2_134018"></a>
+<table><tr><td><div class="element">Operation <b>cache</b></div></td></tr></table><p>by default the expire time is an hour<br /></p><p>Declaration :</p><ul><li>Uml : ~ cache(inout tpl_name : , inout expire_time :  = RAINTPL_CACHE_EXPIRE_TIME ) : </li><li>Php :  function cache($tpl_name, $expire_time = RAINTPL_CACHE_EXPIRE_TIME ) </li></ul><a name="ref2_134146"></a>
+<table><tr><td><div class="element">Operation <b>check_template</b></div></td></tr></table><p>check if has to compile the template<br /></p><p>Declaration :</p><ul><li>Uml : - check_template(inout tpl_name :  = null ) : </li><li>Php : private function check_template($tpl_name = null ) </li></ul><a name="ref2_134274"></a>
+<table><tr><td><div class="element">Operation <b>compileFile</b></div></td></tr></table><p>Compile and write the compiled template file<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileFile(inout tpl_basedir : , inout tpl_filename : , inout cache_dir : , inout cache_filename : ) : </li><li>Php : private function compileFile($tpl_basedir, $tpl_filename, $cache_dir, $cache_filename) </li></ul><a name="ref2_134402"></a>
+<table><tr><td><div class="element">Operation <b>compileTemplate</b></div></td></tr></table><p>Compile template<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileTemplate(inout template_code : , inout tpl_basedir : ) : </li><li>Php : private function compileTemplate($template_code, $tpl_basedir) </li></ul><a name="ref2_134530"></a>
+<table><tr><td><div class="element">Operation <b>compileCode</b></div></td></tr></table><p>Compile the code<br />@access private <br /><br /></p><p>Declaration :</p><ul><li>Uml : - compileCode(inout parsed_code : , inout tpl_basedir : ) : </li><li>Php : private function compileCode($parsed_code, $tpl_basedir) </li></ul><a name="ref2_134658"></a>
+<table><tr><td><div class="element">Operation <b>path_replace</b></div></td></tr></table><p>replace the path of image src, link href<br />url =&gt; template_dir/url<br />url# =&gt; url<br />http://url =&gt; http://url<br /><br />@param string $html <br />@return ${type} html sostituito<br /><br /></p><p>Declaration :</p><ul><li>Uml : - path_replace(inout html : string, inout tpl_basedir : ) : string</li><li>Php : private function path_replace($html, $tpl_basedir) </li></ul><a name="ref2_134786"></a>
+<table><tr><td><div class="element">Operation <b>var_replace</b></div></td></tr></table><p>Variable substitution<br /><br />@param string $html Html code<br />@param string $tag_left_delimiter default {<br />@param string $tag_right_delimiter default }<br />@param string $php_left_delimiter default &lt;?php=<br />@param string $php_right_delimiter  default ;?&gt;<br />@param string $loop_name Loop name<br />@param string $echo if is true make the variable echo<br />@return ${type} Replaced code<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ var_replace(inout html : string, inout tag_left_delimiter : string, inout tag_right_delimiter : string, inout php_left_delimiter : string = null, inout php_right_delimiter : string = null, inout loop_name : string = null, inout echo : string = null ) : string</li><li>Php :  function var_replace($html, $tag_left_delimiter, $tag_right_delimiter, $php_left_delimiter = null, $php_right_delimiter = null, $loop_name = null, $echo = null ) </li></ul></div>
+</body>
+</html>

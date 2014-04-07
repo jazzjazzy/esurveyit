@@ -1,0 +1,6 @@
+class AllTests
+!!!140546.php!!!	suite()
+		$suite = new PHPUnit_Framework_TestSuite('Project');
+		$suite->addTest(Package_AllTests::suite());
+		
+		return $suite;

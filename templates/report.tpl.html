@@ -1,0 +1,96 @@
+		
+		<div class="mainContent" {*mainContent*} style="width:700px">
+			<div class="indent"> 
+           		<div class="page" id="survey_page" >
+           			<div class="title">{*survey_title*}</div>
+           			<div class="details">{*survey_description*}</div>
+          		</div>
+			</div>
+			
+			<form method="get" action="/esurveyit/index.php">
+            <div class="indent">
+            	<input type="hidden" name="survey_id" id="survey_id" value="{*survey_id*}" />
+            	<ul class="question">
+					{*question*}
+				</ul>
+            </div>
+          </div>
+       
+     			
+<div id="question-box" style="font-size:12px;width:400px;display:none">
+
+    <div class="top-left-box"></div>
+    <div class="top-right-box"></div>
+    
+    <div class="inside-box">
+    <div style="float:right"><img class="cancel-button" src="images/Close-icon.png"></div>
+    <p class="notopgap-box">&nbsp;</p>
+     <p id="question-content">
+               
+    </p>
+    <p class="nobottomgap-box">&nbsp;</p>
+    
+    </div>
+    <div class="bottom-left-box"></div>
+    <div class="bottom-right-box"></div>
+</div>
+
+
+<div id="question-pointer" style="width:10px;display:none">
+ <img alt="" src="images/question-pointer.png" />
+</div>
+
+<div id="question-create" style="font-size:12px;width:400px;display:none">
+
+    <div class="top-left-box"></div>
+    <div class="top-right-box"></div>
+    
+    <div class="inside-box">
+    
+    <p class="notopgap-box">&nbsp;</p>
+     <p id="question-content">
+     	Define the question to ask for this survey.<br />
+             <textarea id="newquestion" name="newquestion" style="width:100%"></textarea><br />
+        Select the response type for this Question.<br />
+        <select id="questionType" name="questionType">
+             		<option value="array">Array</option>
+             		<option value="text">Text</option>
+             		<option value="textarea">TextArea</option>
+             		<option value="select">Select</option>
+             		<option value="radio">Radio</option>
+             		<option value="checkbox">Checkbox</option>  
+             </select>
+        <div id="add-question">Add Question</div>
+    </p>
+    
+    <p class="nobottomgap-box">&nbsp;</p>
+    
+    </div>
+    <div class="bottom-left-box"></div>
+    <div class="bottom-right-box"></div>
+</div>
+
+<div id="survey-create" style="font-size:12px;width:400px;display:none">
+
+    <div class="top-left-box"></div>
+    <div class="top-right-box"></div>
+    
+    <div class="inside-box">
+    
+    <p class="notopgap-box">&nbsp;</p>
+     <p id="question-content">
+     	Define the Title of your new Survey<br />
+             <textarea id="newtitle" name="newtitle" style="width:100%"></textarea><br />
+        Define a befief description of what your Survey is about <br />
+        	<textarea id="newdetails" name="newdetails" style="width:100%"></textarea><br />
+        <div id="add-survey">Create Survey</div>
+    </p>
+    
+    <p class="nobottomgap-box">&nbsp;</p>
+    
+    </div>
+    <div class="bottom-left-box"></div>
+    <div class="bottom-right-box"></div>
+</div>
+ 	 </div>
+{*FUNCTION*}  

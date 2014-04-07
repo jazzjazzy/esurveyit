@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class table</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class table</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_129026"></a>
+<p>Template Class, <br />&lt;br /&gt;<br />This class is used to take a input to generate templates&lt;br /&gt; <br /><br />Example:&lt;br /&gt;<br />&lt;br /&gt;<br />$template = new template('template/index.html');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assign('var1', 'Employment list');&lt;br /&gt;<br />$template-&gt;assignArray(array{'var2'=&gt;'John', 'var3'=&gt;'mary', 'var4'=&gt;'&lt;strong&gt;frank&lt;/strong&gt;'});&lt;br /&gt;<br />&lt;br /&gt;<br />$ArrayVars[0]['name'] = 'john';&lt;br /&gt;<br />$ArrayVars[0]['age'] = '14';&lt;br /&gt;<br />$ArrayVars[1]['name'] = 'mary';&lt;br /&gt;<br />$ArrayVars[1]['age'] = '42';&lt;br /&gt;<br />$ArrayVars[2]['name'] = 'frank';&lt;br /&gt;<br />$ArrayVars[2]['age'] = '98';&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;assignRepeat('agelist', $ArrayVars);&lt;br /&gt;<br />$template-&gt;replace('../', '../../');&lt;br /&gt;<br />&lt;br /&gt;<br />$template-&gt;display();&lt;br /&gt;<br />&lt;br /&gt;<br /> <br />@author Jason Stewart &lt;jason@lexxcom.com.au&gt;<br />@version 1.0<br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class table </li></ul><p>Directly inherited by : <a href="class128898.html#refclass128898"><b>form</b></a> </p>
+<p>Artifact : <a href="index.html#ref8_129538"><b>table.class</b></a></p>
+<div class="sub">
+<a name="ref1_132098"></a>
+<table><tr><td><div class="element">Attribute <b>identifier</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - identifier : </li><li>Php : private $identifier</li></ul><a name="ref1_132226"></a>
+<table><tr><td><div class="element">Attribute <b>headerArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - headerArray :  =  array()</li><li>Php : private $headerArray</li></ul><a name="ref1_132354"></a>
+<table><tr><td><div class="element">Attribute <b>filterArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - filterArray :  =  array()</li><li>Php : private $filterArray</li></ul><a name="ref1_132482"></a>
+<table><tr><td><div class="element">Attribute <b>removeColumnArray</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - removeColumnArray :  =  array()</li><li>Php : private $removeColumnArray</li></ul><a name="ref1_132610"></a>
+<table><tr><td><div class="element">Attribute <b>columnsWidth</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - columnsWidth :  =  array()</li><li>Php : private $columnsWidth</li></ul><a name="ref1_132738"></a>
+<table><tr><td><div class="element">Attribute <b>id</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - id : </li><li>Php : private $id</li></ul><a name="ref1_132866"></a>
+<table><tr><td><div class="element">Attribute <b>name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - name :  =  'list'</li><li>Php : private $name</li></ul><a name="ref1_132994"></a>
+<table><tr><td><div class="element">Attribute <b>basePage</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - basePage :  =  NULL</li><li>Php : private $basePage</li></ul><a name="ref1_133122"></a>
+<table><tr><td><div class="element">Attribute <b>row_class_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - row_class_name : </li><li>Php : private $row_class_name</li></ul><a name="ref1_133250"></a>
+<table><tr><td><div class="element">Attribute <b>row_class_field_name</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - row_class_field_name : </li><li>Php : private $row_class_field_name</li></ul><a name="ref1_133378"></a>
+<table><tr><td><div class="element">Attribute <b>link_action</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - link_action :  =  'show'</li><li>Php : private $link_action</li></ul><a name="ref1_133506"></a>
+<table><tr><td><div class="element">Attribute <b>link_field</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - link_field : </li><li>Php : private $link_field</li></ul><a name="ref1_133634"></a>
+<table><tr><td><div class="element">Attribute <b>footer</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - footer : </li><li>Php : private $footer</li></ul><a name="ref1_133762"></a>
+<table><tr><td><div class="element">Attribute <b>nolink</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - nolink :  =  false</li><li>Php : private $nolink</li></ul><a name="ref1_133890"></a>
+<table><tr><td><div class="element">Attribute <b>rowsOnly</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - rowsOnly :  =  false</li><li>Php : private $rowsOnly</li></ul><a name="ref1_134018"></a>
+<table><tr><td><div class="element">Attribute <b>SEOurl</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : - SEOurl :  = SEO_LINK</li><li>Php : private $SEOurl</li></ul><a name="ref2_134914"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ __construct(inout id :  = NULL) : </li><li>Php :  function __construct($id = NULL) </li></ul><a name="ref2_135042"></a>
+<table><tr><td><div class="element">Operation <b>__destruct</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : ~ __destruct() : </li><li>Php :  function __destruct() </li></ul><a name="ref2_135170"></a>
+<table><tr><td><div class="element">Operation <b>setHeader</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setHeader(inout headerArray : ) : </li><li>Php : public function setHeader($headerArray) </li></ul><a name="ref2_135298"></a>
+<table><tr><td><div class="element">Operation <b>setRowsOnly</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setRowsOnly() : </li><li>Php : public function setRowsOnly() </li></ul><a name="ref2_135426"></a>
+<table><tr><td><div class="element">Operation <b>setFooter</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setFooter(inout field : ) : </li><li>Php : public function setFooter($field) </li></ul><a name="ref2_135554"></a>
+<table><tr><td><div class="element">Operation <b>setFilter</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setFilter(inout filterArray : ) : </li><li>Php : public function setFilter($filterArray) </li></ul><a name="ref2_135682"></a>
+<table><tr><td><div class="element">Operation <b>removeColumn</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + removeColumn(inout columnArray : ) : </li><li>Php : public function removeColumn($columnArray) </li></ul><a name="ref2_135810"></a>
+<table><tr><td><div class="element">Operation <b>setColumnsWidth</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setColumnsWidth(inout columnWidthArray : ) : </li><li>Php : public function setColumnsWidth($columnWidthArray) </li></ul><a name="ref2_135938"></a>
+<table><tr><td><div class="element">Operation <b>setColumnsClass</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setColumnsClass(inout columnClassArray : ) : </li><li>Php : public function setColumnsClass($columnClassArray) </li></ul><a name="ref2_136066"></a>
+<table><tr><td><div class="element">Operation <b>setIdentifier</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setIdentifier(inout field : , inout no_link :  = false) : </li><li>Php : public function setIdentifier($field, $no_link = false) </li></ul><a name="ref2_136194"></a>
+<table><tr><td><div class="element">Operation <b>setLinkAction</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setLinkAction(inout action : ) : </li><li>Php : public function setLinkAction($action) </li></ul><a name="ref2_136322"></a>
+<table><tr><td><div class="element">Operation <b>setLinkField</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setLinkField(inout action : ) : </li><li>Php : public function setLinkField($action) </li></ul><a name="ref2_136450"></a>
+<table><tr><td><div class="element">Operation <b>setIdentifierPage</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setIdentifierPage(inout page : ) : </li><li>Php : public function setIdentifierPage($page) </li></ul><a name="ref2_136578"></a>
+<table><tr><td><div class="element">Operation <b>setTableName</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setTableName(inout name : ) : </li><li>Php : public function setTableName($name) </li></ul><a name="ref2_136706"></a>
+<table><tr><td><div class="element">Operation <b>setBasePage</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setBasePage(inout basepage : ) : </li><li>Php : public function setBasePage($basepage) </li></ul><a name="ref2_136834"></a>
+<table><tr><td><div class="element">Operation <b>setPrimaryId</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setPrimaryId(inout id : ) : </li><li>Php : public function setPrimaryId($id) </li></ul><a name="ref2_136962"></a>
+<table><tr><td><div class="element">Operation <b>setRowClassName</b></div></td></tr></table><p>Set the Class name for a Row in the table<br />@param $name<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + setRowClassName(inout name : $name) : void</li><li>Php : public function setRowClassName($name) </li></ul><a name="ref2_137090"></a>
+<table><tr><td><div class="element">Operation <b>setRowClassFieldName</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + setRowClassFieldName(inout name : ) : </li><li>Php : public function setRowClassFieldName($name) </li></ul><a name="ref2_137218"></a>
+<table><tr><td><div class="element">Operation <b>genterateDisplayTable</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + genterateDisplayTable(inout content : ) : </li><li>Php : public function genterateDisplayTable($content) </li></ul><a name="ref2_137346"></a>
+<table><tr><td><div class="element">Operation <b>getFilterType</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - getFilterType(inout type : , inout key : , inout content :  = NULL) : </li><li>Php : private function getFilterType($type, $key, $content = NULL) </li></ul><a name="ref2_137474"></a>
+<table><tr><td><div class="element">Operation <b>getOrderType</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - getOrderType(inout type : , inout key : ) : </li><li>Php : private function getOrderType($type, $key) </li></ul><a name="ref2_137602"></a>
+<table><tr><td><div class="element">Operation <b>buildTd</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : - buildTd(inout key : , inout value : ) : </li><li>Php : private function buildTd($key, $value) </li></ul><a name="ref2_137730"></a>
+<table><tr><td><div class="element">Operation <b>buildWhereArrayFromRequest</b></div></td></tr></table><p>Declaration :</p><ul><li>Uml : + buildWhereArrayFromRequest(inout full_like :  = NULL) : </li><li>Php : public function buildWhereArrayFromRequest($full_like = NULL) </li></ul></div>
+<p>All public operations : <a href="class129026.html#ref2_137730"><b>buildWhereArrayFromRequest</b></a> , <a href="class129026.html#ref2_137218"><b>genterateDisplayTable</b></a> , <a href="class129026.html#ref2_135682"><b>removeColumn</b></a> , <a href="class129026.html#ref2_136706"><b>setBasePage</b></a> , <a href="class129026.html#ref2_135938"><b>setColumnsClass</b></a> , <a href="class129026.html#ref2_135810"><b>setColumnsWidth</b></a> , <a href="class129026.html#ref2_135554"><b>setFilter</b></a> , <a href="class129026.html#ref2_135426"><b>setFooter</b></a> , <a href="class129026.html#ref2_135170"><b>setHeader</b></a> , <a href="class129026.html#ref2_136066"><b>setIdentifier</b></a> , <a href="class129026.html#ref2_136450"><b>setIdentifierPage</b></a> , <a href="class129026.html#ref2_136194"><b>setLinkAction</b></a> , <a href="class129026.html#ref2_136322"><b>setLinkField</b></a> , <a href="class129026.html#ref2_136834"><b>setPrimaryId</b></a> , <a href="class129026.html#ref2_137090"><b>setRowClassFieldName</b></a> , <a href="class129026.html#ref2_136962"><b>setRowClassName</b></a> , <a href="class129026.html#ref2_135298"><b>setRowsOnly</b></a> , <a href="class129026.html#ref2_136578"><b>setTableName</b></a> </p>
+</body>
+</html>

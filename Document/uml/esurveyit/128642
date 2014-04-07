@@ -1,0 +1,145 @@
+format 76
+"config" // esurveyit::config
+  revision 1
+  modified_by 2 "jason.SILVERBERG"
+  // class settings
+  //class diagram settings
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  //use case diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default class_drawing_mode default shadow default show_stereotype_properties default
+  //sequence diagram settings
+  show_full_operations_definition default write_horizontally default class_drawing_mode default drawing_language default draw_all_relations default shadow default show_stereotype_properties default show_class_context_mode default show_msg_context_mode default
+  //collaboration diagram settings
+  show_full_operations_definition default show_hierarchical_rank default write_horizontally default class_drawing_mode default drawing_language default package_name_in_tab default show_context default show_msg_context default draw_all_relations default shadow default show_stereotype_properties default
+  //object diagram settings
+   write_horizontally default package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default show_stereotype_properties default
+  //component diagram settings
+  package_name_in_tab default show_context default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //deployment diagram settings
+  package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+  draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+  //state diagram settings
+  package_name_in_tab default show_context default auto_label_position default write_trans_label_horizontally default show_trans_definition default draw_all_relations default shadow default
+  show_activities default region_horizontally default drawing_language default show_stereotype_properties default
+  //activity diagram settings
+  package_name_in_tab default show_context default show_opaque_action_definition default auto_label_position default write_flow_label_horizontally default draw_all_relations default shadow default
+  show_infonote default drawing_language default show_stereotype_properties default
+  
+  deploymentview 128514 "config"
+    //deployment diagram settings
+    package_name_in_tab default show_context default write_horizontally default auto_label_position default draw_all_relations default shadow default
+    draw_component_as_icon default show_component_req_prov default show_component_rea default show_stereotype_properties default
+    artifact 130050 "config"
+      stereotype "source"
+      php_src "<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 'On');
+ini_set('display_startup_errors', 'On');
+
+$pathSet = ':';
+if(strstr(@$_SERVER[SERVER_SIGNATURE], \"Win32\") !== FALSE){
+	$pathSet = ';';
+}
+
+if($_SERVER['HTTP_HOST'] == 'dev'){ //INTERNAL HOME STAGEING
+	define('SITE_ROOT','http://'.$_SERVER['HTTP_HOST'].'/esurveyit/');
+	define('DIR_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/');
+	define('TEMPLATE_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/templates');
+	define('DB_USER','root');
+	define('DB_PASS','password');
+	define('DB_HOST','localhost');
+	define('DB_DBASE','esurveyit');
+	define('DB_TYPE','mysql');
+	define('DB_PORT','3306');
+	define('DEBUG', true);
+	define('ERROR_LEVEL', 'dev');
+
+}else{
+	define('SITE_ROOT','http://'.$_SERVER['HTTP_HOST'].'/esurveyit/');
+	define('DIR_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/');
+	define('TEMPLATE_ROOT',$_SERVER['DOCUMENT_ROOT'].'/esurveyit/templates');
+	define('DB_USER','root');
+	define('DB_PASS','password');
+	define('DB_HOST','localhost');
+	define('DB_DBASE','Forevernew_rec');
+	define('DB_TYPE','mysql');
+	define('DEBUG', true);
+	define('ERROR_LEVEL', 'dev');
+}
+
+
+define('CLASS_ROOT', DIR_ROOT.'class/base');
+define('ASSETS_ROOT', DIR_ROOT.'assets');
+define('CONFIG_ROOT', DIR_ROOT.'config');
+
+set_include_path(get_include_path().PATH_SEPARATOR. DIR_ROOT.'assets/PEAR/');
+set_include_path(get_include_path().PATH_SEPARATOR.$_SERVER['DOCUMENT_ROOT'].'/esurveyit/classes/base/');
+
+require_once($_SERVER['DOCUMENT_ROOT'].'/esurveyit/config/standard.inc.php');
+require_once('constants.php');
+
+if(isset($_REQUEST['js'])){
+	echo \"const SITE_ROOT = '\".SITE_ROOT.\"';\";
+	echo \"const DIR_ROOT = '\".DIR_ROOT.\"';\";
+	echo \"const TEMPLATE_ROOT = '\".TEMPLATE_ROOT.\"';\";
+	echo \"const DEBUG = '\".DEBUG.\"';\";
+}
+
+?>"
+      associated_classes
+      end
+    end
+
+    artifact 130178 "constants"
+      stereotype "source"
+      php_src "<?php
+
+define('WEBLINK', true);
+
+//Pagination settings
+define('NUM_PER_PAGE', 10);
+
+//SET MAIL SENDING TYPE mail, smtp, sendmail
+define('MAILTYPE', 'mail');
+
+//system type template settings
+define('TEMPLATE_BLANK', 1);
+
+//Utils Setting
+if(!DEBUG || ERROR_LEVEL=='production'){
+	define('TURN_ON_PP',false); //Toggle display of pp() function;
+}else{
+	define('TURN_ON_PP',true); //Toggle display of pp() function
+}
+
+define('SEO_LINK',false);
+define('DEFAULT_YEAR',date('Y'));
+
+?>"
+      associated_classes
+      end
+    end
+
+    artifact 130306 "list.function"
+      stereotype "source"
+      php_src "<?php"
+      associated_classes
+      end
+    end
+
+    artifact 130434 "standard.inc"
+      stereotype "source"
+      php_src "<?php
+
+require_once 'database.class.php';
+require_once 'table.class.php';
+require_once 'template.class.php';
+//require_once 'admin.class.php';
+require_once 'errorhandler.class.php';"
+      associated_classes
+      end
+    end
+  end
+end

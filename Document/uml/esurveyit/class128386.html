@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class db</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class db</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_128386"></a>
+<p>This class is Database abstraction layer<br /><br />@package PeopleScope<br />@subpackage Base<br /><br /></p>
+<p>Declaration :</p><ul>
+<li>Php : class db </li></ul><p>Artifact : <a href="index.html#ref8_128898"><b>database.class</b></a></p>
+<div class="sub">
+<a name="ref1_129026"></a>
+<table><tr><td><div class="element">Attribute <b>dsn</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ dsn : </li><li>Php :  var $dsn</li></ul><a name="ref1_129154"></a>
+<table><tr><td><div class="element">Attribute <b>dbh</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ dbh : </li><li>Php :  var $dbh</li></ul><a name="ref1_129282"></a>
+<table><tr><td><div class="element">Attribute <b>lastQuery</b></div></td></tr></table>
+<p>Declaration :</p><ul><li>Uml : ~ lastQuery : </li><li>Php :  var $lastQuery</li></ul><a name="ref2_129282"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>constructor to initiate database conection <br /><br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : ~ __construct() : Void</li><li>Php :  function __construct() </li></ul><a name="ref2_129410"></a>
+<table><tr><td><div class="element">Operation <b>getDNSString</b></div></td></tr></table><p>returns current DSN string used to connect ot the server <br /><br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + getDNSString() : String</li><li>Php : public function getDNSString() </li></ul><a name="ref2_129538"></a>
+<table><tr><td><div class="element">Operation <b>select</b></div></td></tr></table><p>Will instigate a SELECT query and return and an array of responses <br /><br />@param String $sql select sql string to be executed <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + select(inout sql : String) : Array</li><li>Php : public function select($sql) </li></ul><a name="ref2_129666"></a>
+<table><tr><td><div class="element">Operation <b>insert</b></div></td></tr></table><p>Will instigate a INSERT query and return the inserts autocomplete Id;<br /><br />@param String $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + insert(inout sql : String, inout exec :  = NULL) : Array</li><li>Php : public function insert($sql, $exec = NULL) </li></ul><a name="ref2_129794"></a>
+<table><tr><td><div class="element">Operation <b>delete</b></div></td></tr></table><p>Will instigate a DELETE query and return true if no problems;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + delete(inout sql : string) : Array</li><li>Php : public function delete($sql) </li></ul><a name="ref2_129922"></a>
+<table><tr><td><div class="element">Operation <b>update</b></div></td></tr></table><p>Will instigate a UPDATE query and return true if no problems;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + update(inout sql : string, inout exec :  = NULL) : array</li><li>Php : public function update($sql, $exec = NULL) </li></ul><a name="ref2_130050"></a>
+<table><tr><td><div class="element">Operation <b>query</b></div></td></tr></table><p>Will instegate a query and return a recordset;<br /><br />@param string $sql<br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + query(inout sql : string, inout exec :  = NULL) : array</li><li>Php : public function query($sql, $exec = NULL) </li></ul><a name="ref2_130178"></a>
+<table><tr><td><div class="element">Operation <b>prepareToQuery</b></div></td></tr></table><p>Merge query template with array <br /><br />Query template and array set merger function <br />Will taken in the Query string template and the array of query elements<br />and combine the to show the fully converted string used in the prepare <br />Note: only use as example for debugging purposes<br /> <br />@param string $query Query template  <br />@param array $params Array of inputs <br />@return ${type}<br /><br /></p><p>Declaration :</p><ul><li>Uml : + prepareToQuery(inout query : string, inout params : array) : string</li><li>Php : public function prepareToQuery($query, $params) </li></ul></div>
+<p>All public operations : <a href="class128386.html#ref2_129794"><b>delete</b></a> , <a href="class128386.html#ref2_129410"><b>getDNSString</b></a> , <a href="class128386.html#ref2_129666"><b>insert</b></a> , <a href="class128386.html#ref2_130178"><b>prepareToQuery</b></a> , <a href="class128386.html#ref2_130050"><b>query</b></a> , <a href="class128386.html#ref2_129538"><b>select</b></a> , <a href="class128386.html#ref2_129922"><b>update</b></a> </p>
+</body>
+</html>

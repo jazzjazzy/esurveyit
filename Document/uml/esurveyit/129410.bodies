@@ -1,0 +1,9 @@
+class arrayClass
+!!!139778.php!!!	__construct()
+
+		$this->db = new db();
+		try {
+			$this->db_connect = $this->db->dbh;
+		} catch (CustomException $e) {
+			$e->logError();
+		}

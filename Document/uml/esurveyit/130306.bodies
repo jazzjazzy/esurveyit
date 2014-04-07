@@ -1,0 +1,18 @@
+class Package_AllTests
+!!!140674.php!!!	suite()
+        $suite = new PHPUnit_Framework_TestSuite('Package');
+        $suite->addTestSuite('clientDatabaseTest');
+		/*$suite->addTestSuite('CategoryTest');
+        $suite->addTestSuite('SeleniumCategoryTest');
+        $suite->addTestSuite('EmploymenttypeTest');
+        $suite->addTestSuite('SeleniumEmploymenttypeTest');
+        $suite->addTestSuite('QuestionCatagoryTest');
+        $suite->addTestSuite('SeleniumQuestionCatagoryTest');
+		$suite->addTestSuite('QuestionTest');
+        $suite->addTestSuite('SeleniumQuestionTest');
+        $suite->addTestSuite('QuestionTestFill');
+        $suite->addTestSuite('AdvertTemplateTest');
+        $suite->addTestSuite('SeleniumAdvertTemplateTest');
+        $suite->addTestSuite('AdvertisementTest');
+        $suite->addTestSuite('SeleniumAdvertisementTest');*/
+        return $suite;

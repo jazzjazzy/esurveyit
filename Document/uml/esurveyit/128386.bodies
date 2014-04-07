@@ -1,0 +1,107 @@
+class db
+!!!129282.php!!!	__construct() : Void
+
+		
+		$this->dsn = DB_TYPE.':dbname='.DB_DBASE.';host='.DB_HOST.';port='.DB_PORT;
+		try{
+			try {
+				$this->dbh = new PDO($this->dsn, DB_USER, DB_PASS);
+			} catch (PDOException $e) {
+				throw new CustomException('Connection Error '.$e->getMessage());
+			}
+		}catch(CustomException $e) {
+			echo $e->logError();
+		}
+!!!129410.php!!!	getDNSString() : String
+
+		return $this->dsn;
+!!!129538.php!!!	select(inout sql : String) : Array
+
+		
+		try{
+			$stmt = $this->query($sql);
+		}catch(CustomException $e){
+			throw new CustomException('SELECT : '. $e->getMessage());
+		}
+		
+		return $stmt->fetchAll(PDO::FETCH_NAMED);
+		
+!!!129666.php!!!	insert(inout sql : String, inout exec :  = NULL) : Array
+
+		
+		try{
+			$stmt = $this->query($sql, $exec);
+		}catch(CustomException $e){
+			throw new CustomException('INSERT : '. $e->getMessage());
+		}
+		
+		return $this->dbh->lastInsertId();
+		    
+!!!129794.php!!!	delete(inout sql : string) : Array
+
+		
+		try{
+			$stmt = $this->query($sql);
+		}catch(CustomException $e){
+			throw new CustomException('DELETE : '. $e->getMessage());
+		}
+		
+		return true;
+!!!129922.php!!!	update(inout sql : string, inout exec :  = NULL) : array
+
+
+		try{
+			$stmt = $this->query($sql, $exec);
+		}catch(CustomException $e){
+			throw new CustomException('UPDATE : '. $e->getMessage());
+		}
+		
+		return true;
+!!!130050.php!!!	query(inout sql : string, inout exec :  = NULL) : array
+
+		$this->lastQuery = $sql;
+
+		try{
+			$stmt = $this->dbh->prepare($sql);
+		}catch(CustomException $e){
+			throw new CustomException('QUERY : '. $e->getMessage());
+		}
+
+		if(empty($exec)){
+			$stmt->execute();
+		}else{
+			$stmt->execute($exec);
+		}
+		
+		if ($stmt->errorCode() != 00000 )
+		{
+			if(empty($exec)){
+				$error = $stmt->errorInfo();
+			}else{
+				$error = $stmt->errorInfo();
+				ob_start();	
+				$stmt->debugDumpParams();
+				$error[2] .= "<br /><pre>". ob_get_contents()."</pre>";
+				ob_end_clean();
+			}
+		  	//$error = $stmt->errorInfo();
+		  	throw new CustomException($error[2]);
+		}
+
+		return $stmt;
+!!!130178.php!!!	prepareToQuery(inout query : string, inout params : array) : string
+
+		$keys = array();
+
+	    # build a regular expression for each parameter
+	    foreach ($params as $key => $value) {
+	        if (is_string($key)) {
+	            $keys[] = '/'.$key.'/';
+	        } else {
+	            $keys[] = '/[?]/';
+	        }
+	    }
+	
+	    $query = preg_replace($keys, $params, $query, 1, $count);
+	
+	    return $query;

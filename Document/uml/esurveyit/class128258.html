@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Documentation produced by the Html generator of Bouml (http://bouml.free.fr) -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Class survey</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body bgcolor="#ffffff">
+
+<div class = "title">Class survey</div>
+<p></p>
+
+<!-- ============================================================= -->
+
+<a name="ref4_128258"></a>
+<p>Declaration :</p><ul>
+<li>Php : class survey extends <a href="class128130.html#refclass128130"><b>question</b></a> </li></ul><div class="sub">
+<a name="ref1_128002"></a>
+<table><tr><td><div class="element">Attribute <b>db_connect</b></div></td></tr></table>
+<p>Connect to PDO object through database class<br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : - db_connect : Object</li><li>Php : private $db_connect</li></ul><a name="ref1_128130"></a>
+<table><tr><td><div class="element">Attribute <b>db</b></div></td></tr></table>
+<p>Database class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : - db : Object</li><li>Php : private $db</li></ul><a name="ref1_128258"></a>
+<table><tr><td><div class="element">Attribute <b>table</b></div></td></tr></table>
+<p>Table class object  <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : + table : Object</li><li>Php : public $table</li></ul><a name="ref1_128386"></a>
+<table><tr><td><div class="element">Attribute <b>template</b></div></td></tr></table>
+<p>Template class object <br />@var Object<br /><br /></p><p>Declaration :</p><ul><li>Uml : + template : Object</li><li>Php : public $template</li></ul><a name="ref1_128514"></a>
+<table><tr><td><div class="element">Attribute <b>fields</b></div></td></tr></table>
+<p>Array of field used in the database if not in this list is dropped from insert or update<br />@var Array<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields : Array = array('survey_id', 'account_id', 'survey_title', 'survey_description', 'survey_type', 'start_date', 'end_date', 'create_date', 'modify_date', 'delete_date')</li><li>Php : private $fields</li></ul><a name="ref1_128642"></a>
+<table><tr><td><div class="element">Attribute <b>fields_required</b></div></td></tr></table>
+<p>Array of feilds require information when validating <br />@var Array|null<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields_required : Array|null =  NULL</li><li>Php : private $fields_required</li></ul><a name="ref1_128770"></a>
+<table><tr><td><div class="element">Attribute <b>fields_validation_type</b></div></td></tr></table>
+<p>Array of feilds and there types that are check when validating <br />@var Array|null<br /><br /></p><p>Declaration :</p><ul><li>Uml : - fields_validation_type : Array|null =  array ('survey_id'=&gt;'INT', 'account_id'=&gt;'INT', 'survey_title'=&gt;'TEXT','survey_description'=&gt;'TEXTAREA', 'survey_type'=&gt;'TEXT', 'start_date'=&gt;'TEXT', 'end_date'=&gt;'TEXT', 'create_date'=&gt;'TEXT', 'modify_date'=&gt;'TEXT', 'delete_date'=&gt;'TEXT')</li><li>Php : private $fields_validation_type</li></ul><a name="ref1_128898"></a>
+<table><tr><td><div class="element">Attribute <b>validation_error</b></div></td></tr></table>
+<p>Array use to store any error found during Validation function <br />@see Validation()<br />@var Array<br /><br /></p><p>Declaration :</p><ul><li>Uml : - validation_error : Array =  array()</li><li>Php : private $validation_error</li></ul><a name="ref2_129154"></a>
+<table><tr><td><div class="element">Operation <b>__construct</b></div></td></tr></table><p>Contructor for this method <br /><br />&lt;pre&gt;<br />The constructor will setup the required object for this class <br />will initiate the database class, the table class and the template <br />for this class to use<br /><br /><br />&lt;div style="color:red"&gt;NOTE: This is generated information from the framework and will need to be corrected if there are any changes&lt;/div&gt;<br />&lt;/pre&gt;<br /><br />@see db::<br />@see table<br />@see template<br /><br /></p><p>Declaration :</p><ul><li>Uml : + __construct() : </li><li>Php : public function __construct() </li></ul></div>
+<p>All public operations : <a href="class128258.html#ref2_129154"><b>__construct</b></a> </p>
+</body>
+</html>

@@ -1,0 +1,267 @@
+@CHARSET "ISO-8859-1";
+
+.title{
+	font-size: 24px;
+	color: #000000;
+}
+
+.details{
+	font-size: 12px;
+	color: #000000;
+}
+
+.question-label{
+	 background-color:#C1D103;
+	 color:#000;
+	 font-size:14px;
+	 padding:10px 5px 10px 20px;
+	 margin-top:10px;
+}
+
+
+.question-block{
+	 color:#000;
+	 width:100%;
+	 padding-bottom:20px;
+	 padding-top:10px;
+	 padding-left:10px;
+	 font-size:12px;
+	 
+}
+.question-block td{
+	 text-align:center;
+}
+
+.rowlabel{
+	float:left;
+	width:80%;
+}
+.question-block td.label{
+	 text-align:left;
+}
+
+#question-pointer{
+	width:10px;
+	display:none;
+	z-index:999;
+}
+
+#question-placer{
+	width:235px;
+	float:left;
+}
+
+#question-box h1{
+	color:#fff;
+	background-color:#000;
+	padding:4px;
+	margin:0px;
+	top:0px;	
+}
+
+#question-box img{
+	padding:4px;
+}
+
+#handle {
+	float:left;
+	width:5%;
+	text-align:left;	
+}
+
+#question-field{
+	width:100px;	
+}
+
+#add-placer{
+	float:left;
+}
+
+.warning{
+ 	color:red;
+ 	background-color:#EEEFB3; 
+ 	border:solid 1px red; 
+ 	width:100%;
+ 	font-size:10px
+}
+
+.warning img{
+ 	padding:4px 5px 0 4px;
+}
+
+
+#content .line-ver {background-position:271px 0;}
+#content .col-1 {width:258px; margin-right:34px;}
+#content .col-2 { width:259px;}
+
+.remove-question{
+	display:inline-block;
+	width:104px;
+	height:45px;
+	text-align:center;
+	color:#545454;
+	text-decoration:none;
+	line-height:30px;
+	background:url(../images/remove.png) no-repeat 0 0;
+	font-family:"Times New Roman", Times, serif;
+	font-style:italic;
+	font-weight:bold;
+	font-size:17px;
+}
+
+.register div.label{
+	font-family: "Times New Roman",Times,serif;
+	font-style: italic;
+	font-weight: 800;
+	padding-right:5px;	
+	float:left;	
+	width: 150px;
+	font-weight:800;
+	margin-top:7px; 
+	text-align: right;
+	padding-right:10px;
+}
+
+.register div.value{
+	float:left;	
+	margin-top:4px; 
+}
+
+.register div.value input{
+	border:2px solid white;
+	background-color: #d2e061;
+}
+
+.register div.required input{
+	border:2px solid red;
+}
+
+.register fieldset{
+	border-top:2px dotted white;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;	
+}
+ 
+.register legend{
+	font-family: "Times New Roman",Times,serif;
+	line-height: 1.2em;
+	color: #000000;
+	font-style: italic;
+	font-weight: 800;
+	color: white;
+	padding-right:5px;	
+}
+
+#register-body{
+	width:420px;
+	text-align:center;	
+}
+
+#login-body{
+	width:220px;
+	text-align:center;	
+}
+
+#login-body div.label{
+	width:60px;
+}
+
+#login-body p{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px
+}
+
+.error{
+	color:red;
+	font-size: 10px;
+	font-family: "Times New Roman",Times,serif;	
+	font-style: italic;
+	margin-left: 10px;
+}
+
+.NoAccount{
+	color:#D3D3D3;
+}
+
+.loggedIn{
+	float:right;
+	color:white;
+	padding-top:10px;
+}
+
+.caption{
+	font-size: .5em;
+}
+/*********************Liquid round corners***********************/
+.top-left-box {
+
+margin-right: 9px; /* clip right corner */
+background-image: url('../images/corners1280x18.gif');
+height: 9px; /* vertical: show first half of the image with the top-corners in it */
+font-size: 2px; /* correct height for IE */
+}
+
+.top-right-box {
+
+margin-top: -9px; /* to level of top-left corner */
+margin-left: 9px; /* clip left corner */
+background-image: url('../images/corners1280x18.gif'); 
+background-position: 100% 0; /* show bg-image starting at the right */
+height: 9px; 
+font-size: 2px;
+}
+
+.bottom-left-box {
+
+margin-right: 9px; /* clip right corner */
+
+background-image: url('../images/corners1280x18.gif');
+background-position: 0 -9px; /* show under half of the image */
+height: 9px;
+font-size: 2px;
+}
+
+.bottom-right-box {
+
+margin-top: -9px; /* to level of bottom-left corner */
+margin-left: 9px; /* clip left corner */
+background-image: url('../images/corners1280x18.gif'); 
+background-position: 100% -9px; /* under half, right side */
+height: 9px; 
+font-size: 2px; 
+}
+
+.inside-box {
+
+border-left: 1px solid #C00000;
+border-right: 1px solid #C00000;
+background: #EFEFEF;
+color: #000000;
+padding-left: 10px;
+padding-right: 10px;
+}
+
+.inside-box p{
+	padding: 0px;
+	margin: 0px;
+}
+
+.inside-box H1{
+	padding: 0px;
+	margin: 0px;
+	color:#000;
+	font-family: sans-serif;
+}
+
+.notopgap-box {
+
+margin-top: 0;
+}
+
+.nobottomgap-box {
+
+margin-bottom: 0;
+}
+
+/**************************************************************************/
