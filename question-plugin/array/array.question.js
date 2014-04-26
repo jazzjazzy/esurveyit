@@ -36,7 +36,7 @@ function arraySetProp(id){
 				$(question_id+' th').each(function(id, strong){
 					var field = (id+1);
 					var value =  $('#column-List li:nth-child('+field+') input:text').val();
-					$('#column-List li:nth-child('+field+') input:text').attr('id', 'colheader-'+field);
+					//$('#column-List li:nth-child('+field+') input:text').attr('id', 'colheader-'+field);
 					$(question_id+' th.header-'+field).html(value);
 				})
 			},
@@ -83,8 +83,10 @@ function arraySetProp(id){
 	
 	$('#array-heading-add').live('click', function(){
 		id = $("#column-List li").length+1;
+	
 		$("#column-List").append(inputColumn(id,$('#array-heading').val()));
 		$(question_id+' th:last').after('<th class="header-'+id+'">'+$('#array-heading').val()+"</th>");
+		console.debug($(question_id+' tr:not(:first)'));
 		$(question_id+' tr:not(:first)').each(function(){
 			$(this).append('<td class="col'+id+'"><input type="radio"></td>');
 		})
@@ -107,10 +109,11 @@ function arraySetProp(id){
 	});
 	
 	$(".remove-row").live("click", function(){
-		var id = $(this).attr("id").split('-'); 
-		$("#label-"+id[2]).parent('tr').remove();
+		var rowid = $(this).attr("id").split('-'); 
+		alert(rowid[2]);
+		$("#label-"+rowid[2]).parent('tr').remove();
 		//$(".col"+id[2]).remove();
-		$('#rowlabel-'+id[2]).parent('div').parent('li').remove();
+		$('#rowlabel-'+rowid[2]).parent('div').parent('li').remove();
 	});
 	
 	$('#array-caption').live('keyup', function(e){
@@ -160,7 +163,7 @@ function arrayGather(id) {
 }
 
 function inputColumn(id, text){
-	return '<li><div style="width:120px;float:left"><input type="text" id="colheader-'+id+'" class="colheader" name="colheader'+id+'" value="'+text+'" /></div> <div style="float:left"><select id="columntype-'+id+'" class="columntype"><option>Radio</option><option>Checkbox</option><option>yes no</option></select> </div><div style="float:left"><img src="handle.png" /></div><div id="handle"><img src="images/handle.png" /></div><div id="handle"><img src="images/Close-icon-small.png"  id="remove-col-'+id+'" class="remove-col" /></div><br clear="all"></li>';	
+	return '<li><div style="width:120px;float:left"><input type="text" id="colheader-'+id+'" class="colheader" name="colheader'+id+'" value="'+text+'" /></div> <div style="float:left"><select id="columntype-'+id+'" class="columntype"><option>Radio</option><option>Checkbox</option><option>yes no</option></select> </div><div id="handle" style="float:left"><img src="images/handle.png" /></div><div id="handle"><img src="images/Close-icon-small.png"  id="remove-col-'+id+'" class="remove-col" /></div><br clear="all"></li>';	
 }
 
 

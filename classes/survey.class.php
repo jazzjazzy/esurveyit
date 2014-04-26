@@ -152,7 +152,7 @@ class survey extends question{
 		if($orderby){
 		  	$sql .= " ORDER BY ". $orderby." ".$direction;
 		}
-		 
+		
 		try{
 			 $result = $this->db->select($sql);
 		}catch(CustomException $e){
@@ -438,8 +438,9 @@ class survey extends question{
 			
 			$this->template->page('survey-listing.tpl.html');
 			
-			$html_active = '<h1> Current Active Survey</h1>';
-			$html_inactive = '<h1> Current Inactive Survey</h1>';
+			$html_active = '';
+			$html_inactive = '';
+
 			foreach($result AS $value){
 				$start_date = (empty($value['start_date']))?"Now":$value['start_date'];
 				$end_date = (empty($value['end_date']))?"Never":$value['end_date'];
@@ -467,8 +468,21 @@ class survey extends question{
 				
 			}
 			
-			$this->template->assign('active', $html_active);
-			$this->template->assign('inactive', $html_inactive);         
+		//	$this->template->assign('active', $html_active);
+			if(!empty( $html_active)){
+			    $html_active = '<h1><h1> Current Active Survey</h1></h1>'. $html_active;
+			    $this->template->assign('active', $html_active); 
+			}else{
+			    $this->template->assign('active','<h1> <h1> Current Active Survey</h1></h1><h3>NO INACTIVE SURVEYS</h3>');
+			}
+			
+			
+			if(!empty( $html_inactive)){
+			    $html_inactive = '<h1> <h1> Current Inactive Survey</h1></h1>'. $html_inactive;
+			    $this->template->assign('inactive', $html_inactive); 
+			}else{
+			    $this->template->assign('inactive','<h1> <h1> Current Inactive Survey</h1></h1><h3>NO INACTIVE SURVEYS</h3>');
+			}
 			echo $this->template->fetch();	
 		}else{
 			//TODO: Change to non-login page
@@ -692,7 +706,7 @@ class survey extends question{
 				$startdate = (empty($request->start_date))? '' : formatDateUI($request->start_date);
 				$enddate = (empty($request->end_date))? '' : formatDateUI($request->end_date);
 				
-				$save[$table]['account_id'] = $id;
+				$save[$table]['account_id'] = $_SESSION['user']['account_id'];
 				$save[$table]['survey_title'] = $request->survey_title;
 				$save[$table]['survey_description'] = $request->survey_description;
 				$save[$table]['mainContent'] = $request->mainContent;

@@ -85,7 +85,7 @@ class db {
 	 */
 	function __construct(){
 		
-		$this->dsn = DB_TYPE.':dbname='.DB_DBASE.';host='.DB_HOST.';port='.DB_PORT;
+		$this->dsn = DB_TYPE.':dbname='.DB_DBASE.';host='.DB_HOST.';port='.DB_PORT.';unix_socket=/var/lib/stickshift/533fff3a4382ecb7890004d8/app-root/data/lib/mysql/socket/mysql.sock';
 		try{
 			try {
 				$this->dbh = new PDO($this->dsn, DB_USER, DB_PASS);

@@ -1,5 +1,7 @@
 <?php
 
+date_default_timezone_set('Australia/Melbourne');
+
 require_once 'database.class.php';
 require_once 'table.class.php';
 require_once 'template.class.php';

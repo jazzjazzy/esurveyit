@@ -74,8 +74,13 @@ function radioSetProp(id){
 							$(question_id).css('border', 'none');
 						},
 						slide: function( event, ui ) {
-							$(question_id).css({"font-size":ui.value+'px', 'line-height': '1.5em'});
-							$("#text-height-val").html(ui.value+'px');
+							$(question_id+" li").css({"height":ui.value+'px'});
+							var totalHeight=0;
+                            $(question_id+"ul li").each(function() {
+                               totalHeight += $(this).outerHeight(true); // to include margins
+                            });
+							//var height  = $(question_id+" ul").css("height");
+							$("#text-height-val").html(totalHeight+'px');
 						}
 	});
 

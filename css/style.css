@@ -268,11 +268,9 @@ h6 {
 		background:url(../images/right-bot-corner1.gif) no-repeat 0 0;
 	}
 		
-		
-	
-	
-	
-	
+
+/*================ Standard box setting for survey======================*/
+
 .box {
 	background:url(../images/box-bg.gif) 0 0 repeat-x #f9bb1c;
 	width:100%;
@@ -280,78 +278,105 @@ h6 {
 	font-size:14px;
 	line-height:18px;
 }
-	.box .left-top-corner {
-		background:url(../images/left-top-corner.gif) no-repeat left top;
-	}
-	.box .right-top-corner {
-		background:url(../images/right-top-corner.gif) no-repeat right top;
-	}
-	.box .left-bot-corner {
-		background:url(../images/left-bot-corner.gif) no-repeat left bottom;
-		}
-	.box .right-bot-corner {
-		background:url(../images/right-bot-corner.gif) no-repeat right bottom;
-		}
-	.box .inner { 
-		padding:27px 0px 29px 43px;
-	}
-		.box h3 {
-			font-family:"Times New Roman", Times, serif;
-			font-size:34px;
-			line-height:1.2em;
-			color:#fff;
-			font-style:italic;
-			text-shadow:1px 1px 4px #c96409;
-			margin-bottom:14px;
-			font-weight:bold;
-		}
-		.box h5 {
-			color:#fff;
-			font-size:16px;
-			font-weight:normal;
-			margin-bottom:7px;
-		}
-		.box p {
-			margin-bottom:18px;
-		}
 
-
-.box1 {
+.box .inner{
+	padding:27px 34px 29px 43px;
+} 
+.box .left-top-corner {
+	background:url(../images/left-top-corner.gif) no-repeat left top;
+}
+.box .right-top-corner {
+	background:url(../images/right-top-corner.gif) no-repeat right top;
+}
+.box .left-bot-corner {
+	background:url(../images/left-bot-corner.gif) no-repeat left bottom;
+	}
+.box .right-bot-corner {
+	background:url(../images/right-bot-corner.gif) no-repeat right bottom;
+	}
+.box h1 {
+	font-family:"Times New Roman", Times, serif;
+	font-size:34px;
+	line-height:1.2em;
+	color:#fff;
+	font-style:italic;
+	text-shadow:1px 1px 4px #c96409;
+	margin-bottom:14px;
+	font-weight:bold;
+}
+.box h3 {
+	font-family:"Times New Roman", Times, serif;
+	font-size:34px;
+	line-height:1.2em;
+	color:#fff;
+	font-style:italic;
+	text-shadow:1px 1px 4px #c96409;
+	margin-bottom:14px;
+	font-weight:bold;
+}
+.box h5 {
+	color:#fff;
+	font-size:16px;
+	font-weight:normal;
+	margin-bottom:7px;
+	text-shadow:1px 1px 4px #c96409;
+}
+.box p {
+	margin-bottom:18px;
+}	
+	
+#box-active .inner, #box-inactive .inner { 
+	padding:27px 0px 29px 43px;
+	min-height:500px;
+}
+		
+/*=== active box ===*/	
+#box-active {
+	background:url(../images/box-bg.gif) 0 0 repeat-x #f9bb1c;
+	width:100%;
+	color:#503620;
+	font-size:14px;
+	line-height:18px;
+}
+#box-active .left-top-corner {
+	background:url(../images/left-top-corner.gif) no-repeat left top;
+}
+#box-active .right-top-corner {
+	background:url(../images/right-top-corner.gif) no-repeat right top;
+}
+#box-active .left-bot-corner {
+	background:url(../images/left-bot-corner.gif) no-repeat left bottom;
+	}
+#box-active .right-bot-corner {
+	background:url(../images/right-bot-corner.gif) no-repeat right bottom;
+	}
+  
+	    
+/*=== inactive box ===*/	
+#box-inactive {
 	background:#ededed;
 	width:100%;
 }
-	.box1 .left-top-corner {
-		background:url(../images/left-top-corner2.gif) no-repeat left top;
+#box-inactive .left-top-corner {
+	background:url(../images/left-top-corner2.gif) no-repeat left top;
+}
+#box-inactive .right-top-corner {
+	background:url(../images/right-top-corner2.gif) no-repeat right top;
+}
+#box-inactive .left-bot-corner {
+	background:url(../images/left-bot-corner2.gif) no-repeat left bottom;
 	}
-	.box1 .right-top-corner {
-		background:url(../images/right-top-corner2.gif) no-repeat right top;
+#box-inactive .right-bot-corner {
+	background:url(../images/right-bot-corner2.gif) no-repeat right bottom;
 	}
-	.box1 .left-bot-corner {
-		background:url(../images/left-bot-corner2.gif) no-repeat left bottom;
-		}
-	.box1 .right-bot-corner {
-		background:url(../images/right-bot-corner2.gif) no-repeat right bottom;
-		}
-	.box1 .inner { 
-		padding:27px 34px 29px 43px;
-	}
-		.box1 h3 {
-			font-family:"Times New Roman", Times, serif;
-			font-size:24px;
-			line-height:1.2em;
-			color:#000;
-			font-style:italic;
-			margin-bottom:14px;
-			font-weight:normal;
-			position:relative;
-			padding:10px 0 0 43px;
-		}
-			.box1 h3 img {
-				position:absolute;
-				left:-11px;
-				top:0;
-			}
 
+#box-inactive h3, #box-inactive h1, #box-inactive h5 {
+    color:#000;
+    text-shadow:1px 1px 4px #313163;
+}
+
+
+	
 .address { 
 	float:left;
 }

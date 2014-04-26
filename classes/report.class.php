@@ -90,7 +90,7 @@ class report extends survey{
 		$this->template->page('report.tpl.html');
 		$this->template->assign('script', $script);
 		$this->template->assign('question', $divs);
-		$this->template->assign('FUNCTION', "<input type=\"image\" class=\"button\" value=\"submit\">");
+		//$this->template->assign('FUNCTION', "<input type=\"image\" class=\"button\" value=\"submit\">");
 
 		
 		echo $this->template->fetch();	

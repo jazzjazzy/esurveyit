@@ -100,7 +100,7 @@ $(document).ready(function(){
 		
 		var questions = jsonArray.join(',');
 
-		$.post("/esurveyit/parse.php",{"val":'{"survey":{'+questions+'}}'}, function(data){
+		$.post("/parse.php",{"val":'{"survey":{'+questions+'}}'}, function(data){
 			window.location.href = 'survey.php';
 		});
 
